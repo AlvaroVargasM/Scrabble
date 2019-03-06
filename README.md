@@ -1,3 +1,3 @@
 # Scrabble
 
-I'm confused in this
+Hello, thanks for visiting
