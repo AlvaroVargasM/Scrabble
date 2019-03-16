@@ -49,3 +49,11 @@ void GameBoard::setGameBoardMultipliers(float m1, float m2, float m3) {
                 board[row][column].setMultiplier(0);
         }
 }
+
+void GameBoard::changeTile(int i, int j, char l) {
+    board[i][j].setLetter(l);
+}
+
+void GameBoard::checkTile(int i, int j) {
+    std::cout << board[i][j].getLetter() << std::endl;
+}

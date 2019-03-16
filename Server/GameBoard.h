@@ -12,7 +12,8 @@ public:
     void setGameBoardLetters(char);
     void getGameBoardMultipliers();
     void setGameBoardMultipliers(float, float, float);
-
+    void changeTile(int, int, char);
+    void checkTile(int, int);
 };
 
 
