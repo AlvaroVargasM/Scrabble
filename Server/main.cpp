@@ -1,7 +1,15 @@
 #include <iostream>
 #include "Tile.h"
+#include "GameBoard.h"
 
 int main(){
+
+    GameBoard gb;
+
+    gb.setGameBoardLetters('H');
+    gb.getGameBoardLetters();
+
+    /*
     Tile board[15][15];
 
     for (int i = 0; i < 15; i++)
@@ -26,6 +34,6 @@ int main(){
             std::cout << board[i][j].getMultiplier() << " ";
         std::cout << std::endl;
     }
-
+    */
     return 0;
 }
