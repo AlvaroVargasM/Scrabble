@@ -10,6 +10,8 @@ public:
     GameBoard();
     void getGameBoardLetters();
     void setGameBoardLetters(char);
+    void getGameBoardMultipliers();
+    void setGameBoardMultipliers(float, float, float);
 
 };
 
