@@ -18,6 +18,11 @@ int main(){
     gb.changeTile(7,8,'C');
     gb.changeTile(7,9,'R');
 
+    gb.changeTile(8,7,'A');
+    gb.changeTile(9,7,'N');
+    gb.changeTile(10,7,'C');
+    gb.changeTile(11,7,'O');
+
     std::cout << "\n";
 
     gb.checkTile(7,7);
