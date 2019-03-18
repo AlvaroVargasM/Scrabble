@@ -14,6 +14,6 @@ float Tile::getMultiplier() const {
     return multiplier;
 }
 
-void Tile::setMultiplier(float multiplier) {
+void Tile::setMultiplier(int multiplier) {
     Tile::multiplier = multiplier;
 }

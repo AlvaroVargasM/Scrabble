@@ -5,7 +5,7 @@
 class Tile {
 private:
     char letter;
-    float multiplier;
+    int multiplier;
 public:
     Tile();
 
@@ -15,7 +15,7 @@ public:
 
     float getMultiplier() const;
 
-    void setMultiplier(float multiplier);
+    void setMultiplier(int multiplier);
 };
 
 
