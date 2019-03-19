@@ -25,13 +25,12 @@ int main(){
 
     std::cout << "\n";
 
-    gb.checkTile(7,7);
-    gb.checkTile(7,8);
-    gb.checkTile(7,9);
+    gb.getGameBoardLetters();
 
     std::cout << "\n";
 
-    gb.getGameBoardLetters();
+    int test[10][10];
+    std::cout << &test[0][0] << std::endl;
 
     return 0;
 }
