@@ -14,6 +14,7 @@ public:
     void setGameBoardMultipliers(int, int, int, int);
     void changeTile(int, int, char);
     void checkTile(int, int);
+    Tile getTile(int,int);
 };
 
 

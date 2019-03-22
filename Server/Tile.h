@@ -13,7 +13,7 @@ public:
 
     void setLetter(char letter);
 
-    float getMultiplier() const;
+    int getMultiplier() const;
 
     void setMultiplier(int multiplier);
 };

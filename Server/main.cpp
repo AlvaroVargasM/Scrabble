@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Tile.h"
 #include "GameBoard.h"
+#include "LinkedList.h"
 
 int main(){
 
@@ -22,6 +23,7 @@ int main(){
     gb.changeTile(9,7,'N');
     gb.changeTile(10,7,'C');
     gb.changeTile(11,7,'O');
+    gb.changeTile(12,7,'R');
 
     std::cout << "\n";
 
@@ -29,8 +31,12 @@ int main(){
 
     std::cout << "\n";
 
-    int test[10][10];
-    std::cout << &test[0][0] << std::endl;
+    LinkedList ll;
+
+    ll.addLast(gb.getTile(10,7));
+    ll.addLast(gb.getTile(11,7));
+    ll.addLast(gb.getTile(12,7));
+    ll.printList();
 
     return 0;
 }

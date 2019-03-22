@@ -10,7 +10,7 @@ void Tile::setLetter(char letter) {
     Tile::letter = letter;
 }
 
-float Tile::getMultiplier() const {
+int Tile::getMultiplier() const {
     return multiplier;
 }
 

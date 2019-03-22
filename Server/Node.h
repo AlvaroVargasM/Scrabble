@@ -4,11 +4,23 @@
 
 class Node {
 private:
-    char lett;
-    int mult;
-    Node *link;
+    char l;
+    int m;
+    Node *next;
 public:
     Node(char, int);
+
+    char getL() const;
+
+    void setL(char l);
+
+    int getM() const;
+
+    void setM(int m);
+
+    Node *getNext() const;
+
+    void setNext(Node *next);
 };
 
 

@@ -68,3 +68,7 @@ void GameBoard::changeTile(int i, int j, char l) {
 void GameBoard::checkTile(int i, int j) {
     std::cout << board[i][j].getLetter() << std::endl;
 }
+
+Tile GameBoard::getTile(int i, int j) {
+    return board[i][j];
+}

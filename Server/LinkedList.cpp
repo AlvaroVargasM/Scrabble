@@ -1,0 +1,37 @@
+#include <iostream>
+#include "LinkedList.h"
+
+LinkedList::LinkedList() {
+    head = nullptr;
+}
+
+void LinkedList::addLast(Tile t) {
+    char let = t.getLetter();
+    int mult = t.getMultiplier();
+
+    Node* n = new Node(let,mult);
+    n->setNext(nullptr);
+
+    if(head == nullptr) {
+        std::cout << "list id currently empty, adding new node \n";
+        head = n;
+    }
+    else {
+        std::cout << "list has elements, adding new node at last \n";
+        Node *temp = head;
+        while(temp->getNext() != nullptr)
+            temp = temp->getNext();
+        temp->setNext(n);
+    }
+}
+
+void LinkedList::printList() {
+    Node* temp = head;
+
+    do {
+        std::cout << temp->getL() << " : " << temp->getM() << " -> ";
+        temp = temp->getNext();
+    } while (temp != nullptr);
+
+    std::cout << "NULL \n";
+}
