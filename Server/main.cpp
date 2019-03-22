@@ -23,7 +23,6 @@ int main(){
     gb.changeTile(9,7,'N');
     gb.changeTile(10,7,'C');
     gb.changeTile(11,7,'O');
-    gb.changeTile(12,7,'R');
 
     std::cout << "\n";
 
@@ -35,7 +34,9 @@ int main(){
 
     ll.addLast(gb.getTile(10,7));
     ll.addLast(gb.getTile(11,7));
-    ll.addLast(gb.getTile(12,7));
+    ll.addFront(gb.getTile(9,7));
+    ll.addFront(gb.getTile(8,7));
+    ll.addFront(gb.getTile(7,7));
     ll.printList();
 
     return 0;

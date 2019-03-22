@@ -10,7 +10,9 @@ private:
     Node *head;
 public:
     LinkedList();
+    ~LinkedList();
     void addLast(Tile);
+    void addFront(Tile);
     void printList();
 };
 

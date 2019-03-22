@@ -5,6 +5,19 @@ LinkedList::LinkedList() {
     head = nullptr;
 }
 
+LinkedList::~LinkedList() {}
+
+void LinkedList::addFront(Tile t) {
+    // std::cout << "list has elements, adding new node at front \n";
+
+    char let = t.getLetter();
+    int mult = t.getMultiplier();
+
+    Node *n = new Node(let, mult);
+    n->setNext(head);
+    head = n;
+}
+
 void LinkedList::addLast(Tile t) {
     char let = t.getLetter();
     int mult = t.getMultiplier();
@@ -13,11 +26,11 @@ void LinkedList::addLast(Tile t) {
     n->setNext(nullptr);
 
     if(head == nullptr) {
-        std::cout << "list id currently empty, adding new node \n";
+        // std::cout << "list id currently empty, adding new node \n";
         head = n;
     }
     else {
-        std::cout << "list has elements, adding new node at last \n";
+        // std::cout << "list has elements, adding new node at last \n";
         Node *temp = head;
         while(temp->getNext() != nullptr)
             temp = temp->getNext();
