@@ -8,7 +8,7 @@
 GameBoard::GameBoard() {}
 
 
-void GameBoard::getGameBoardLetters() {
+void GameBoard::getLetters() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
             std::cout << board[i][j].getLetter() << " ";
@@ -16,13 +16,13 @@ void GameBoard::getGameBoardLetters() {
     }
 }
 
-void GameBoard::setGameBoardLetters(char l) {
+void GameBoard::setLetters(char l) {
     for (int i = 0; i < 15; i++)
         for (int j = 0; j < 15; j++)
             board[i][j].setLetter(l);
 }
 
-void GameBoard::getGameBoardMultipliers() {
+void GameBoard::getMultipliers() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
             std::cout << board[i][j].getMultiplier() << " ";
@@ -30,7 +30,7 @@ void GameBoard::getGameBoardMultipliers() {
     }
 }
 
-void GameBoard::setGameBoardMultipliers(int m1, int m2, int m3, int m4) {
+void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
     for (int row = 0; row < 15; row++)
         for (int column = 0; column < 15; column++) {
             if ((row == 3 && (column == 6 || column == 8)) ||

@@ -8,10 +8,10 @@ private:
     Tile board[15][15];
 public:
     GameBoard();
-    void getGameBoardLetters();
-    void setGameBoardLetters(char);
-    void getGameBoardMultipliers();
-    void setGameBoardMultipliers(int, int, int, int);
+    void getLetters();
+    void setLetters(char);
+    void getMultipliers();
+    void setMultipliers(int, int, int, int);
     void changeTile(int, int, char);
     void checkTile(int, int);
     Tile getTile(int,int);
