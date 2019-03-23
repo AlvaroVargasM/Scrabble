@@ -48,3 +48,15 @@ void LinkedList::printList() {
 
     std::cout << "NULL \n";
 }
+
+std::string LinkedList::getWord(LinkedList ll) {
+    Node* searcher = head;
+    char arr[100];
+
+    for (int i = 0; i < 100 && searcher != nullptr; i++) {
+        arr[i] = searcher->getL();
+        searcher = searcher->getNext();
+    }
+    std::string word(arr);
+    return word;
+}

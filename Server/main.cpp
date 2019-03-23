@@ -39,5 +39,7 @@ int main(){
     ll.addFront(gb.getTile(7,7));
     ll.printList();
 
+    std::cout << ll.getWord(ll);
+
     return 0;
 }
