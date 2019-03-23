@@ -37,6 +37,8 @@ int main(){
     ll.addFront(gb.getTile(9,7));
     ll.addFront(gb.getTile(8,7));
     ll.addFront(gb.getTile(7,7));
+    ll.addLast(gb.getTile(12,7));
+    ll.addLast(gb.getTile(13,7));
     ll.printList();
 
     std::cout << ll.getWord(ll);
