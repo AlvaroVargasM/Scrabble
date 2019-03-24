@@ -40,7 +40,7 @@ int main(){
 
     ll.printList();
 
-    std::cout << ll.getWord(ll);
+    std::cout << ll.getWord(ll) << std::endl;
 
     return 0;
 }

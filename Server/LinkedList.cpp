@@ -51,7 +51,7 @@ void LinkedList::printList() {
 
 std::string LinkedList::getWord(LinkedList ll) {
     Node* searcher = head;
-    char arr[100];
+    char arr[15];
 
     for (int i = 0; i < 100 && searcher != nullptr; i++) {
         arr[i] = searcher->getL();
@@ -60,3 +60,4 @@ std::string LinkedList::getWord(LinkedList ll) {
     std::string word(arr);
     return word;
 }
+
