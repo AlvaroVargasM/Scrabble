@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jondorito/Documents/Datos II/untitled1/LInkedList.h
+Node.h
+/home/jondorito/Documents/Datos II/untitled1/Node.h
+string
+-
+
+/home/jondorito/Documents/Datos II/untitled1/Node.h
+string
+-
+
+/home/jondorito/Documents/Datos II/untitled1/Organizer.cpp
+Organizer.h
+/home/jondorito/Documents/Datos II/untitled1/Organizer.h
+string
+-
+sstream
+-
+cstdlib
+-
+cstring
+-
+vector
+-
+
+/home/jondorito/Documents/Datos II/untitled1/Organizer.h
+iostream
+-
+fstream
+-
+string
+-
+LInkedList.h
+/home/jondorito/Documents/Datos II/untitled1/LInkedList.h
+
