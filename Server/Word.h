@@ -6,16 +6,16 @@
 #include "Node.h"
 #include "Tile.h"
 
-class LinkedList {
+class Word {
 private:
     Node *head;
 public:
-    LinkedList();
-    ~LinkedList();
+    Word();
+    ~Word();
     void addLast(Tile);
     void addFront(Tile);
     void printList();
-    std::string getWord(LinkedList);
+    std::string getWord(Word);
 };
 
 

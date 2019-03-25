@@ -1,5 +1,5 @@
 #include "Searcher.h"
-#include "LinkedList.h"
+#include "Word.h"
 
 Searcher::Searcher() {}
 

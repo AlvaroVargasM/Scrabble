@@ -5,7 +5,7 @@ Node::Node(char _l, int _m) {
     m = _m;
     next = nullptr;
     wM = false;
-    pts =
+    pts = 0;
 }
 
 char Node::getL() const {

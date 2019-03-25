@@ -1,13 +1,13 @@
 #include <iostream>
-#include "LinkedList.h"
+#include "Word.h"
 
-LinkedList::LinkedList() {
+Word::Word() {
     head = nullptr;
 }
 
-LinkedList::~LinkedList() {}
+Word::~Word() {}
 
-void LinkedList::addFront(Tile t) {
+void Word::addFront(Tile t) {
     // std::cout << "list has elements, adding new node at front \n";
 
     char let = t.getLetter();
@@ -18,7 +18,7 @@ void LinkedList::addFront(Tile t) {
     head = n;
 }
 
-void LinkedList::addLast(Tile t) {
+void Word::addLast(Tile t) {
     char let = t.getLetter();
     int mult = t.getMultiplier();
 
@@ -38,7 +38,7 @@ void LinkedList::addLast(Tile t) {
     }
 }
 
-void LinkedList::printList() {
+void Word::printList() {
     Node* temp = head;
 
     do {
@@ -49,9 +49,9 @@ void LinkedList::printList() {
     std::cout << "NULL \n";
 }
 
-std::string LinkedList::getWord(LinkedList ll) {
+std::string Word::getWord(Word ll) {
     Node* searcher = head;
-    char arr[15];
+    char arr[100];
 
     for (int i = 0; i < 100 && searcher != nullptr; i++) {
         arr[i] = searcher->getL();
@@ -60,4 +60,3 @@ std::string LinkedList::getWord(LinkedList ll) {
     std::string word(arr);
     return word;
 }
-

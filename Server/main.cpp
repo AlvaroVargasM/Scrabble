@@ -1,8 +1,7 @@
 #include <iostream>
 #include "Tile.h"
 #include "GameBoard.h"
-#include "LinkedList.h"
-#include "Organizer.h"
+#include "Word.h"
 
 int main(){
     // Game board is set
@@ -30,7 +29,7 @@ int main(){
 
     // Linked list for getting words of in the game board
 
-    LinkedList ll;
+    Word ll;
 
     ll.addLast(gb.getTile(7,7));
     ll.addLast(gb.getTile(7,8));
