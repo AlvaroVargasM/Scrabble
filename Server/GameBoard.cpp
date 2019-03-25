@@ -50,10 +50,12 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
             }
             if ((row == 2 || row == 12) && (column == 2 || column == 12)) {
                 board[row][column].setMultiplier(m3);
+                board[row][column].setWordMultiplier(true);
                 continue;
             }
             if ((row == 1 || row == 13) && (column == 1 || column == 13)) {
                 board[row][column].setMultiplier(m4);
+                board[row][column].setWordMultiplier(true);
                 continue;
             }
             else

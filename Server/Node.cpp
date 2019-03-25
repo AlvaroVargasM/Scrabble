@@ -4,6 +4,8 @@ Node::Node(char _l, int _m) {
     l = _l;
     m = _m;
     next = nullptr;
+    wM = false;
+    pts =
 }
 
 char Node::getL() const {
@@ -28,4 +30,20 @@ Node *Node::getNext() const {
 
 void Node::setNext(Node *next) {
     Node::next = next;
+}
+
+bool Node::isWM() const {
+    return wM;
+}
+
+void Node::setWM(bool wM) {
+    Node::wM = wM;
+}
+
+int Node::getPts() const {
+    return pts;
+}
+
+void Node::setPts(int pts) {
+    Node::pts = pts;
 }

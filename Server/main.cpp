@@ -2,6 +2,7 @@
 #include "Tile.h"
 #include "GameBoard.h"
 #include "LinkedList.h"
+#include "Organizer.h"
 
 int main(){
     // Game board is set
