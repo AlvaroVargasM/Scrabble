@@ -3,7 +3,7 @@
 
 Searcher::Searcher() {}
 
-bool Searcher::wordSeracher(Tile *) {
+bool Searcher::wordSearcher(Tile *) {
 
 }
 

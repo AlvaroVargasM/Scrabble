@@ -6,7 +6,7 @@
 class Searcher {
 public:
     Searcher();
-    bool wordSeracher(Tile[]);
+    bool wordSearcher(Tile[]);
     int pointsSearcher(Tile[]);
 };
 
