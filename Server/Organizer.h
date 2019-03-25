@@ -1,9 +1,10 @@
 //
-// Created by jondorito on 16/03/19.
+// Created by jondorito on 25/03/19.
 //
 
-#ifndef UNTITLED1_ORGANIZER_H
-#define UNTITLED1_ORGANIZER_H
+#ifndef QUEUE_USING_OOP_ORGANIZER_H
+#define QUEUE_USING_OOP_ORGANIZER_H
+
 
 #include <iostream>
 #include <fstream>
@@ -34,4 +35,4 @@ public:
 };
 
 
-#endif //UNTITLED1_ORGANIZER_H
+#endif //QUEUE_USING_OOP_ORGANIZER_H

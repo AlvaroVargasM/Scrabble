@@ -1,9 +1,9 @@
 //
-// Created by jondorito on 16/03/19.
+// Created by jondorito on 25/03/19.
 //
 
 #include "LInkedList.h"
-#include "Node.h"
+#include "NodeWord.h"
 #include <string>
 #include <iostream>
 
@@ -15,7 +15,7 @@ LinkedList::LinkedList() {
 }
 
 //returns a pointer of the header node in the list
-Node* LinkedList::getHead() {
+NodeWord* LinkedList::getHead() {
     return this->getHead();
 }
 
@@ -25,9 +25,9 @@ int LinkedList::getLength() {
 }
 
 //return a node base on its position in the list
-Node* LinkedList::getIndex(int index) {
+NodeWord* LinkedList::getIndex(int index) {
     int listIndex = 1;
-    Node* temp = this->header;
+    NodeWord* temp = this->header;
     while(listIndex < index){
         temp = temp->getNext();
         listIndex++;
@@ -37,22 +37,22 @@ Node* LinkedList::getIndex(int index) {
 
 //Creates a new node and put on the right position base on data.length in ascending order
 void LinkedList::insertNode(string data) {
-    Node* temp = new Node(data);
+    NodeWord* temp = new NodeWord(data);
     if(this->length == 0){
         this->header = temp;
         this->length++;
     }else{
-        Node* current = this->header;
+        NodeWord* current = this->header;
         if(temp->getData().size() <= current->getData().size()){
             this->header = temp;
             temp->setNext(current);
             this->length++;
         }else{
-            Node* follow;
+            NodeWord* follow;
             while(current->getNext() != nullptr){
                 follow = current->getNext();
                 if((current->getData().size() <= temp->getData().size()) &&
-                (temp->getData().size() <= follow->getData().size())){
+                   (temp->getData().size() <= follow->getData().size())){
                     current->setNext(temp);
                     temp->setNext(follow);
                     this->length++;

@@ -3,4 +3,4 @@ project(Queue_using_OOP)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Server main.cpp Tile.cpp Tile.h GameBoard.cpp GameBoard.h Node.cpp Node.h LinkedList.cpp LinkedList.h Searcher.cpp Searcher.h)
+add_executable(Server main.cpp Tile.cpp Tile.h GameBoard.cpp GameBoard.h Node.cpp Node.h LinkedList.cpp LinkedList.h)
