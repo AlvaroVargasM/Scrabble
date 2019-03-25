@@ -7,6 +7,10 @@ private:
     char l;
     int m;
     Node *next;
+    bool wM;
+    int pts;
+
+
 public:
     Node(char, int);
 
@@ -21,6 +25,14 @@ public:
     Node *getNext() const;
 
     void setNext(Node *next);
+
+    bool isWM() const;
+
+    void setWM(bool wM);
+
+    int getPts() const;
+
+    void setPts(int pts);
 };
 
 

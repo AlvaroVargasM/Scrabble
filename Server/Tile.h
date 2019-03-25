@@ -6,6 +6,10 @@ class Tile {
 private:
     char letter;
     int multiplier;
+    bool wordMultiplier;
+    int points;
+
+
 public:
     Tile();
 
@@ -16,6 +20,14 @@ public:
     int getMultiplier() const;
 
     void setMultiplier(int multiplier);
+
+    bool isWordMultiplier() const;
+
+    void setWordMultiplier(bool wordMultiplier);
+
+    int getPoints() const;
+
+    void setPoints(int points);
 };
 
 
