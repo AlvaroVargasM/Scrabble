@@ -2,6 +2,7 @@
 #include "Tile.h"
 #include "GameBoard.h"
 #include "Word.h"
+#include "Organizer.h"
 
 int main(){
     // Game board is set
@@ -41,6 +42,8 @@ int main(){
     ll.printList();
 
     std::cout << ll.getWord(ll) << std::endl;
+
+    Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
 
     return 0;
 }
