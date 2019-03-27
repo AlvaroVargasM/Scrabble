@@ -9,23 +9,23 @@
 
 using namespace std;
 
-LinkedList::LinkedList() {
+Dictionary::Dictionary() {
     this->length = 0;
     this->header = nullptr;
 }
 
 //returns a pointer of the header node in the list
-Element* LinkedList::getHead() {
+Element* Dictionary::getHead() {
     return this->getHead();
 }
 
 //returns the length of the list
-int LinkedList::getLength() {
+int Dictionary::getLength() {
     return this->length;
 }
 
 //return a node base on its position in the list
-Element* LinkedList::getIndex(int index) {
+Element* Dictionary::getIndex(int index) {
     int listIndex = 1;
     Element* temp = this->header;
     while(listIndex < index){
@@ -36,7 +36,7 @@ Element* LinkedList::getIndex(int index) {
 
 
 //Creates a new node and put on the right position base on data.length in ascending order
-void LinkedList::insertNode(string data) {
+void Dictionary::insertNode(string data) {
     Element* temp = new Element(data);
     if(this->length == 0){
         this->header = temp;

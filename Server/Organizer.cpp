@@ -20,7 +20,7 @@ void Organizer::createWordFiles() {
     reader.open(this->filename);
     string line;
     for(int i = 0; i < 26; i++){
-        LinkedList* list = new LinkedList();
+        Dictionary* list = new Dictionary();
         while((reader >> line) && (line.at(0) == this->alphabet[i])){
             list->insertNode(line);
         }

@@ -12,12 +12,12 @@
 using namespace std;
 
 
-class LinkedList {
+class Dictionary {
 private:
     Element* header;
     int length;
 public:
-    LinkedList();
+    Dictionary();
     Element* getHead();
     int getLength();
     Element* getIndex(int);
