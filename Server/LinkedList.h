@@ -6,17 +6,19 @@
 #include "Node.h"
 #include "Tile.h"
 
-class Word {
+class LinkedList {
 private:
     Node *head;
 public:
-    Word();
-    ~Word();
+    LinkedList();
+    ~LinkedList();
+
     void addLast(Tile);
     void addFront(Tile);
     void printList();
-    std::string getWord(Word);
+    std::string getWord(LinkedList);
+    bool isHorizontal(LinkedList);
 };
 
 
-#endif //QUEUE_USING_OOP_LINKEDLIST_H
+#endif QUEUE_USING_OOP_LINKEDLIST_H

@@ -12,6 +12,8 @@ public:
     void setLetters(char);
     void getMultipliers();
     void setMultipliers(int, int, int, int);
+    void setCoordinates();
+    void getCoordinates();
     void changeTile(int, int, char);
     void checkTile(int, int);
     Tile getTile(int,int);

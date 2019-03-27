@@ -9,10 +9,11 @@ private:
     Node *next;
     bool wM;
     int pts;
-
+    int i;
+    int j;
 
 public:
-    Node(char, int);
+    Node(char, int, int, int);
 
     char getL() const;
 
@@ -33,6 +34,14 @@ public:
     int getPts() const;
 
     void setPts(int pts);
+
+    int getI() const;
+
+    void setI(int i);
+
+    int getJ() const;
+
+    void setJ(int j);
 };
 
 

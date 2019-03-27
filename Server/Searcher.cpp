@@ -1,7 +1,9 @@
 #include "Searcher.h"
-#include "Word.h"
+#include "LinkedList.h"
 
-Searcher::Searcher() {}
+Searcher::Searcher() {
+    LinkedList arr[5];
+}
 
 bool Searcher::wordSearcher(Tile *) {
 

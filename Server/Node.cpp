@@ -1,11 +1,13 @@
 #include "Node.h"
 
-Node::Node(char _l, int _m) {
+Node::Node(char _l, int _m, int _i, int _j) {
     l = _l;
     m = _m;
     next = nullptr;
     wM = false;
     pts = 0;
+    i = _i;
+    j = _j;
 }
 
 char Node::getL() const {
@@ -46,4 +48,20 @@ int Node::getPts() const {
 
 void Node::setPts(int pts) {
     Node::pts = pts;
+}
+
+int Node::getI() const {
+    return i;
+}
+
+void Node::setI(int i) {
+    Node::i = i;
+}
+
+int Node::getJ() const {
+    return j;
+}
+
+void Node::setJ(int j) {
+    Node::j = j;
 }

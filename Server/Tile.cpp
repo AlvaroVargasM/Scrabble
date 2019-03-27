@@ -33,3 +33,19 @@ int Tile::getPoints() const {
 void Tile::setPoints(int points) {
     Tile::points = points;
 }
+
+int Tile::getRow() const {
+    return row;
+}
+
+void Tile::setRow(int row) {
+    Tile::row = row;
+}
+
+int Tile::getColumn() const {
+    return column;
+}
+
+void Tile::setColumn(int column) {
+    Tile::column = column;
+}

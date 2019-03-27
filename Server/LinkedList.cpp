@@ -1,28 +1,32 @@
 #include <iostream>
-#include "Word.h"
+#include "LinkedList.h"
 
-Word::Word() {
+LinkedList::LinkedList() {
     head = nullptr;
 }
 
-Word::~Word() {}
+LinkedList::~LinkedList() {}
 
-void Word::addFront(Tile t) {
+void LinkedList::addFront(Tile t) {
     // std::cout << "list has elements, adding new node at front \n";
 
     char let = t.getLetter();
     int mult = t.getMultiplier();
+    int i = t.getRow();
+    int j = t.getColumn();
 
-    Node *n = new Node(let, mult);
+    Node *n = new Node(let,mult,i,j);
     n->setNext(head);
     head = n;
 }
 
-void Word::addLast(Tile t) {
+void LinkedList::addLast(Tile t) {
     char let = t.getLetter();
     int mult = t.getMultiplier();
+    int i = t.getRow();
+    int j = t.getColumn();
 
-    Node* n = new Node(let,mult);
+    Node* n = new Node(let,mult,i,j);
     n->setNext(nullptr);
 
     if(head == nullptr) {
@@ -38,7 +42,7 @@ void Word::addLast(Tile t) {
     }
 }
 
-void Word::printList() {
+void LinkedList::printList() {
     Node* temp = head;
 
     do {
@@ -49,14 +53,25 @@ void Word::printList() {
     std::cout << "NULL \n";
 }
 
-std::string Word::getWord(Word ll) {
+std::string LinkedList::getWord(LinkedList ll) {
     Node* searcher = head;
-    char arr[100];
+    char arr[15];
 
-    for (int i = 0; i < 100 && searcher != nullptr; i++) {
+    for (int i = 0; i < 15 && searcher != nullptr; i++) {
         arr[i] = searcher->getL();
         searcher = searcher->getNext();
     }
     std::string word(arr);
     return word;
 }
+
+bool LinkedList::isHorizontal(LinkedList ll) {
+    Node *n1 = head;
+    Node *n2 = n1->getNext();
+
+    if (n1->getI() == n2->getI())
+        return true;
+    else
+        return false;
+}
+

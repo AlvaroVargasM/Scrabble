@@ -8,6 +8,8 @@ private:
     int multiplier;
     bool wordMultiplier;
     int points;
+    int row;
+    int column;
 
 
 public:
@@ -28,6 +30,14 @@ public:
     int getPoints() const;
 
     void setPoints(int points);
+
+    int getRow() const;
+
+    void setRow(int row);
+
+    int getColumn() const;
+
+    void setColumn(int column);
 };
 
 

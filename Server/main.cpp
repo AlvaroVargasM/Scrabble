@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Tile.h"
 #include "GameBoard.h"
-#include "Word.h"
+#include "LinkedList.h"
 #include "Organizer.h"
 
 int main(){
@@ -9,6 +9,9 @@ int main(){
     GameBoard gb;
 
     gb.setLetters('.');
+
+    gb.setCoordinates();
+    gb.getCoordinates();
 
     std::cout << "\n";
 
@@ -30,7 +33,7 @@ int main(){
 
     // Linked list for getting words of in the game board
 
-    Word ll;
+    LinkedList ll;
 
     ll.addLast(gb.getTile(7,7));
     ll.addLast(gb.getTile(7,8));

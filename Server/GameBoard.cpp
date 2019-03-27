@@ -1,12 +1,7 @@
-//
-// Created by alvar on 16/03/19.
-//
-
 #include "GameBoard.h"
 #include <iostream>
 
 GameBoard::GameBoard() {}
-
 
 void GameBoard::getLetters() {
     for (int i = 0; i < 15; i++) {
@@ -44,7 +39,8 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                     board[row][column].setMultiplier(m1);
                     continue;
             }
-            if (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10)) || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
+            if              (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
+              || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
                 board[row][column].setMultiplier(m2);
                 continue;
             }
@@ -62,6 +58,24 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                 board[row][column].setMultiplier(1);
         }
 }
+
+void GameBoard::setCoordinates() {
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 15; j++) {
+            board[i][j].setRow(i);
+            board[i][j].setColumn(j);
+        }
+    }
+}
+
+void GameBoard::getCoordinates() {
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 15; j++)
+            std::cout << "[" << board[i][j].getRow() << "] " << "[" << board[i][j].getColumn()<< "] ;";
+        std::cout << std::endl;
+    }
+}
+
 
 void GameBoard::changeTile(int i, int j, char l) {
     board[i][j].setLetter(l);
