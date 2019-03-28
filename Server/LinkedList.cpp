@@ -75,3 +75,18 @@ bool LinkedList::isHorizontal(LinkedList ll) {
         return false;
 }
 
+Node* LinkedList::getLastNode(LinkedList) {
+    Node *temp = head;
+    while (temp->getNext() != nullptr)
+        temp = temp->getNext();
+    return temp->getNext();
+}
+
+Node *LinkedList::getHead() const {
+    return head;
+}
+
+void LinkedList::setHead(Node *head) {
+    LinkedList::head = head;
+}
+

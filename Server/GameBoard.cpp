@@ -77,8 +77,9 @@ void GameBoard::getCoordinates() {
 }
 
 
-void GameBoard::changeTile(int i, int j, char l) {
+void GameBoard::changeTile(int i, int j, char l, int pts) {
     board[i][j].setLetter(l);
+    board[i][j].setPoints(pts);
 }
 
 void GameBoard::checkTile(int i, int j) {

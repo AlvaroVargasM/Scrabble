@@ -18,8 +18,8 @@ int main(){
     gb.setMultipliers(2, 3, 4, 5);
     gb.getMultipliers();
 
-    gb.changeTile(7,7,'C');
-    gb.changeTile(7,8,'A');
+    gb.changeTile(7,7,'C',3);
+    gb.changeTile(7,8,'A',);
     gb.changeTile(7,9,'M');
     gb.changeTile(7,10,'I');
     gb.changeTile(7,11,'O');
@@ -43,6 +43,7 @@ int main(){
     ll.addLast(gb.getTile(7,12));
 
     ll.printList();
+    std::cout << ll.isHorizontal(ll);
 
     std::cout << ll.getWord(ll) << std::endl;
 

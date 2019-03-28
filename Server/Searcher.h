@@ -2,12 +2,15 @@
 #define QUEUE_USING_OOP_SEARCHER_H
 
 #include "Tile.h"
+#include "LinkedList.h"
+#include "GameBoard.h"
 
 class Searcher {
 public:
+    LinkedList confirmedWords[16];
     Searcher();
-    bool wordSearcher(Tile[]);
-    int pointsSearcher(Tile[]);
+    bool wordSearcher(LinkedList,GameBoard);
+    int pointsSearcher();
 };
 
 
