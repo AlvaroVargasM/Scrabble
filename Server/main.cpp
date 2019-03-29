@@ -19,11 +19,11 @@ int main(){
     gb.getMultipliers();
 
     gb.changeTile(7,7,'C',3);
-    gb.changeTile(7,8,'A',);
-    gb.changeTile(7,9,'M');
-    gb.changeTile(7,10,'I');
-    gb.changeTile(7,11,'O');
-    gb.changeTile(7,12,'N');
+    gb.changeTile(7,8,'A',4);
+    gb.changeTile(7,9,'M',5);
+    gb.changeTile(7,10,'I',6);
+    gb.changeTile(7,11,'O',7);
+    gb.changeTile(7,12,'N',8);
 
     std::cout << "\n";
 
@@ -43,7 +43,9 @@ int main(){
     ll.addLast(gb.getTile(7,12));
 
     ll.printList();
-    std::cout << ll.isHorizontal(ll);
+    std::cout << ll.getWord(ll) << "\n";
+    std::cout << ll.getPoints(ll) << "\n";
+    std::cout << ll.isHorizontal(ll) << "\n";
 
     std::cout << ll.getWord(ll) << std::endl;
 

@@ -18,10 +18,10 @@ public:
     Node* getLastNode(LinkedList);
     void printList();
     std::string getWord(LinkedList);
+    int getPoints(LinkedList);
     bool isHorizontal(LinkedList);
 
     Node *getHead() const;
-
     void setHead(Node *head);
 };
 

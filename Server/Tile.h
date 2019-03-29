@@ -10,6 +10,7 @@ private:
     int points;
     int row;
     int column;
+    bool blocked;
 
 
 public:
@@ -38,6 +39,10 @@ public:
     int getColumn() const;
 
     void setColumn(int column);
+
+    bool isBlocked() const;
+
+    void setBlocked(bool blocked);
 };
 
 

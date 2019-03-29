@@ -11,9 +11,10 @@ private:
     int pts;
     int i;
     int j;
+    bool blocked;
 
 public:
-    Node(char, int, int, int);
+    Node(char, int, int, int, int);
 
     char getL() const;
 
@@ -42,6 +43,10 @@ public:
     int getJ() const;
 
     void setJ(int j);
+
+    bool isBlocked() const;
+
+    void setBlocked(bool blocked);
 };
 
 

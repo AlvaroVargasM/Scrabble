@@ -2,10 +2,9 @@
 #include "LinkedList.h"
 #include "Node.h"
 #include "Organizer.h"
+#include <array>
 
-Searcher::Searcher() {
-    //LinkedList confirmedWords[16];
-}
+Searcher::Searcher() {}
 
 bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
     Node * temp1 = InputWord.getHead();
@@ -35,7 +34,8 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
         }
     }
 
-    if (InputWord.getWord(InputWord)) {
+    Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/","ThisFile");
+    if (org->searchWord(InputWord.getWord(InputWord))) {
         confirmedWords[0] = InputWord;
     }
 }

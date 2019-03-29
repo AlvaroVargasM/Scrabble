@@ -14,8 +14,9 @@ void LinkedList::addFront(Tile t) {
     int mult = t.getMultiplier();
     int i = t.getRow();
     int j = t.getColumn();
+    int pts = t.getPoints();
 
-    Node *n = new Node(let,mult,i,j);
+    Node *n = new Node(let,mult,i,j,pts);
     n->setNext(head);
     head = n;
 }
@@ -25,8 +26,9 @@ void LinkedList::addLast(Tile t) {
     int mult = t.getMultiplier();
     int i = t.getRow();
     int j = t.getColumn();
+    int pts = t.getPoints();
 
-    Node* n = new Node(let,mult,i,j);
+    Node* n = new Node(let,mult,i,j,pts);
     n->setNext(nullptr);
 
     if(head == nullptr) {
@@ -46,7 +48,7 @@ void LinkedList::printList() {
     Node* temp = head;
 
     do {
-        std::cout << temp->getL() << " : " << temp->getM() << " -> ";
+        std::cout << temp->getL() << ":" << temp->getM() <<  ":" << temp->getPts() <<" -> ";
         temp = temp->getNext();
     } while (temp != nullptr);
 
@@ -63,6 +65,22 @@ std::string LinkedList::getWord(LinkedList ll) {
     }
     std::string word(arr);
     return word;
+}
+
+int LinkedList::getPoints(LinkedList ll) {
+    Node *temp = head;
+    int aiuda = 0;
+
+
+    while (temp->getNext() != nullptr){
+        if (temp->isWM()) {
+            std::cout << "Multiplier should multiply the word\n";
+        }
+        aiuda += temp->getPts();
+        temp = temp->getNext();
+    }
+
+    return aiuda;
 }
 
 bool LinkedList::isHorizontal(LinkedList ll) {
