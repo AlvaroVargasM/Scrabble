@@ -30,6 +30,7 @@ int main(){
     gb.changeTile(9,9,'D',5);
 
 
+
     std::cout << "\n";
     std::cout << "Setting letters in board \n";
     gb.getLetters();
@@ -70,5 +71,7 @@ int main(){
     ll.printList() ;
     Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
     */
+
+
     return 0;
 }

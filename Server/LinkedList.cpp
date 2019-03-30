@@ -55,16 +55,25 @@ void LinkedList::printList() {
     std::cout << "NULL \n";
 }
 
+
+//30/03/2019
+
 std::string LinkedList::getWord(LinkedList ll) {
+
     Node* searcher = head;
-    char arr[20];
+
+    std::string var;
 
     for (int i = 0;searcher != nullptr; i++) {
-        arr[i] = searcher->getL();
+
+        var+=searcher->getL();
+
         searcher = searcher->getNext();
+
     }
-    std::string word(arr);
-    return word;
+
+    return var;
+
 }
 
 //29/03/19
