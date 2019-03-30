@@ -57,9 +57,9 @@ void LinkedList::printList() {
 
 std::string LinkedList::getWord(LinkedList ll) {
     Node* searcher = head;
-    char arr[15];
+    char arr[20];
 
-    for (int i = 0; i < 15 && searcher != nullptr; i++) {
+    for (int i = 0;searcher != nullptr; i++) {
         arr[i] = searcher->getL();
         searcher = searcher->getNext();
     }
@@ -72,6 +72,7 @@ int LinkedList::getPoints(LinkedList ll) {
     Node *temp = head;
     int points = 0;
     int wmult = 1;
+
     do {
         int var = 1;
         if (temp->getM() != 1) {
@@ -92,6 +93,8 @@ bool LinkedList::isHorizontal(LinkedList ll) {
     Node *n1 = head;
     Node *n2 = n1->getNext();
 
+    std::cout << n1->getI() << ":" << n2->getI();
+
     if (n1->getI() == n2->getI())
         return true;
     else
@@ -101,14 +104,11 @@ bool LinkedList::isHorizontal(LinkedList ll) {
 //getlastNode
 
 Node* LinkedList::getLastNode(LinkedList l) {
-
-
     Node *temp = head;
-    while (temp != nullptr)
+    while (temp->getNext() != nullptr)
         temp = temp->getNext();
+
     return temp;
-
-
 }
 
 void LinkedList::deleteFrontNode(){
@@ -122,12 +122,6 @@ void LinkedList::deleteFrontNode(){
         head = head->getNext();
 
         delete temp;
-
-
-
-
-
-
 }
  void LinkedList::deleteEndNode() {
 
