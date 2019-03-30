@@ -91,10 +91,9 @@ Tile GameBoard::getTile(int i, int j) {
     return board[i][j];
 }
 
-Organizer *GameBoard::getOrganizer() {
+Organizer* GameBoard::getOrganizer(){
     return this->org;
 }
-
-Organizer *GameBoard::setOrganizer(Organizer * org) {
-    return this->org = org;
+void GameBoard::setOrganizer(Organizer * org) {
+    this->org = org;
 }
