@@ -22,6 +22,7 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
             InputWord.addLast(gb.getTile(i,--j));
         }
     }
+
     else {
         while (temp2->getL() != '.') {
             int i = temp2->getI();

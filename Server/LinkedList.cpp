@@ -98,13 +98,33 @@ bool LinkedList::isHorizontal(LinkedList ll) {
         return false;
 }
 
-Node* LinkedList::getLastNode(LinkedList) {
-    Node *temp = head;
-    while (temp->getNext() != nullptr)
-        temp = temp->getNext();
-    return temp->getNext();
-}
 
+Node* LinkedList::getLastNode(LinkedList l) {
+
+
+    Node *temp = head;
+    while (temp != nullptr)
+        temp = temp->getNext();
+    return temp;
+
+
+}
+ void LinkedList::deleteEndNode() {
+
+     Node *ptr, *prev;
+     if (head == nullptr)
+         std::cout << "The list is empty.";
+     else {
+         ptr = head;
+         while (ptr->getNext() != nullptr) {
+             prev = ptr;
+             ptr = ptr->getNext();
+
+         }
+         prev->setNext(nullptr);
+         free(ptr);
+     }
+ }
 Node *LinkedList::getHead() const {
     return head;
 }
@@ -112,4 +132,3 @@ Node *LinkedList::getHead() const {
 void LinkedList::setHead(Node *head) {
     LinkedList::head = head;
 }
-

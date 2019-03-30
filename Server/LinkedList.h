@@ -20,6 +20,9 @@ public:
     std::string getWord(LinkedList);
     int getPoints(LinkedList);
     bool isHorizontal(LinkedList);
+    void deleteEndNode();
+
+
 
     Node *getHead() const;
     void setHead(Node *head);

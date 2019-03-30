@@ -25,6 +25,7 @@ int main(){
     gb.changeTile(7,11,'O',7);
     gb.changeTile(7,12,'N',8);
 
+
     std::cout << "\n";
 
     gb.getLetters();
@@ -42,12 +43,14 @@ int main(){
     ll.addLast(gb.getTile(7,11));
     ll.addLast(gb.getTile(7,12));
 
+
     ll.printList();
     std::cout << ll.getWord(ll) << "\n";
     std::cout << ll.getPoints(ll) << "\n";
     std::cout << ll.isHorizontal(ll) << "\n";
 
     std::cout << ll.getWord(ll) << std::endl;
+    std:: cout << ll.getLastNode(ll);
 
     Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
 
