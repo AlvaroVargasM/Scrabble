@@ -8,8 +8,6 @@ LinkedList::LinkedList() {
 LinkedList::~LinkedList() {}
 
 void LinkedList::addFront(Tile t) {
-    // std::cout << "list has elements, adding new node at front \n";
-
     char let = t.getLetter();
     int mult = t.getMultiplier();
     int i = t.getRow();
@@ -31,12 +29,9 @@ void LinkedList::addLast(Tile t) {
     Node* n = new Node(let,mult,i,j,pts);
     n->setNext(nullptr);
 
-    if(head == nullptr) {
-        // std::cout << "list id currently empty, adding new node \n";
+    if(head == nullptr)
         head = n;
-    }
     else {
-        // std::cout << "list has elements, adding new node at last \n";
         Node *temp = head;
         while(temp->getNext() != nullptr)
             temp = temp->getNext();
@@ -59,21 +54,15 @@ void LinkedList::printList() {
 //30/03/2019
 
 std::string LinkedList::getWord(LinkedList ll) {
-
     Node* searcher = head;
-
     std::string var;
 
     for (int i = 0;searcher != nullptr; i++) {
-
         var+=searcher->getL();
-
         searcher = searcher->getNext();
-
     }
 
     return var;
-
 }
 
 //29/03/19
@@ -90,10 +79,9 @@ int LinkedList::getPoints(LinkedList ll) {
             else
                 var = temp->getM();
         }
-
         points += (temp->getPts() * var);
         temp = temp->getNext();
-        } while (temp != nullptr) ;
+        } while (temp != nullptr);
 
     return points * wmult;
 }
@@ -101,8 +89,6 @@ int LinkedList::getPoints(LinkedList ll) {
 bool LinkedList::isHorizontal(LinkedList ll) {
     Node *n1 = head;
     Node *n2 = n1->getNext();
-
-    std::cout << n1->getI() << ":" << n2->getI();
 
     if (n1->getI() == n2->getI())
         return true;
@@ -123,20 +109,19 @@ Node* LinkedList::getLastNode(LinkedList l) {
 void LinkedList::deleteFrontNode(){
     Node *temp = head;
 
-    if (head== nullptr){
+    if (head== nullptr)
         std::cout << "The list is empty.";
-    }
     else
-
         head = head->getNext();
 
-        delete temp;
+    delete temp;
 }
- void LinkedList::deleteEndNode() {
 
+ void LinkedList::deleteEndNode() {
      Node *ptr, *prev;
-     if (head == nullptr){
-         std::cout << "The list is empty.";}
+
+     if (head == nullptr)
+         std::cout << "The list is empty.";
      else {
          ptr = head;
          while (ptr->getNext() != nullptr) {
@@ -144,11 +129,11 @@ void LinkedList::deleteFrontNode(){
              ptr = ptr->getNext();
 
          }
-
          prev->setNext(nullptr);
          free(ptr);
      }
  }
+
 Node *LinkedList::getHead() const {
     return head;
 }
