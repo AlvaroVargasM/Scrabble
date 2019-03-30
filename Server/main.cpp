@@ -8,8 +8,9 @@
 int main(){
     // Game board is set
     GameBoard gb;
-    Organizer* org = new Organizer("/media/jondorito/DATA/SharedWindowsUbuntu/Scrabble/Server/Database/", "ThisFile.txt");
+    Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
     gb.setOrganizer(org);
+
     gb.setLetters('.');
     gb.setCoordinates();
 
@@ -19,17 +20,17 @@ int main(){
     gb.setMultipliers(2, 3, 4, 5);
     gb.getMultipliers();
 
-    gb.changeTile(7,7,'S',3);
-    gb.changeTile(7,8,'T',4);
-    gb.changeTile(7,9,'A',5);
-    gb.changeTile(7,10,'R',6);
-    gb.changeTile(7,11,'T',7);
-    gb.changeTile(7,12,'E',8);
-    gb.changeTile(7,13,'R',1);
+    gb.changeTile(7,7,'s',3);
+    gb.changeTile(7,8,'t',4);
+    gb.changeTile(7,9,'a',5);
+    gb.changeTile(7,10,'r',6);
+    gb.changeTile(7,11,'t',7);
+    gb.changeTile(7,12,'e',8);
+    gb.changeTile(7,13,'r',1);
 
-    gb.changeTile(6,9,'L',5);
-    gb.changeTile(8,9,'N',5);
-    gb.changeTile(9,9,'D',5);
+    gb.changeTile(6,9,'l',5);
+    gb.changeTile(8,9,'n',5);
+    gb.changeTile(9,9,'d',5);
 
 
     std::cout << "\n";
@@ -62,15 +63,5 @@ int main(){
     sea.wordSearcher(ll,gb);
     sea.wordSearcher(l,gb);
 
-    /*
-    ll.deleteEndNode();
-    ll.printList();// alvaro ya borra el ultimo nodo.
-    ll.deleteFrontNode();
-    ll.printList() ;
-    ll.deleteEndNode();
-    ll.deleteFrontNode();
-    ll.printList() ;
-    Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
-    */
     return 0;
 }

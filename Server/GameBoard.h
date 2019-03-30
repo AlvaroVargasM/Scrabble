@@ -22,7 +22,7 @@ public:
     Tile getTile(int,int);
     Organizer* org;
     Organizer* getOrganizer();
-    Organizer* setOrganizer(Organizer*);
+    void setOrganizer(Organizer*);
 
 
 };
