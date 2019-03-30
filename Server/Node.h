@@ -20,6 +20,8 @@ public:
 
     void setL(char l);
 
+
+
     int getM() const;
 
     void setM(int m);
