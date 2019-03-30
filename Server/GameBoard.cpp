@@ -90,3 +90,11 @@ void GameBoard::checkTile(int i, int j) {
 Tile GameBoard::getTile(int i, int j) {
     return board[i][j];
 }
+
+Organizer *GameBoard::getOrganizer() {
+    return this->org;
+}
+
+Organizer *GameBoard::setOrganizer(Organizer * org) {
+    return this->org = org;
+}

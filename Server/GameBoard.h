@@ -2,6 +2,7 @@
 #define QUEUE_USING_OOP_BOARD_H
 
 #include "Tile.h"
+#include "Organizer.h"
 
 class GameBoard {
 private:
@@ -17,6 +18,11 @@ public:
     void changeTile(int,int,char,int);
     void checkTile(int,int);
     Tile getTile(int,int);
+    Organizer* org;
+    Organizer* getOrganizer();
+    Organizer* setOrganizer(Organizer*);
+
+
 };
 
 #endif //QUEUE_USING_OOP_BOARD_H

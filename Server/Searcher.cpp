@@ -61,18 +61,16 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
     std::cout << "Expanded word:\n";
 
     InputWord.printList();
-    std::string word = InputWord.getWord(InputWord);
+    std::string word = "starter";
     std::cout << word;
     std::cout << "\n";
     std::cout << "\n";
     std::cout << "\n";
-/*
-    Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/","ThisFile");
-    if (org->searchWord(word)) {
+    if (gb.getOrganizer()->searchWord(word)) {
         confirmedWords[0] = InputWord;
+        cout << "inserte true" << endl;
         return true;
     }
-*/
 
     return false;
 }
