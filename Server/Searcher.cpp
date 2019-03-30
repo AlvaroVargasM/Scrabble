@@ -4,6 +4,8 @@
 #include "Organizer.h"
 #include <array>
 
+//Hola
+
 Searcher::Searcher() {}
 
 bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
