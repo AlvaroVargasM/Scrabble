@@ -8,6 +8,8 @@
 int main(){
     // Game board is set
     GameBoard gb;
+    Organizer* org = new Organizer("/media/jondorito/DATA/SharedWindowsUbuntu/Scrabble/Server/Database/", "ThisFile.txt");
+    gb.setOrganizer(org);
     gb.setLetters('.');
     gb.setCoordinates();
 

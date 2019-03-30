@@ -4,6 +4,8 @@
 #include "Tile.h"
 #include "Organizer.h"
 
+//Hola
+
 class GameBoard {
 private:
     Tile board[15][15];
