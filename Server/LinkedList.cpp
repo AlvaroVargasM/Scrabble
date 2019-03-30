@@ -69,30 +69,23 @@ std::string LinkedList::getWord(LinkedList ll) {
 
 //29/03/19
 int LinkedList::getPoints(LinkedList ll) {
-
     Node *temp = head;
-    int aiuda = 0;
+    int points = 0;
     int wmult = 1;
-    do{ int var = 1;
-
+    do {
+        int var = 1;
         if (temp->getM() != 1) {
-            if (temp->isWM()) {
+            if (temp->isWM())
                 wmult = temp->getM();
-            } else
+            else
                 var = temp->getM();
         }
 
-        aiuda += (temp->getPts() * var);
-        temp = temp->getNext(); }
+        points += (temp->getPts() * var);
+        temp = temp->getNext();
+        } while (temp != nullptr) ;
 
-        while (temp->getNext() != nullptr) ;
-
-
-
-
-
-
-    return aiuda * wmult;
+    return points * wmult;
 }
 
 bool LinkedList::isHorizontal(LinkedList ll) {
