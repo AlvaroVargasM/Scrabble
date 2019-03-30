@@ -62,6 +62,7 @@ int main(){
     sea.wordSearcher(l,gb);
 
     /*
+     *
     ll.deleteEndNode();
     ll.printList();// alvaro ya borra el ultimo nodo.
     ll.deleteFrontNode();
