@@ -119,9 +119,6 @@ void LinkedList::deleteFrontNode(){
     }
     else
 
-
-        // Move the head pointer to the next node
-
         head = head->getNext();
 
         delete temp;
