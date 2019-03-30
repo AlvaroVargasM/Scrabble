@@ -67,20 +67,32 @@ std::string LinkedList::getWord(LinkedList ll) {
     return word;
 }
 
+//29/03/19
 int LinkedList::getPoints(LinkedList ll) {
+
     Node *temp = head;
     int aiuda = 0;
+    int wmult = 1;
+    do{ int var = 1;
 
-
-    while (temp->getNext() != nullptr){
-        if (temp->isWM()) {
-            std::cout << "Multiplier should multiply the word\n";
+        if (temp->getM() != 1) {
+            if (temp->isWM()) {
+                wmult = temp->getM();
+            } else
+                var = temp->getM();
         }
-        aiuda += temp->getPts();
-        temp = temp->getNext();
-    }
 
-    return aiuda;
+        aiuda += (temp->getPts() * var);
+        temp = temp->getNext(); }
+
+        while (temp->getNext() != nullptr) ;
+
+
+
+
+
+
+    return aiuda * wmult;
 }
 
 bool LinkedList::isHorizontal(LinkedList ll) {

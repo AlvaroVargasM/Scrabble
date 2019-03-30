@@ -30,6 +30,9 @@ int Tile::getPoints() const {
     return points;
 }
 
+
+
+
 void Tile::setPoints(int points) {
     Tile::points = points;
 }

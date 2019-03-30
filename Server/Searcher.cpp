@@ -7,8 +7,9 @@
 Searcher::Searcher() {}
 
 bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
-    Node * temp1 = InputWord.getHead();
-    Node * temp2 = InputWord.getLastNode(InputWord);
+    Node* temp1 = InputWord.getHead();
+    Node* temp2 = InputWord.getLastNode(InputWord);
+
     if (InputWord.isHorizontal(InputWord)) {
         while (temp2->getL() != '.') {
             int i = temp2->getI();
