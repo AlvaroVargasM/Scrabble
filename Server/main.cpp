@@ -8,8 +8,6 @@
 int main(){
     // Game board is set
     GameBoard gb;
-    Organizer* org = new Organizer("/media/jondorito/DATA/SharedWindowsUbuntu/Scrabble/Server/Database/", "ThisFile.txt");
-    gb.setOrganizer(org);
     gb.setLetters('.');
     gb.setCoordinates();
 
@@ -62,8 +60,15 @@ int main(){
     sea.wordSearcher(ll,gb);
     sea.wordSearcher(l,gb);
 
-
-
-
+    /*
+    ll.deleteEndNode();
+    ll.printList();// alvaro ya borra el ultimo nodo.
+    ll.deleteFrontNode();
+    ll.printList() ;
+    ll.deleteEndNode();
+    ll.deleteFrontNode();
+    ll.printList() ;
+    Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
+    */
     return 0;
 }
