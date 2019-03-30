@@ -50,7 +50,11 @@ int main(){
     std::cout << ll.isHorizontal(ll) << "\n";
 
     std::cout << ll.getWord(ll) << std::endl;
-    std:: cout << ll.getLastNode(ll);
+    ll.deleteEndNode();
+    ll.printList();// alvaro ya borra el ultimo nodo.
+    ll.deleteFrontNode();
+    ll.printList() ;
+
 
     Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Dictionaries/", "ThisFile.txt");
 

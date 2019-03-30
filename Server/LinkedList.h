@@ -21,6 +21,7 @@ public:
     int getPoints(LinkedList);
     bool isHorizontal(LinkedList);
     void deleteEndNode();
+    void deleteFrontNode();
 
 
 

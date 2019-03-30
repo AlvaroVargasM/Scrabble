@@ -110,6 +110,28 @@ Node* LinkedList::getLastNode(LinkedList l) {
 
 
 }
+
+void LinkedList::deleteFrontNode(){
+    Node *temp = head;
+
+    if (head== nullptr){
+        std::cout << "The list is empty.";
+    }
+    else
+
+
+        // Move the head pointer to the next node
+
+        head = head->getNext();
+
+        delete temp;
+
+
+
+
+
+
+}
  void LinkedList::deleteEndNode() {
 
      Node *ptr, *prev;
