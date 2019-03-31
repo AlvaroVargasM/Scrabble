@@ -49,7 +49,7 @@ int main(){
 
     std::cout << "\n";
 
-    std::cout << "Word.. contained in the list: " << ll.getWord(ll) << "\n";
+    std::cout << "Word..} contained in the list: " << ll.getWord(ll) << "\n";
     std::cout << "\n";
 
 
