@@ -15,8 +15,8 @@ void LinkedList::addFront(Tile t) {
     int pts = t.getPoints();
 
     Node *n = new Node(let,mult,i,j,pts);
-    n->setNext(head);
-    head = n;
+    n->setNext(this->head);
+    this->head = n;
 }
 
 void LinkedList::addLast(Tile t) {
@@ -29,10 +29,10 @@ void LinkedList::addLast(Tile t) {
     Node* n = new Node(let,mult,i,j,pts);
     n->setNext(nullptr);
 
-    if(head == nullptr)
-        head = n;
+    if(this->head == nullptr)
+        this->head = n;
     else {
-        Node *temp = head;
+        Node *temp = this->head;
         while(temp->getNext() != nullptr)
             temp = temp->getNext();
         temp->setNext(n);
@@ -40,7 +40,7 @@ void LinkedList::addLast(Tile t) {
 }
 
 void LinkedList::printList() {
-    Node* temp = head;
+    Node* temp = this->head;
 
     do {
         std::cout << temp->getL() << ":" << temp->getM() <<  ":" << temp->getPts() <<" -> ";
@@ -132,7 +132,7 @@ void LinkedList::deleteFrontNode(){
  }
 
 Node *LinkedList::getHead() const {
-    return head;
+    return this->head;
 }
 
 void LinkedList::setHead(Node *head) {

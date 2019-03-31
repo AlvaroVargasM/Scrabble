@@ -12,14 +12,14 @@ private:
 public:
     GameBoard();
     void getLetters();
-    void setLetters(char);
+    void setLetters(char letter);
     void getMultipliers();
-    void setMultipliers(int,int,int,int);
+    void setMultipliers(int multiplier1,int multiplier2,int multiplier3,int multiplier4);
     void setCoordinates();
     void getCoordinates();
-    void changeTile(int,int,char,int);
-    void checkTile(int,int);
-    Tile getTile(int,int);
+    void changeTile(int row,int column,char letter,int points);
+    void checkTile(int row,int column);
+    Tile getTile(int row,int column);
     Organizer* org;
     Organizer* getOrganizer();
     void setOrganizer(Organizer*);

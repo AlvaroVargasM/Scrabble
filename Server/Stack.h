@@ -27,10 +27,6 @@ public:
     bool isFull();
     Tile swap();
 
-
-
-
-
 };
 
 

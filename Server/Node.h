@@ -14,7 +14,7 @@ private:
     bool blocked;
 
 public:
-    Node(char, int, int, int, int);
+    Node(char letter,int multiplier,int row,int columns,int points);
 
     char getL() const;
 

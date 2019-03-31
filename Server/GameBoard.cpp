@@ -10,7 +10,7 @@ GameBoard::GameBoard() {
 void GameBoard::getLetters() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
-            std::cout << board[i][j].getLetter() << " ";
+            std::cout << this->board[i][j].getLetter() << " ";
         std::cout << std::endl;
     }
 }
@@ -18,13 +18,13 @@ void GameBoard::getLetters() {
 void GameBoard::setLetters(char l) {
     for (int i = 0; i < 15; i++)
         for (int j = 0; j < 15; j++)
-            board[i][j].setLetter(l);
+            this->board[i][j].setLetter(l);
 }
 
 void GameBoard::getMultipliers() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
-            std::cout << board[i][j].getMultiplier() << " ";
+            std::cout << this->board[i][j].getMultiplier() << " ";
         std::cout << std::endl;
     }
 }
@@ -40,23 +40,23 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                 (row == 9 && (column == 4 || column == 10)) ||
                 (row == 10 && (column == 5 || column == 9)) ||
                 (row == 11 && (column == 6 || column == 8))){
-                board[row][column].setMultiplier(m1);
+                this->board[row][column].setMultiplier(m1);
                 continue;
 
             }
             if              (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
               || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
-                board[row][column].setMultiplier(m2);
+                this->board[row][column].setMultiplier(m2);
                 continue;
             }
             if ((row == 2 || row == 12) && (column == 2 || column == 12)) {
-                board[row][column].setMultiplier(m3);
-                board[row][column].setWordMultiplier(true);
+                this->board[row][column].setMultiplier(m3);
+                this->board[row][column].setWordMultiplier(true);
                 continue;
             }
             if ((row == 1 || row == 13) && (column == 1 || column == 13)) {
-                board[row][column].setMultiplier(m4);
-                board[row][column].setWordMultiplier(true);
+                this->board[row][column].setMultiplier(m4);
+                this->board[row][column].setWordMultiplier(true);
                 continue;
             }
             else
@@ -67,8 +67,8 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
 void GameBoard::setCoordinates() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++) {
-            board[i][j].setRow(i);
-            board[i][j].setColumn(j);
+            this->board[i][j].setRow(i);
+            this->board[i][j].setColumn(j);
         }
     }
 }
@@ -76,23 +76,23 @@ void GameBoard::setCoordinates() {
 void GameBoard::getCoordinates() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
-            std::cout << "[" << board[i][j].getRow() << "] " << "[" << board[i][j].getColumn()<< "] ;";
+            std::cout << "[" << this->board[i][j].getRow() << "] " << "[" << this->board[i][j].getColumn()<< "] ;";
         std::cout << std::endl;
     }
 }
 
 
 void GameBoard::changeTile(int i, int j, char l, int pts) {
-    board[i][j].setLetter(l);
-    board[i][j].setPoints(pts);
+    this->board[i][j].setLetter(l);
+    this->board[i][j].setPoints(pts);
 }
 
 void GameBoard::checkTile(int i, int j) {
-    std::cout << board[i][j].getLetter() << std::endl;
+    std::cout << this->board[i][j].getLetter() << std::endl;
 }
 
 Tile GameBoard::getTile(int i, int j) {
-    return board[i][j];
+    return this->board[i][j];
 }
 
 Organizer* GameBoard::getOrganizer(){

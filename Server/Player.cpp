@@ -1,7 +1,7 @@
 #include "Player.h"
 
 const std::string &Player::getName() const {
-    return name;
+    return this->name;
 }
 
 void Player::setName(const std::string &name) {
@@ -9,7 +9,7 @@ void Player::setName(const std::string &name) {
 }
 
 int Player::getPoints() const {
-    return points;
+    return this->points;
 }
 
 void Player::setPoints(int points) {

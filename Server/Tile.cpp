@@ -3,7 +3,7 @@
 Tile::Tile() {}
 
 char Tile::getLetter() const {
-    return letter;
+    return this->letter;
 }
 
 void Tile::setLetter(char letter) {
@@ -11,7 +11,7 @@ void Tile::setLetter(char letter) {
 }
 
 int Tile::getMultiplier() const {
-    return multiplier;
+    return this->multiplier;
 }
 
 void Tile::setMultiplier(int multiplier) {
@@ -19,7 +19,7 @@ void Tile::setMultiplier(int multiplier) {
 }
 
 bool Tile::isWordMultiplier() const {
-    return wordMultiplier;
+    return this->wordMultiplier;
 }
 
 void Tile::setWordMultiplier(bool wordMultiplier) {
@@ -27,18 +27,15 @@ void Tile::setWordMultiplier(bool wordMultiplier) {
 }
 
 int Tile::getPoints() const {
-    return points;
+    return this->points;
 }
-
-
-
 
 void Tile::setPoints(int points) {
     Tile::points = points;
 }
 
 int Tile::getRow() const {
-    return row;
+    return this->row;
 }
 
 void Tile::setRow(int row) {
@@ -46,7 +43,7 @@ void Tile::setRow(int row) {
 }
 
 int Tile::getColumn() const {
-    return column;
+    return this->column;
 }
 
 void Tile::setColumn(int column) {
@@ -54,7 +51,7 @@ void Tile::setColumn(int column) {
 }
 
 bool Tile::isBlocked() const {
-    return blocked;
+    return this->blocked;
 }
 
 void Tile::setBlocked(bool blocked) {

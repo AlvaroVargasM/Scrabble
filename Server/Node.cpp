@@ -12,7 +12,7 @@ Node::Node(char _l, int _m, int _i, int _j, int _pts) {
 }
 
 char Node::getL() const {
-    return l;
+    return this->l;
 }
 
 void Node::setL(char l) {
@@ -20,7 +20,7 @@ void Node::setL(char l) {
 }
 
 int Node::getM() const {
-    return m;
+    return this->m;
 }
 
 void Node::setM(int m) {
@@ -28,7 +28,7 @@ void Node::setM(int m) {
 }
 
 Node *Node::getNext() const {
-    return next;
+    return this->next;
 }
 
 void Node::setNext(Node *next) {
@@ -36,7 +36,7 @@ void Node::setNext(Node *next) {
 }
 
 bool Node::isWM() const {
-    return wM;
+    return this->wM;
 }
 
 void Node::setWM(bool wM) {
@@ -44,7 +44,7 @@ void Node::setWM(bool wM) {
 }
 
 int Node::getPts() const {
-    return pts;
+    return this->pts;
 }
 
 void Node::setPts(int pts) {
@@ -52,7 +52,7 @@ void Node::setPts(int pts) {
 }
 
 int Node::getI() const {
-    return i;
+    return this->i;
 }
 
 void Node::setI(int i) {
