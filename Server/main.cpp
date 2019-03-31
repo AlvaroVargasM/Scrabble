@@ -6,20 +6,14 @@
 #include "Searcher.h"
 
 int main(){
-    // Game board is set
+    // Game board and organizer are set
     GameBoard gb;
     Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
     gb.setOrganizer(org);
 
-    gb.setLetters('.');
-    gb.setCoordinates();
-
     std::cout << "\n";
 
-    std::cout << "Setting multipliers \n";
-    gb.setMultipliers(2, 3, 4, 5);
-    gb.getMultipliers();
-
+    // Adding words to the board
     gb.changeTile(7,7,'s',3);
     gb.changeTile(7,8,'t',4);
     gb.changeTile(7,9,'a',5);
@@ -32,33 +26,22 @@ int main(){
     gb.changeTile(8,9,'n',5);
     gb.changeTile(9,9,'d',5);
 
-
-    std::cout << "\n";
-    std::cout << "Setting letters in board \n";
     gb.getLetters();
 
-    std::cout << "\n";
+    std::cout <<"\n";
 
+    // Adding a new linked list formed from the board
     LinkedList ll;
     ll.addLast(gb.getTile(7,8));
     ll.addLast(gb.getTile(7,9));
     ll.addLast(gb.getTile(7,10));
     ll.addLast(gb.getTile(7,11));
-    std::cout << "Setting the list \n";
-    ll.printList();
-
-    std::cout << "\n";
-
-    std::cout << "Word..} contained in the list: " << ll.getWord(ll) << "\n";
-    std::cout << "\n";
-
 
     LinkedList l;
     l.addLast(gb.getTile(7,9));
     l.addLast(gb.getTile(8,9));
-    l.printList();
-    std::cout << l.getWord(l) << "\n";
 
+    // Searching for expanded words
     Searcher sea;
     sea.wordSearcher(ll,gb);
     sea.wordSearcher(l,gb);

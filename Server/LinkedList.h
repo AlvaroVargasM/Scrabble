@@ -16,13 +16,13 @@ public:
     void addLast(Tile);
     void addFront(Tile);
 
-    Node* getLastNode(LinkedList);
+    Node* getLastNode();
     void printList();
 
-    std::string getWord(LinkedList);
-    int getPoints(LinkedList);
+    std::string getWord();
+    int getPoints();
 
-    bool isHorizontal(LinkedList);
+    bool isHorizontal();
 
     void deleteEndNode();
     void deleteFrontNode();

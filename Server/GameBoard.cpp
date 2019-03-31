@@ -1,8 +1,11 @@
 #include "GameBoard.h"
 #include <iostream>
-//Hola
 
-GameBoard::GameBoard() {}
+GameBoard::GameBoard() {
+    this->setMultipliers(2,3,4,5);
+    this->setLetters('.');
+    this->setCoordinates();
+}
 
 void GameBoard::getLetters() {
     for (int i = 0; i < 15; i++) {

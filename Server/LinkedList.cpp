@@ -52,8 +52,8 @@ void LinkedList::printList() {
 
 
 //30/03/2019
-std::string LinkedList::getWord(LinkedList ll) {
-    Node* searcher = head;
+std::string LinkedList::getWord() {
+    Node* searcher = this->head;
     std::string var;
 
     for (int i = 0;searcher != nullptr; i++) {
@@ -65,8 +65,8 @@ std::string LinkedList::getWord(LinkedList ll) {
 }
 
 //29/03/19
-int LinkedList::getPoints(LinkedList ll) {
-    Node *temp = head;
+int LinkedList::getPoints() {
+    Node *temp = this->head;
     int points = 0;
     int wmult = 1;
 
@@ -85,8 +85,8 @@ int LinkedList::getPoints(LinkedList ll) {
     return points * wmult;
 }
 
-bool LinkedList::isHorizontal(LinkedList ll) {
-    Node *n1 = head;
+bool LinkedList::isHorizontal() {
+    Node *n1 = this->head;
     Node *n2 = n1->getNext();
 
     if (n1->getI() == n2->getI())
@@ -95,10 +95,8 @@ bool LinkedList::isHorizontal(LinkedList ll) {
         return false;
 }
 
-//getlastNode
-
-Node* LinkedList::getLastNode(LinkedList l) {
-    Node *temp = head;
+Node* LinkedList::getLastNode() {
+    Node *temp = this->head;
     while (temp->getNext() != nullptr)
         temp = temp->getNext();
 
@@ -108,7 +106,7 @@ Node* LinkedList::getLastNode(LinkedList l) {
 void LinkedList::deleteFrontNode(){
     Node *temp = head;
 
-    if (head== nullptr)
+    if (head == nullptr)
         std::cout << "The list is empty.";
     else
         head = head->getNext();

@@ -1,14 +1,14 @@
 #include "Node.h"
 
 Node::Node(char _l, int _m, int _i, int _j, int _pts) {
-    l = _l;
-    m = _m;
-    next = nullptr;
-    wM = false;
-    pts = _pts;
-    i = _i;
-    j = _j;
-    blocked = false;
+    this->l = _l;
+    this->m = _m;
+    this->next = nullptr;
+    this->wM = false;
+    this->pts = _pts;
+    this->i = _i;
+    this->j = _j;
+    this->blocked = false;
 }
 
 char Node::getL() const {
