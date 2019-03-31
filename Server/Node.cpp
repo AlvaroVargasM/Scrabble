@@ -11,9 +11,6 @@ Node::Node(char _l, int _m, int _i, int _j, int _pts) {
     blocked = false;
 }
 
-
-
-
 char Node::getL() const {
     return l;
 }

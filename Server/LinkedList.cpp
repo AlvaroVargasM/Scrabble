@@ -52,7 +52,6 @@ void LinkedList::printList() {
 
 
 //30/03/2019
-
 std::string LinkedList::getWord(LinkedList ll) {
     Node* searcher = head;
     std::string var;

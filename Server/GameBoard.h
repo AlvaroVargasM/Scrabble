@@ -3,12 +3,12 @@
 
 #include "Tile.h"
 #include "Organizer.h"
-
-//Hola
+#include "Player.h"
 
 class GameBoard {
 private:
     Tile board[15][15];
+    Player* current;
 public:
     GameBoard();
     void getLetters();

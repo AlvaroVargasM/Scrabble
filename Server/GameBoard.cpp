@@ -37,8 +37,8 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                 (row == 9 && (column == 4 || column == 10)) ||
                 (row == 10 && (column == 5 || column == 9)) ||
                 (row == 11 && (column == 6 || column == 8))){
-                    board[row][column].setMultiplier(m1);
-                    continue;
+                board[row][column].setMultiplier(m1);
+                continue;
 
             }
             if              (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
