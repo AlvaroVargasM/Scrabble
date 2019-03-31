@@ -12,8 +12,6 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
     Node* temp1 = InputWord.getHead();
     Node* temp2 = InputWord.getLastNode(InputWord);
 
-
-
     if (InputWord.isHorizontal(InputWord)) {
         while (temp2->getL() != '.'){
             std::cout << "Adding a new node\n";
@@ -22,6 +20,7 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
             InputWord.addLast(gb.getTile(i,++j));
             temp2 = temp2->getNext();
             InputWord.printList();
+
         }
         InputWord.deleteEndNode();
 
@@ -33,6 +32,7 @@ bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
             temp1 = InputWord.getHead();
             InputWord.printList();
         }
+
         InputWord.deleteFrontNode();
     } else {
         while (temp2->getL() != '.') {
