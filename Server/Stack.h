@@ -11,7 +11,7 @@
 
 class Stack {
 public:
-    Tile *arr;
+    Tile *index;
     int top;
     int capacity;
 

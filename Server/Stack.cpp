@@ -7,9 +7,9 @@
 
 using namespace std;
 
-Stack::Stack(int size) {
+Stack::Stack (int size) {
 
-    arr=new Tile;
+    index=new Tile;
 
     capacity = size;
     top = -1;
@@ -28,7 +28,7 @@ void Stack::push(Tile  x)
     }
 
 
-    arr[++top] = x;
+    index[++top] = x;
 }
 
 // Utility function to pop top element from the stack
@@ -44,21 +44,19 @@ Tile Stack::pop()
 
 
     // decrease stack size by 1 and (optionally) return the popped element
-    return arr[top--];
+    return index[top--];
 }
 
 // Utility function to return top element in a stack
-Tile Stack::peek()
-{
+Tile Stack::peek(){
     if (!isEmpty())
-        return arr[top];
+        return index[top];
     else
         exit(EXIT_FAILURE);
 }
 
 // Utility function to return the size of the stack
-int Stack::size()
-{
+int Stack::size(){
     return top + 1;
 }
 
