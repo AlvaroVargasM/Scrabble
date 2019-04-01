@@ -29,6 +29,8 @@ public:
 
     Node *getHead() const;
     void setHead(Node *head);
+
+    int getSize();
 };
 
 

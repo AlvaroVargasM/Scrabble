@@ -9,7 +9,9 @@ class Searcher {
 public:
     LinkedList confirmedWords[16];
     Searcher();
-    bool wordSearcher(LinkedList word,GameBoard board);
+    bool wordExpand(LinkedList word, GameBoard board);
+    bool wordConnect(LinkedList word, GameBoard board);
+
     int pointsSearcher();
 };
 

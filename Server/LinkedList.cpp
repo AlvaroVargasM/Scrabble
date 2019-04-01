@@ -50,18 +50,17 @@ void LinkedList::printList() {
     std::cout << "NULL \n";
 }
 
-
 //30/03/2019
 std::string LinkedList::getWord() {
-    Node* searcher = this->head;
-    std::string var;
+    Node* searcherPtr = this->head;
+    std::string word;
 
-    for (int i = 0;searcher != nullptr; i++) {
-        var+=searcher->getL();
-        searcher = searcher->getNext();
+    while(searcherPtr != nullptr) {
+        word += searcherPtr->getL();
+        searcherPtr = searcherPtr->getNext();
     }
 
-    return var;
+    return word;
 }
 
 //29/03/19
@@ -104,30 +103,29 @@ Node* LinkedList::getLastNode() {
 }
 
 void LinkedList::deleteFrontNode(){
-    Node *temp = head;
+    Node *searcherPtr = head;
 
     if (head == nullptr)
-        std::cout << "The list is empty.";
+        std::cout << "The list is empty, can't delete front node.\n";
     else
         head = head->getNext();
 
-    delete temp;
+    delete searcherPtr;
 }
 
  void LinkedList::deleteEndNode() {
      Node *ptr, *prev;
 
      if (head == nullptr)
-         std::cout << "The list is empty.";
+         std::cout << "The list is empty, cant delete nack node.\n";
      else {
          ptr = head;
          while (ptr->getNext() != nullptr) {
              prev = ptr;
              ptr = ptr->getNext();
-
          }
          prev->setNext(nullptr);
-         free(ptr);
+         delete(ptr);
      }
  }
 
@@ -137,4 +135,16 @@ Node *LinkedList::getHead() const {
 
 void LinkedList::setHead(Node *head) {
     LinkedList::head = head;
+}
+
+int LinkedList::getSize() {
+    Node* searcherPtr = this->head;
+    int size = 0;
+
+    while(searcherPtr != nullptr) {
+        ++size;
+        searcherPtr = searcherPtr->getNext();
+    }
+
+    return size;
 }

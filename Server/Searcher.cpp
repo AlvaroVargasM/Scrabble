@@ -8,62 +8,116 @@
 
 Searcher::Searcher() {}
 
-bool Searcher::wordSearcher(LinkedList InputWord, GameBoard gb) {
-    Node* temp1 = InputWord.getHead();
-    Node* temp2 = InputWord.getLastNode();
+bool Searcher::wordExpand(LinkedList word, GameBoard board) {
+    Node* firstNodePtr = word.getHead();
+    Node* lastNodePtr = word.getLastNode();
 
-    if (InputWord.isHorizontal()) {
-        while (temp2->getL() != '.'){
+    if (word.isHorizontal()) {
+        while (lastNodePtr->getL() != '.'){
             std::cout << "Adding a new node at the end:\n";
-            int i = temp2->getI();
-            int j = temp2->getJ();
-            InputWord.addLast(gb.getTile(i,++j));
-            temp2 = temp2->getNext();
-            InputWord.printList();
+            int i = lastNodePtr->getI();
+            int j = lastNodePtr->getJ();
+            word.addLast(board.getTile(i,++j));
+            lastNodePtr = lastNodePtr->getNext();
+            word.printList();
         }
-        InputWord.deleteEndNode();
+        word.deleteEndNode();
 
-        while (temp1->getL() != '.'){
+        while (firstNodePtr->getL() != '.'){
             std::cout << "Adding a new node at the begging:\n";
-            int i = temp1->getI();
-            int j = temp1->getJ();
-            InputWord.addFront(gb.getTile(i,--j));
-            temp1 = InputWord.getHead();
-            InputWord.printList();
+            int i = firstNodePtr->getI();
+            int j = firstNodePtr->getJ();
+            word.addFront(board.getTile(i,--j));
+            firstNodePtr = word.getHead();
+            word.printList();
         }
-        InputWord.deleteFrontNode();
+        word.deleteFrontNode();
 
     } else {
-        while (temp2->getL() != '.') {
+        while (lastNodePtr->getL() != '.') {
             std::cout << "Adding a new node at the begging:\n";
-            int i = temp2->getI();
-            int j = temp2->getJ();
-            InputWord.addLast(gb.getTile(++i, j));
-            temp2 = temp2->getNext();
-            InputWord.printList();
+            int i = lastNodePtr->getI();
+            int j = lastNodePtr->getJ();
+            word.addLast(board.getTile(++i, j));
+            lastNodePtr = lastNodePtr->getNext();
+            word.printList();
         }
-        InputWord.deleteEndNode();
+        word.deleteEndNode();
 
-        while (temp1->getL() != '.') {
+        while (firstNodePtr->getL() != '.') {
             std::cout << "Adding a new node at the end:\n";
-            int i = temp1->getI();
-            int j = temp1->getJ();
-            InputWord.addFront(gb.getTile(--i, j));
-            temp1 = InputWord.getHead();
-            InputWord.printList();
+            int i = firstNodePtr->getI();
+            int j = firstNodePtr->getJ();
+            word.addFront(board.getTile(--i, j));
+            firstNodePtr = word.getHead();
+            word.printList();
         }
-        InputWord.deleteFrontNode();
+        word.deleteFrontNode();
     }
 
     std::cout << "\n\nExpanded word:\n";
-    InputWord.printList();
-    std::string word = InputWord.getWord();
-    std::cout << word << "\n\n";
+    word.printList();
+    std::string expandedWord = word.getWord();
+    std::cout << expandedWord << "\n\n";
 
 
-    if (gb.getOrganizer()->searchWord(word)) {
+    if (board.getOrganizer()->searchWord(expandedWord)) {
         //confirmedWords[0] = InputWord;
         return true;
+    }
+    return false;
+}
+
+bool Searcher::wordConnect(LinkedList word, GameBoard board) {
+    Node *searcherPtr = word.getHead();
+    int size = word.getSize();
+    bool horizontalDirection = word.isHorizontal();
+
+    for(int k = 0;k < size;++k) {
+        int i = searcherPtr->getI();
+        int j = searcherPtr->getJ();
+
+        if(horizontalDirection) {
+            word.addLast(board.getTile(++i,j));
+            if (word.getLastNode()->getL() != '.') {
+                word.deleteEndNode();
+                return true;
+            }
+            else {
+                word.deleteEndNode();
+                i = searcherPtr->getI();
+            }
+
+            word.addLast(board.getTile(--i,j));
+            if (word.getLastNode()->getL() != '.') {
+                word.deleteEndNode();
+                return true;
+            }
+            else {
+                word.deleteEndNode();
+            }
+        }
+        else {
+            word.addLast(board.getTile(i,++j));
+            if (word.getLastNode()->getL() != '.') {
+                word.deleteEndNode();
+                return true;
+            }
+            else {
+                word.deleteEndNode();
+                j = searcherPtr->getJ();
+            }
+
+            word.addLast(board.getTile(i,--j));
+            if (word.getLastNode()->getL() != '.') {
+                word.deleteEndNode();
+                return true;
+            }
+            else
+                word.deleteEndNode();
+        }
+
+        searcherPtr = searcherPtr->getNext();
     }
     return false;
 }

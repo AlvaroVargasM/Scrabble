@@ -8,8 +8,8 @@
 int main(){
     // Game board and organizer are set
     GameBoard gb;
-    Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
-    gb.setOrganizer(org);
+    //Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
+    //gb.setOrganizer(org);
 
     std::cout << "\n";
 
@@ -26,11 +26,22 @@ int main(){
     gb.changeTile(8,9,'n',5);
     gb.changeTile(9,9,'d',5);
 
+    //gb.changeTile(1,0,'f',8);
+    gb.changeTile(1,1,'i',6);
+    gb.changeTile(1,2,'s',5);
+    gb.changeTile(1,3,'h',4);
+
     gb.getLetters();
 
     std::cout <<"\n";
 
     // Adding a new linked list formed from the board
+    LinkedList lll;
+    lll.addLast(gb.getTile(1,0));
+    lll.addLast(gb.getTile(1,1));
+    lll.addLast(gb.getTile(1,2));
+    lll.addLast(gb.getTile(1,3));
+
     LinkedList ll;
     ll.addLast(gb.getTile(7,8));
     ll.addLast(gb.getTile(7,9));
@@ -38,13 +49,16 @@ int main(){
     ll.addLast(gb.getTile(7,11));
 
     LinkedList l;
+    l.addLast(gb.getTile(6,9));
     l.addLast(gb.getTile(7,9));
     l.addLast(gb.getTile(8,9));
+    l.addLast(gb.getTile(9,9));
 
-    // Searching for expanded words
+    // Searching for expanded words and connected words
     Searcher sea;
-    sea.wordSearcher(ll,gb);
-    sea.wordSearcher(l,gb);
+    //sea.wordExpand(ll, gb);
+    std::cout << sea.wordConnect(l,gb) << std::endl;
+    std::cout << sea.wordConnect(lll,gb) << std::endl;
 
     return 0;
 }
