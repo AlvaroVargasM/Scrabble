@@ -26,7 +26,7 @@ int main(){
     gb.changeTile(8,9,'n',5);
     gb.changeTile(9,9,'d',5);
 
-    //gb.changeTile(1,0,'f',8);
+    gb.changeTile(1,0,'f',8);
     gb.changeTile(1,1,'i',6);
     gb.changeTile(1,2,'s',5);
     gb.changeTile(1,3,'h',4);
