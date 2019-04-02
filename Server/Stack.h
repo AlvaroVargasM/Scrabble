@@ -23,14 +23,15 @@ public:
 
 
 
-    void push(PackTile l);
+    void push(PackTile *l);
     PackTile pop();
-    PackTile peek();
+
 
     int size();
     bool isEmpty();
     bool isFull();
     PackTile swap();
+    void generate();
 
 };
 

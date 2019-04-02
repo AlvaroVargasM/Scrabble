@@ -11,7 +11,7 @@
 class NodeS{
 public:
 
-    PackTile data;
+    PackTile *data;
     NodeS* next;
 };
 

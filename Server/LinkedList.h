@@ -2,7 +2,6 @@
 #define QUEUE_USING_OOP_LINKEDLIST_H
 
 #include <string>
-
 #include "Node.h"
 #include "Tile.h"
 
@@ -32,6 +31,5 @@ public:
 
     int getSize();
 };
-
 
 #endif QUEUE_USING_OOP_LINKEDLIST_H
