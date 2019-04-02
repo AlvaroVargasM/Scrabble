@@ -4,72 +4,59 @@
 #include "Organizer.h"
 #include <array>
 
-//Hola
-
 Searcher::Searcher() {}
 
-bool Searcher::wordExpand(LinkedList word, GameBoard board) {
+LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
     Node* firstNodePtr = word.getHead();
     Node* lastNodePtr = word.getLastNode();
 
+    std::cout << "Received word: " << word.getWord() << std::endl;
+
     if (word.isHorizontal()) {
         while (lastNodePtr->getL() != '.'){
-            std::cout << "Adding a new node at the end:\n";
             int i = lastNodePtr->getI();
             int j = lastNodePtr->getJ();
             word.addLast(board.getTile(i,++j));
             lastNodePtr = lastNodePtr->getNext();
-            word.printList();
         }
         word.deleteEndNode();
 
         while (firstNodePtr->getL() != '.'){
-            std::cout << "Adding a new node at the begging:\n";
             int i = firstNodePtr->getI();
             int j = firstNodePtr->getJ();
             word.addFront(board.getTile(i,--j));
             firstNodePtr = word.getHead();
-            word.printList();
         }
         word.deleteFrontNode();
 
     } else {
         while (lastNodePtr->getL() != '.') {
-            std::cout << "Adding a new node at the begging:\n";
             int i = lastNodePtr->getI();
             int j = lastNodePtr->getJ();
             word.addLast(board.getTile(++i, j));
             lastNodePtr = lastNodePtr->getNext();
-            word.printList();
         }
         word.deleteEndNode();
 
         while (firstNodePtr->getL() != '.') {
-            std::cout << "Adding a new node at the end:\n";
             int i = firstNodePtr->getI();
             int j = firstNodePtr->getJ();
             word.addFront(board.getTile(--i, j));
             firstNodePtr = word.getHead();
-            word.printList();
         }
         word.deleteFrontNode();
     }
 
-    std::cout << "\n\nExpanded word:\n";
-    word.printList();
-    std::string expandedWord = word.getWord();
-    std::cout << expandedWord << "\n\n";
+    std::cout << "Expanded word: " << word.getWord() << std::endl;
 
-
-    if (board.getOrganizer()->searchWord(expandedWord)) {
-        //confirmedWords[0] = InputWord;
-        return true;
-    }
-    return false;
+    return word;
 }
 
 bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     Node *searcherPtr = word.getHead();
+
+    std::cout << "Word before connection check: " << word.getWord() << std::endl;
+
     int size = word.getSize();
     bool horizontalDirection = word.isHorizontal();
 
@@ -81,6 +68,7 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
             word.addLast(board.getTile(++i,j));
             if (word.getLastNode()->getL() != '.') {
                 word.deleteEndNode();
+                std::cout << "Word after connection check: " << word.getWord() << std::endl;
                 return true;
             }
             else {
@@ -116,10 +104,22 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
             else
                 word.deleteEndNode();
         }
-
         searcherPtr = searcherPtr->getNext();
     }
     return false;
 }
 
-int Searcher::pointsSearcher() {}
+int Searcher::wordPointCount() {
+    confirmedWords[0].printList();
+    int points = confirmedWords[0].getPoints();
+    return points;
+}
+
+bool Searcher::wordVerify(LinkedList word, GameBoard board) {
+    std::cout << "Word reached at grammar verification: " << word.getWord() << std::endl;
+    if (board.getOrganizer()->searchWord(word.getWord())) {
+        confirmedWords[0] = word;
+        return true;
+    }
+    return false;
+}

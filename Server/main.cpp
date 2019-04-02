@@ -8,8 +8,8 @@
 int main(){
     // Game board and organizer are set
     GameBoard gb;
-    //Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
-    //gb.setOrganizer(org);
+    Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
+    gb.setOrganizer(org);
 
     std::cout << "\n";
 
@@ -56,9 +56,13 @@ int main(){
 
     // Searching for expanded words and connected words
     Searcher sea;
-    //sea.wordExpand(ll, gb);
-    std::cout << sea.wordConnect(l,gb) << std::endl;
-    std::cout << sea.wordConnect(lll,gb) << std::endl;
+
+    LinkedList exw = (sea.wordExpand(ll, gb));
+
+    if(sea.wordConnect(exw,gb)) {
+        if(sea.wordVerify(exw,gb))
+            std::cout << sea.wordPointCount();
+    }
 
     return 0;
 }

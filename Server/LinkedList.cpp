@@ -139,7 +139,7 @@ void LinkedList::setHead(Node *head) {
 
 int LinkedList::getSize() {
     Node* searcherPtr = this->head;
-    int size = 0;
+    int size = 1;
 
     while(searcherPtr != nullptr) {
         ++size;
