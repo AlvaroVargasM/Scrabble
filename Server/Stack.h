@@ -5,27 +5,32 @@
 #ifndef QUEUE_USING_OOP_STACK_H
 #define QUEUE_USING_OOP_STACK_H
 
-#include "Tile.h"
-
+#include "PackTile.h"
+#include "NodeS.h"
 
 
 class Stack {
+private:
+    NodeS*top;
 public:
-    Tile *index;
-    int top;
+
+    PackTile  index;
+   // int top;
     int capacity;
+    int counter=0;
+
+		// constructor
 
 
-    Stack(int size = 100);		// constructor
 
-    void push(Tile);
-    Tile pop();
-    Tile peek();
+    void push(PackTile l);
+    PackTile pop();
+    PackTile peek();
 
     int size();
     bool isEmpty();
     bool isFull();
-    Tile swap();
+    PackTile swap();
 
 };
 

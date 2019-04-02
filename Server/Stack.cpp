@@ -3,76 +3,81 @@
 //
 #include <iostream>
 #include "Stack.h"
-#include "Tile.h"
+#include "PackTile.h"
+#include "NodeS.h"
 
 using namespace std;
 
-Stack::Stack (int size) {
-
-    index=new Tile;
-
-    capacity = size;
-    top = -1;
-}
 
 
 
 
 // Utility function to add an element x in the stack
-void Stack::push(Tile  x)
+void Stack::push(PackTile  x)
 {
-    if (isFull())
-    {
-        cout << "OverFlow\nProgram Terminated\n";
-        exit(EXIT_FAILURE);
+    NodeS* nodeS;
+
+    nodeS->data=x;
+    nodeS->next=top;
+    //top=nodeS;
+    counter++;
+
+}
+PackTile Stack::pop(){
+    NodeS * ptr = top;
+    NodeS*prev;
+    NodeS*temp;
+
+    while (ptr->next != nullptr) {
+        prev = ptr;
+        ptr = ptr->next;
     }
+    prev= nullptr;
+    temp=ptr;
+    delete(ptr);
+    counter--;
 
 
-    index[++top] = x;
+
+    return temp->data;
+
 }
+int Stack::size() {
+    return counter;
 
-// Utility function to pop top element from the stack
-Tile Stack::pop()
-{
-    // check for stack underflow
-    if (isEmpty())
-    {
-        cout << "UnderFlow\nProgram Terminated\n";
-        exit(EXIT_FAILURE);
+}
+bool Stack::isFull() {
+    if(size()==100){
+        return  true;
     }
-
-
-
-    // decrease stack size by 1 and (optionally) return the popped element
-    return index[top--];
-}
-
-// Utility function to return top element in a stack
-Tile Stack::peek(){
-    if (!isEmpty())
-        return index[top];
-    else
-        exit(EXIT_FAILURE);
-}
-
-// Utility function to return the size of the stack
-int Stack::size(){
-    return top + 1;
-}
-
-// Utility function to check if the stack is empty or not
-bool Stack::isEmpty()
-{
-    return top == -1;	// or return size() == 0;
-}
-
-// Utility function to check if the stack is full or not
-bool Stack::isFull()
-{
-    return top == capacity - 1;	// or return size() == capacity;
-}
-
-Tile Stack::swap(){
-
+    return false;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@
 #include "LinkedList.h"
 #include "Organizer.h"
 #include "Searcher.h"
+#include "Stack.h"
 
 int main(){
     // Game board and organizer are set
@@ -12,6 +13,8 @@ int main(){
     gb.setOrganizer(org);
 
     std::cout << "\n";
+
+
 
     // Adding words to the board
     gb.changeTile(7,7,'s',3);
@@ -54,6 +57,11 @@ int main(){
     l.addLast(gb.getTile(8,9));
     l.addLast(gb.getTile(9,9));
 
+
+
+
+
+
     // Searching for expanded words and connected words
     Searcher sea;
 
@@ -63,6 +71,19 @@ int main(){
         if(sea.wordVerify(exw,gb))
             std::cout << sea.wordPointCount();
     }
+
+
+/*
+    Stack *stack;
+    PackTile packTile = PackTile('h',12);
+    PackTile packTile1=PackTile('h',12);
+
+
+    stack->push(packTile);
+    stack->push(packTile1);
+
+    //std::cout  << stack->size();
+*/
 
     return 0;
 }
