@@ -57,72 +57,71 @@ bool Stack::isFull() {
 void Stack::generate(){
     int i;
 
-    for( i=0;i<99;i++){
+    for( i=0;i<100;i++){
         if(i<12){
-            PackTile* packTile=new PackTile('A',1);
-            PackTile* packTile1= new PackTile('E',1);
+            PackTile* packTileA=new PackTile('a',1);
+            PackTile* packTileE= new PackTile('e',1);
 
-            push(packTile);
-            push(packTile1);}
+            push(packTileA);
+            push(packTileE);
+        }
         if(i<6){
-            PackTile* packTile2=new PackTile('I',1);
-            PackTile* packTile3= new PackTile('S',1);
-            push(packTile2);
-            push(packTile3);
+            PackTile* packTileI=new PackTile('i',1);
+            PackTile* packTileS= new PackTile('s',1);
+            push(packTileI);
+            push(packTileS);
         }
         if(i<4){
-            PackTile* packTile8=new PackTile('L',1);
-            PackTile* packTile9= new PackTile('T',1);
-            push(packTile8);
-            push(packTile9);
+            PackTile* packTileL=new PackTile('l',1);
+            PackTile* packTileT= new PackTile('t',1);
+            push(packTileL);
+            push(packTileT);
         }
         if(i<5){
-            PackTile* packTile4=new PackTile('N',1);
-            PackTile* packTile5= new PackTile('R',1);
-            PackTile* packTile6= new PackTile('U',1);
-            PackTile* packTile7= new PackTile('D',2);
-            push(packTile4);
-            push(packTile5);
-            push(packTile6);
-            push(packTile7);
+            PackTile* packTileN=new PackTile('n',1);
+            PackTile* packTileR= new PackTile('r',1);
+            PackTile* packTileU= new PackTile('u',1);
+            PackTile* packTileD= new PackTile('d',2);
+            push(packTileN);
+            push(packTileR);
+            push(packTileU);
+            push(packTileD);
         }
         if(i<9){
-            PackTile* packTile10= new PackTile('O',9);
-            push(packTile10);
+            PackTile* packTileO= new PackTile('o',9);
+            push(packTileO);
         }
         if(i<2){
-            PackTile* packTile11= new PackTile('B',2);
-            push(packTile11);
-            PackTile* packTile12= new PackTile('M',2);
-            push(packTile12);
-            PackTile* packTile13= new PackTile('P',2);
-            push(packTile13);
-            PackTile* packTile14= new PackTile('H',4);
-            push(packTile14);
+            PackTile* packTileB= new PackTile('b',2);
+            push(packTileB);
+            PackTile* packTileM= new PackTile('m',2);
+            push(packTileM);
+            PackTile* packTileP= new PackTile('p',2);
+            push(packTileP);
+            PackTile* packTileH= new PackTile('h',4);
+            push(packTileH);
         }
         if(i<1){
-            PackTile* packTile15= new PackTile('F',4);
-            push(packTile15);
-            PackTile* packTile16= new PackTile('V',4);
-            push(packTile16);
-            PackTile* packTile17= new PackTile('Y',4);
-            push(packTile17);
-            PackTile* packTile19= new PackTile('CH',5);
-            push(packTile19);
-            PackTile* packTile20= new PackTile('Q',5);
-            push(packTile20);
-            PackTile*packTile21= new PackTile('J',8);
-            push(packTile21);
-            PackTile* packTile22= new PackTile('LL',8);
-            push(packTile22);
-            PackTile* packTile23= new PackTile('N!',8);
-            push(packTile23);
-            PackTile* packTile24= new PackTile('RR',8);
-            push(packTile24);
-            PackTile* packTile25= new PackTile('X',8);
-            push(packTile25);
-            PackTile* packTile26= new PackTile('Z',10);
-            push(packTile26);
+            PackTile* packTileF= new PackTile('f',4);
+            push(packTileF);
+            PackTile* packTileV= new PackTile('v',4);
+            push(packTileV);
+            PackTile* packTileY= new PackTile('y',4);
+            push(packTileY);
+            PackTile* packTileK= new PackTile('k',5);
+            push(packTileK);
+            PackTile* packTileQ= new PackTile('q',5);
+            push(packTileQ);
+            PackTile*packTileJ= new PackTile('j',8);
+            push(packTileJ);
+            PackTile* packTile1= new PackTile('!',0);
+            push(packTile1);
+            PackTile* packTileW= new PackTile('w',1);
+            push(packTileW);
+            PackTile* packTileX= new PackTile('x',8);
+            push(packTileX);
+            PackTile* packTileZ= new PackTile('z',10);
+            push(packTileZ);
         }
     }
 }
