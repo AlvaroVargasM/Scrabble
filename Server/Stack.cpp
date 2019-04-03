@@ -5,63 +5,56 @@
 #include "Stack.h"
 #include "PackTile.h"
 #include "NodeS.h"
-
 using namespace std;
 
+Stack::Stack() {
 
-
-
+}
 
 // Utility function to add an element x in the stack
 void Stack::push(PackTile * x)
 {
-    NodeS* nodeS;
-
+    NodeS* nodeS= new NodeS;
     nodeS->data=x;
     nodeS->next=top;
-    //top=nodeS;
+    top= nodeS;
     counter++;
-
 }
 PackTile Stack::pop(){
-    NodeS * ptr = top;
-    NodeS*prev;
-    NodeS*temp;
-
-    while (ptr->next != nullptr) {
-        prev = ptr;
-        ptr = ptr->next;
+    NodeS *aux ;
+    NodeS* temp;
+    while (aux != nullptr)
+    {aux = aux->next;
     }
-    prev= nullptr;
-    temp=ptr;
-    delete(ptr);
+    temp=aux;
+    temp->next=top;
+
+    delete(aux);
     counter--;
+    return *temp->data;
 
 
-
-    return (*temp->data);
 
 }
 int Stack::size() {
-    return counter;
 
+    return counter;
 }
 bool Stack::isFull() {
     if(size()==100){
         return  true;
     }
     return false;
-
 }
+/*Method that will be responsible for generating the 100 chips that will be sent to the player
 
+ * */
 void Stack::generate(){
     int i;
-
     for( i=0;i<100;i++){
         if(i<12){
             PackTile* packTileA=new PackTile('a',1);
             PackTile* packTileE= new PackTile('e',1);
-
             push(packTileA);
             push(packTileE);
         }
@@ -74,8 +67,10 @@ void Stack::generate(){
         if(i<4){
             PackTile* packTileL=new PackTile('l',1);
             PackTile* packTileT= new PackTile('t',1);
+            PackTile* packTileC=new PackTile('c',3);
             push(packTileL);
             push(packTileT);
+            push(packTileC);
         }
         if(i<5){
             PackTile* packTileN=new PackTile('n',1);
@@ -92,14 +87,18 @@ void Stack::generate(){
             push(packTileO);
         }
         if(i<2){
-            PackTile* packTileB= new PackTile('b',2);
+            PackTile* packTile1= new PackTile('!',0);//comodín
+            push(packTile1);
+            PackTile* packTileB= new PackTile('b',3);
             push(packTileB);
-            PackTile* packTileM= new PackTile('m',2);
+            PackTile* packTileM= new PackTile('m',3);
             push(packTileM);
-            PackTile* packTileP= new PackTile('p',2);
+            PackTile* packTileP= new PackTile('p',3);
             push(packTileP);
             PackTile* packTileH= new PackTile('h',4);
             push(packTileH);
+            PackTile*packTileG= new PackTile('g',2);
+            push(packTileG);
         }
         if(i<1){
             PackTile* packTileF= new PackTile('f',4);
@@ -114,8 +113,7 @@ void Stack::generate(){
             push(packTileQ);
             PackTile*packTileJ= new PackTile('j',8);
             push(packTileJ);
-            PackTile* packTile1= new PackTile('!',0);
-            push(packTile1);
+
             PackTile* packTileW= new PackTile('w',1);
             push(packTileW);
             PackTile* packTileX= new PackTile('x',8);

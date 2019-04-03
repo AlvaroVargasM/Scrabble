@@ -11,28 +11,22 @@
 
 class Stack {
 private:
-    NodeS*top;
+   // NodeS*top= nullptr;
 public:
+    Stack();
+    NodeS*top= nullptr;
 
-    PackTile  index;
+
    // int top;
     int capacity;
     int counter=0;
-
-		// constructor
-
-
-
     void push(PackTile *l);
     PackTile pop();
-
-
     int size();
     bool isEmpty();
     bool isFull();
     PackTile swap();
     void generate();
-
 };
 
 

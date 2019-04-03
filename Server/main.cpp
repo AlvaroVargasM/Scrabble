@@ -14,8 +14,6 @@ int main(){
 
     std::cout << "\n";
 
-
-
     // Adding words to the board
     gb.changeTile(7,7,'s',3);
     gb.changeTile(7,8,'t',4);
@@ -58,6 +56,20 @@ int main(){
     l.addLast(gb.getTile(9,9));
 
 
+/*stack
+ *test case
+ * */
+    Stack *stack= new Stack;
+
+    stack->generate();//genera los Packtiles
+    std::cout << stack->size();
+   // stack->pop();  revienta  cuando va a sacar  un Packtile del stack
+
+
+
+//
+    std::cout <<"\n";
+
 
 
 
@@ -71,19 +83,5 @@ int main(){
         if(sea.wordVerify(exw,gb))
             std::cout << sea.wordPointCount();
     }
-
-
-/*
-    Stack *stack;
-    PackTile packTile = PackTile('h',12);
-    PackTile packTile1=PackTile('h',12);
-
-
-    stack->push(packTile);
-    stack->push(packTile1);
-
-    //std::cout  << stack->size();
-*/
-
-    return 0;
+return 0;
 }

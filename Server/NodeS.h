@@ -13,6 +13,7 @@ public:
 
     PackTile *data;
     NodeS* next;
+
 };
 
 #endif //QUEUE_USING_OOP_NODES_H
