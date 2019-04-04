@@ -8,14 +8,17 @@
 #include "Stack.h"
 #include "PackTile.h"
 #include "LinkedList.h"
+#include "GenericLinkedList.h"
 
 Game::Game() {
     // Stack * stack = new Stack;
-    Player* players[4];
+    this->players = new GenericLinkedList<Player>();
+    Game* ptr = &(*this);
+    //this->accessCode = to_string(&ptr);
 }
 
-void Game::addPlayer() {
-    Player player;
+void Game::addPlayer(Player* player) {
+    this->players->add(*player);
 }
 
 const Searcher &Game::getSearcher() const {

@@ -13,7 +13,7 @@ JSONParser::JSONParser() {
 
 }
 
-string JSONParser::parseBoard(GameBoard board) {
+/*string JSONParser::parseBoard(GameBoard board) {
     int n = 0;
     int m = 0;
     this->json = "{board{Tiles:";
@@ -26,7 +26,7 @@ string JSONParser::parseBoard(GameBoard board) {
             m++;
         }
         this->json += "tile:";
-        Tile current = board.getTile(n, m);
+        Tile current = board.getTile(n, m);0
         string letter = to_string(current.getLetter());
         string multiplier = to_string(current.getMultiplier());
         string wordMultiplier = to_string(current.isWordMultiplier());
@@ -38,4 +38,4 @@ string JSONParser::parseBoard(GameBoard board) {
     }
     this->json += "}}";
     cout << this->json << endl;
-}
+}*/

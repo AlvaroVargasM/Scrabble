@@ -152,7 +152,3 @@ bool Searcher::wordVerify(LinkedList word, GameBoard board) {
     }
     return false;
 }
-
-std::string Searcher::verify(PackTile *) {
-    return std::__cxx11::string();
-}

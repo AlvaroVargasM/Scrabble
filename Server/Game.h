@@ -4,14 +4,17 @@
 #include "PackTile.h"
 #include "GameBoard.h"
 #include "Searcher.h"
+#include "GenericLinkedList.h"
 
 class Game {
 private:
     GameBoard board;
     Searcher searcher;
+    GenericLinkedList<Player>* players;
+    string accessCode;
 public:
     Game();
-    void addPlayer();
+    void addPlayer(Player*);
     std::string verify(PackTile*);
 
     const GameBoard &getBoard() const {

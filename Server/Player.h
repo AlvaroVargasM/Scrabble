@@ -8,6 +8,7 @@ class Player {
 private:
     std::string name;
     int points;
+    int* connection;
 public:
     const std::string &getName() const;
 
@@ -16,6 +17,8 @@ public:
     int getPoints() const;
 
     void setPoints(int points);
+
+    void setConnection(int*);
 };
 
 

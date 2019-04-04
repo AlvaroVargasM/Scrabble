@@ -15,3 +15,7 @@ int Player::getPoints() const {
 void Player::setPoints(int points) {
     Player::points = points;
 }
+
+void Player::setConnection(int *connection) {
+    this->connection = connection;
+}
