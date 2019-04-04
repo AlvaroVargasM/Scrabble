@@ -6,59 +6,48 @@
 #include "Searcher.h"
 #include "Stack.h"
 
-int main(){
+int main() {
     // Game board and organizer are set
     GameBoard gb;
-    Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
-    gb.getMultipliers();
+    Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
     gb.setOrganizer(org);
 
     std::cout << "\n";
 
     // Adding words to the board
-    gb.changeTile(7,7,'s',4);
-    /*
-    gb.changeTile(7,8,'t',7);
-    gb.changeTile(7,9,'a',5);
-    gb.changeTile(7,10,'r',3);
-    gb.changeTile(7,11,'t',6);
-    */
-    gb.changeTile(7,12,'e',8);
-    gb.changeTile(7,13,'r',1);
+    gb.changeTile(7, 7, 's', 3);
+    gb.changeTile(7, 8, 't', 4);
+    gb.changeTile(7, 9, 'a', 5);
+    gb.changeTile(7, 10, 'r', 6);
+    gb.changeTile(7, 11, 't', 7);
+    gb.changeTile(7, 12, 'e', 8);
+    gb.changeTile(7, 13, 'r', 1);
 
-    gb.changeTile(6,9,'l',5);
-    gb.changeTile(8,9,'n',5);
-    gb.changeTile(9,9,'d',5);
+    gb.changeTile(6, 9, 'l', 5);
+    gb.changeTile(8, 9, 'n', 5);
+    gb.changeTile(9, 9, 'd', 5);
 
-    gb.changeTile(1,0,'f',8);
-    gb.changeTile(1,1,'i',6);
-    gb.changeTile(1,2,'s',5);
-    gb.changeTile(1,3,'h',4);
+    gb.changeTile(1, 0, 'f', 8);
+    gb.changeTile(1, 1, 'i', 6);
+    gb.changeTile(1, 2, 's', 5);
+    gb.changeTile(1, 3, 'h', 4);
 
     gb.getLetters();
 
-    std::cout <<"\n";
-
-    PackTile pt1('t',7,8,7);
-    PackTile pt2('a',7,9,5);
-    PackTile pt3('r',7,10,3);
-    PackTile pt4('t',7,11,6);
+    std::cout << "\n";
 
     // Adding a new linked list formed from the board
-
     LinkedList lll;
     lll.addLast(gb.getTile(1, 0));
     lll.addLast(gb.getTile(1, 1));
     lll.addLast(gb.getTile(1, 2));
     lll.addLast(gb.getTile(1, 3));
 
-
     LinkedList ll;
-    ll.addLast(pt1);
-    ll.addLast(pt2);
-    ll.addLast(pt3);
-    ll.addLast(pt4);
-
+    ll.addLast(gb.getTile(7, 8));
+    ll.addLast(gb.getTile(7, 9));
+    ll.addLast(gb.getTile(7, 10));
+    ll.addLast(gb.getTile(7, 11));
 
     LinkedList l;
     l.addLast(gb.getTile(6, 9));
@@ -67,34 +56,40 @@ int main(){
     l.addLast(gb.getTile(9, 9));
 
 
+/*stack
+ *test case
+ * */
+    Stack *stack = new Stack;
+
+    stack->generate();//genera los Packtiles
+    stack->Swap();
+    //std::cout << stack->size();
+    //std::cout << "\n";
+    //stack->PrintStack();// muestra el stack completo
+    //Stack *mysatack= new Stack;
+    //mysatack->generate();//genera los Packtiles
+
+    //std::cout << "\n";
+    //mysatack->PrintStack();// muestra el stack completo
 
 
 
 
-    // Searching for expanded words and connected words
+//
+    std::cout << "\n";
+
+
+
+
+
+    // Searching for expanded words- and connected words
     Searcher sea;
 
-    LinkedList exw = sea.wordExpand(ll, gb);
+    LinkedList exw = (sea.wordExpand(ll, gb));
 
-    if(sea.wordConnect(exw,gb)) {
-        if(sea.wordVerify(exw,gb))
-            exw.printList();
-            std::cout << sea.wordPointCount(exw,gb) << std::endl;
-    }
-    gb.setVerifiedWord(exw);
-    gb.getLetters();
-
-/*
-    Stack *stack;
-    PackTile packTile = PackTile('h',12);
-    PackTile packTile1=PackTile('h',12);
-
-
-    stack->push(packTile);
-    stack->push(packTile1);
-
-    //std::cout  << stack->size();
-*/
-
+   // if (sea.wordConnect(exw, gb)) {
+     //   if (sea.wordVerify(exw, gb))
+       //     std::cout << sea.wordPointCount();
+    //}
     return 0;
 }

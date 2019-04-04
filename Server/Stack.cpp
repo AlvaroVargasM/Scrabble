@@ -2,42 +2,37 @@
 // Created by jonathangarcia on 30/03/19.
 //
 #include <iostream>
+#include <cstdlib>
 #include "Stack.h"
 #include "PackTile.h"
 #include "NodeS.h"
 using namespace std;
-
 Stack::Stack() {
-
+    head= nullptr;
 }
-
-// Utility function to add an element x in the stack
+// Utility function to create  a new node type of Packtile and add an element x
 void Stack::push(PackTile * x)
-{
-    NodeS* nodeS= new NodeS;
-    nodeS->data=x;
-    nodeS->next=top;
-    top= nodeS;
+{   NodeS* nodeS= new NodeS(x);
+    nodeS->setNext(this->head);
+    this->head= nodeS;
     counter++;
 }
+//Funtion to get and return a last Node type PackTile
 PackTile Stack::pop(){
-    NodeS *aux ;
-    NodeS* temp;
-    while (aux != nullptr)
-    {aux = aux->next;
+    NodeS*a;
+    NodeS* temp = this->head;
+    while(temp->getNext()!= nullptr){
+        a=temp;
+        temp = temp->getNext();
     }
-    temp=aux;
-    temp->next=top;
-
-    delete(aux);
+    a->setNext(nullptr);
+    delete(temp);
     counter--;
-    return *temp->data;
-
-
+    return *a->getData();
 
 }
-int Stack::size() {
 
+int Stack::size() {
     return counter;
 }
 bool Stack::isFull() {
@@ -46,7 +41,7 @@ bool Stack::isFull() {
     }
     return false;
 }
-/*Method that will be responsible for generating the 100 chips that will be sent to the player
+/*Method that will be responsible for generating the 100 PackTiles that will be sent to the player.
 
  * */
 void Stack::generate(){
@@ -123,3 +118,35 @@ void Stack::generate(){
         }
     }
 }
+void Stack:: PrintStack(){
+    NodeS* temp = this->head;
+
+    do {
+        cout <<temp->getData()->getLetter() <<  ":" << temp->getData()->getValue() ;
+        std::cout << "\n";
+        temp = temp->getNext();
+    } while (temp != nullptr);
+
+    std::cout << "\n";
+}
+
+void Stack::Swap() {
+    srand((unsigned)time(0));
+    int v1 = rand() ;
+
+
+     for(int i=0;i<(int)v1;i++){
+
+         if (i==(int)(v1/3)){
+             cout << pop().getLetter();
+             std::cout << "\n";}
+          if (i==(int)(v1/5)+1){
+                 cout << pop().getLetter();
+              std::cout << "\n";}
+         if (i==(int)(v1/2)){
+             cout << pop().getLetter();
+             std::cout << "\n";
+     }
+}
+}
+
