@@ -6,6 +6,10 @@
 #include "Player.h"
 #include "LinkedList.h"
 
+/**
+ * Works as the base for the game, is the backbone of all game play and main logic, its matrix of 'Tile' objects,
+ * it is also used as reference for many other classes and methods.
+ */
 class GameBoard {
 private:
     Tile board[15][15];
@@ -14,12 +18,9 @@ public:
     GameBoard();
     void getLetters();
     void setLetters(char letter);
-    void getMultipliers();
     void setMultipliers(int multiplier1,int multiplier2,int multiplier3,int multiplier4);
     void setCoordinates();
-    void getCoordinates();
     void changeTile(int row,int column,char letter,int points);
-    void checkTile(int row,int column);
     Tile getTile(int row,int column);
     void setVerifiedWord(LinkedList word);
     Organizer* org;

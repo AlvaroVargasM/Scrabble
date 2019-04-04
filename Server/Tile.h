@@ -1,7 +1,10 @@
 #ifndef PROJECT_TILE_H
 #define PROJECT_TILE_H
 
-
+/**
+ * Class Tile works as the base for the 'GameBoard', it stores all the data that a tile will need,
+ * its methods are only setters and getters.
+ */
 class Tile {
 private:
     char letter;

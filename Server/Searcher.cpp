@@ -4,6 +4,7 @@
 #include "Organizer.h"
 #include <array>
 
+
 Searcher::Searcher() {}
 
 LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
@@ -105,13 +106,6 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     }
     return false;
 }
-/*
-int Searcher::wordPointCount() {
-    confirmedWords[0].printList();
-    int points = confirmedWords[0].getPoints();
-    return points;
-}
-*/
 
 bool Searcher::isWordExpanded(LinkedList list1, LinkedList list2) {
     if (list1.getSize() == list2.getSize())

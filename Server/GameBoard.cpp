@@ -1,12 +1,19 @@
 #include "GameBoard.h"
 #include <iostream>
 
+/**
+ * 'Game board' constructor, when creating a 'Game Board' instance we set all of the tile's multipliers,
+ * chars and coordinates to a default state.
+ */
 GameBoard::GameBoard() {
     this->setMultipliers(2,3,4,5);
     this->setLetters('.');
     this->setCoordinates();
 }
 
+/**
+ * Prints the matrix's letters
+ */
 void GameBoard::getLetters() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
@@ -15,20 +22,23 @@ void GameBoard::getLetters() {
     }
 }
 
+/**
+ * Sets all letters on the matrix to the char we pass
+ * @param l char that will be set on every 'Tile'
+ */
 void GameBoard::setLetters(char l) {
     for (int i = 0; i < 15; i++)
         for (int j = 0; j < 15; j++)
             this->board[i][j].setLetter(l);
 }
 
-void GameBoard::getMultipliers() {
-    for (int i = 0; i < 15; i++) {
-        for (int j = 0; j < 15; j++)
-            std::cout << this->board[i][j].getMultiplier() << " ";
-        std::cout << std::endl;
-    }
-}
-
+/**
+ * Sets the multipliers in the matrix forming a pre-established geometrical figure
+ * @param m1 first multiplier, the most common one
+ * @param m2 second multiplier, fairly common
+ * @param m3 third multiplier, it is a word multiplier hard to reach from the center of the matrix
+ * @param m4 fourth multiplier, word multiplier, hardest to reach
+ */
 void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
     for (int row = 0; row < 15; row++)
         for (int column = 0; column < 15; column++) {
@@ -67,6 +77,9 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
         }
 }
 
+/**
+ * Establish all the positions of the matrix's tiles
+ */
 void GameBoard::setCoordinates() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++) {
@@ -76,28 +89,32 @@ void GameBoard::setCoordinates() {
     }
 }
 
-void GameBoard::getCoordinates() {
-    for (int i = 0; i < 15; i++) {
-        for (int j = 0; j < 15; j++)
-            std::cout << "[" << this->board[i][j].getRow() << "] " << "[" << this->board[i][j].getColumn()<< "] ;";
-        std::cout << std::endl;
-    }
-}
-
-
+/**
+ * Modified a single 'Tile' based on the position in the matrix we indicate
+ * @param i row
+ * @param j column
+ * @param l letter to change
+ * @param pts points to change
+ */
 void GameBoard::changeTile(int i, int j, char l, int pts) {
     this->board[i][j].setLetter(l);
     this->board[i][j].setPoints(pts);
 }
 
-void GameBoard::checkTile(int i, int j) {
-    std::cout << this->board[i][j].getLetter() << std::endl;
-}
-
+/**
+ * We receive a Tile form Game Board using it's coordintes
+ * @param i row
+ * @param j column
+ * @return Tile object
+ */
 Tile GameBoard::getTile(int i, int j) {
     return this->board[i][j];
 }
 
+/**
+ * We modified the Game Board based with a  linked list
+ * @param word the word we want to set in the matrix
+ */
 void GameBoard::setVerifiedWord(LinkedList word) {
     Node * searcher = word.getHead();
     while (searcher != nullptr) {
