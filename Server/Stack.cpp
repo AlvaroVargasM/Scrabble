@@ -11,7 +11,6 @@ using namespace std;
 
 
 
-
 // Utility function to add an element x in the stack
 void Stack::push(PackTile * x)
 {

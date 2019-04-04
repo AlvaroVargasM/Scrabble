@@ -4,6 +4,7 @@
 #include "Tile.h"
 #include "Organizer.h"
 #include "Player.h"
+#include "LinkedList.h"
 
 class GameBoard {
 private:
@@ -20,6 +21,7 @@ public:
     void changeTile(int row,int column,char letter,int points);
     void checkTile(int row,int column);
     Tile getTile(int row,int column);
+    void setVerifiedWord(LinkedList word);
     Organizer* org;
     Organizer* getOrganizer();
     void setOrganizer(Organizer*);

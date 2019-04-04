@@ -16,7 +16,7 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
         while (lastNodePtr->getL() != '.'){
             int i = lastNodePtr->getI();
             int j = lastNodePtr->getJ();
-            word.addLast(board.getTile(i,++j));
+            word.addLast(board.getTile(i, ++j));
             lastNodePtr = lastNodePtr->getNext();
         }
         word.deleteEndNode();
@@ -24,7 +24,7 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
         while (firstNodePtr->getL() != '.'){
             int i = firstNodePtr->getI();
             int j = firstNodePtr->getJ();
-            word.addFront(board.getTile(i,--j));
+            word.addFront(board.getTile(i, --j));
             firstNodePtr = word.getHead();
         }
         word.deleteFrontNode();
@@ -55,8 +55,6 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
 bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     Node *searcherPtr = word.getHead();
 
-    std::cout << "Word before connection check: " << word.getWord() << std::endl;
-
     int size = word.getSize();
     bool horizontalDirection = word.isHorizontal();
 
@@ -65,10 +63,9 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
         int j = searcherPtr->getJ();
 
         if(horizontalDirection) {
-            word.addLast(board.getTile(++i,j));
+            word.addLast(board.getTile(++i, j));
             if (word.getLastNode()->getL() != '.') {
                 word.deleteEndNode();
-                std::cout << "Word after connection check: " << word.getWord() << std::endl;
                 return true;
             }
             else {
@@ -76,7 +73,7 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
                 i = searcherPtr->getI();
             }
 
-            word.addLast(board.getTile(--i,j));
+            word.addLast(board.getTile(--i, j));
             if (word.getLastNode()->getL() != '.') {
                 word.deleteEndNode();
                 return true;
@@ -86,7 +83,7 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
             }
         }
         else {
-            word.addLast(board.getTile(i,++j));
+            word.addLast(board.getTile(i, ++j));
             if (word.getLastNode()->getL() != '.') {
                 word.deleteEndNode();
                 return true;
@@ -96,7 +93,7 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
                 j = searcherPtr->getJ();
             }
 
-            word.addLast(board.getTile(i,--j));
+            word.addLast(board.getTile(i, --j));
             if (word.getLastNode()->getL() != '.') {
                 word.deleteEndNode();
                 return true;
@@ -108,17 +105,42 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     }
     return false;
 }
-
+/*
 int Searcher::wordPointCount() {
     confirmedWords[0].printList();
     int points = confirmedWords[0].getPoints();
     return points;
 }
+*/
+
+int Searcher::wordPointCount(LinkedList word, GameBoard board) {
+    Node *searcher = word.getHead();
+    int points = 0;
+    int wordMultiplier = 1;
+    while(searcher != nullptr) {
+        int i = searcher->getI();
+        int j = searcher->getJ();
+        int pts = searcher->getPts();
+        int m = 1;
+
+        Tile t = board.getTile(i,j);
+
+        if (t.isWordMultiplier()) {
+            wordMultiplier = t.getMultiplier();
+        }
+        else
+            m = t.getMultiplier();
+
+        points += (pts * m);
+        searcher = searcher->getNext();
+    }
+    return points * wordMultiplier;
+}
 
 bool Searcher::wordVerify(LinkedList word, GameBoard board) {
-    std::cout << "Word reached at grammar verification: " << word.getWord() << std::endl;
     if (board.getOrganizer()->searchWord(word.getWord())) {
-        confirmedWords[0] = word;
+        board.setVerifiedWord(word);
+        //confirmedWords[0] = word;
         return true;
     }
     return false;

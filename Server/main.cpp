@@ -10,6 +10,7 @@ int main(){
     // Game board and organizer are set
     GameBoard gb;
     Organizer* org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
+    gb.getMultipliers();
     gb.setOrganizer(org);
 
     std::cout << "\n";
@@ -17,11 +18,13 @@ int main(){
 
 
     // Adding words to the board
-    gb.changeTile(7,7,'s',3);
-    gb.changeTile(7,8,'t',4);
+    gb.changeTile(7,7,'s',4);
+    /*
+    gb.changeTile(7,8,'t',7);
     gb.changeTile(7,9,'a',5);
-    gb.changeTile(7,10,'r',6);
-    gb.changeTile(7,11,'t',7);
+    gb.changeTile(7,10,'r',3);
+    gb.changeTile(7,11,'t',6);
+    */
     gb.changeTile(7,12,'e',8);
     gb.changeTile(7,13,'r',1);
 
@@ -38,24 +41,32 @@ int main(){
 
     std::cout <<"\n";
 
+    PackTile pt1('t',7,8,7);
+    PackTile pt2('a',7,9,5);
+    PackTile pt3('r',7,10,3);
+    PackTile pt4('t',7,11,6);
+
     // Adding a new linked list formed from the board
+
     LinkedList lll;
-    lll.addLast(gb.getTile(1,0));
-    lll.addLast(gb.getTile(1,1));
-    lll.addLast(gb.getTile(1,2));
-    lll.addLast(gb.getTile(1,3));
+    lll.addLast(gb.getTile(1, 0));
+    lll.addLast(gb.getTile(1, 1));
+    lll.addLast(gb.getTile(1, 2));
+    lll.addLast(gb.getTile(1, 3));
+
 
     LinkedList ll;
-    ll.addLast(gb.getTile(7,8));
-    ll.addLast(gb.getTile(7,9));
-    ll.addLast(gb.getTile(7,10));
-    ll.addLast(gb.getTile(7,11));
+    ll.addLast(pt1);
+    ll.addLast(pt2);
+    ll.addLast(pt3);
+    ll.addLast(pt4);
+
 
     LinkedList l;
-    l.addLast(gb.getTile(6,9));
-    l.addLast(gb.getTile(7,9));
-    l.addLast(gb.getTile(8,9));
-    l.addLast(gb.getTile(9,9));
+    l.addLast(gb.getTile(6, 9));
+    l.addLast(gb.getTile(7, 9));
+    l.addLast(gb.getTile(8, 9));
+    l.addLast(gb.getTile(9, 9));
 
 
 
@@ -65,13 +76,15 @@ int main(){
     // Searching for expanded words and connected words
     Searcher sea;
 
-    LinkedList exw = (sea.wordExpand(ll, gb));
+    LinkedList exw = sea.wordExpand(ll, gb);
 
     if(sea.wordConnect(exw,gb)) {
         if(sea.wordVerify(exw,gb))
-            std::cout << sea.wordPointCount();
+            exw.printList();
+            std::cout << sea.wordPointCount(exw,gb) << std::endl;
     }
-
+    gb.setVerifiedWord(exw);
+    gb.getLetters();
 
 /*
     Stack *stack;

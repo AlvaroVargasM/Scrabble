@@ -13,7 +13,7 @@ public:
     bool wordConnect(LinkedList word, GameBoard board);
     bool wordVerify(LinkedList word, GameBoard board);
 
-    int wordPointCount();
+    int wordPointCount(LinkedList word, GameBoard board);
 };
 
 

@@ -14,12 +14,12 @@ private:
     NodeS*top;
 public:
 
-    PackTile  index;
+    PackTile index;
    // int top;
     int capacity;
     int counter=0;
 
-		// constructor
+    // constructor
 
 
 

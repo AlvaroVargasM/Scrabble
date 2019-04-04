@@ -1,5 +1,6 @@
 #include <iostream>
 #include "LinkedList.h"
+#include "PackTile.h"
 
 LinkedList::LinkedList() {
     head = nullptr;
@@ -7,26 +8,37 @@ LinkedList::LinkedList() {
 
 LinkedList::~LinkedList() {}
 
-void LinkedList::addFront(Tile t) {
-    char let = t.getLetter();
-    int mult = t.getMultiplier();
-    int i = t.getRow();
-    int j = t.getColumn();
-    int pts = t.getPoints();
+void LinkedList::addFront(PackTile pTile) {
+    char let = pTile.getLetter();
+    int i = pTile.getRow();
+    int j = pTile.getColumn();
+    int pts = pTile.getValue();
 
-    Node *n = new Node(let,mult,i,j,pts);
+    Node *n = new Node(let,i,j,pts);
     n->setNext(this->head);
     this->head = n;
 }
 
-void LinkedList::addLast(Tile t) {
-    char let = t.getLetter();
-    int mult = t.getMultiplier();
-    int i = t.getRow();
-    int j = t.getColumn();
-    int pts = t.getPoints();
+void LinkedList::addFront(Tile tile) {
+    char let = tile.getLetter();
+    int i = tile.getRow();
+    int j = tile.getColumn();
+    int pts = tile.getPoints();
 
-    Node* n = new Node(let,mult,i,j,pts);
+    Node *n = new Node(let,i,j,pts);
+    n->setNext(this->head);
+    this->head = n;
+}
+
+void LinkedList::addLast(PackTile pTile) {
+    char let = pTile.getLetter();
+    int i = pTile.getRow();
+    int j = pTile.getColumn();
+    int pts = pTile.getValue();
+
+
+
+    Node* n = new Node(let,i,j,pts);
     n->setNext(nullptr);
 
     if(this->head == nullptr)
@@ -39,11 +51,31 @@ void LinkedList::addLast(Tile t) {
     }
 }
 
+void LinkedList::addLast(Tile tile) {
+    char let = tile.getLetter();
+    int i = tile.getRow();
+    int j = tile.getColumn();
+    int pts = tile.getPoints();
+
+
+
+    Node* n = new Node(let,i,j,pts);
+    n->setNext(nullptr);
+
+    if(this->head == nullptr)
+        this->head = n;
+    else {
+        Node *temp = this->head;
+        while(temp->getNext() != nullptr)
+            temp = temp->getNext();
+        temp->setNext(n);
+    }
+}
 void LinkedList::printList() {
     Node* temp = this->head;
 
     do {
-        std::cout << temp->getL() << ":" << temp->getM() <<  ":" << temp->getPts() <<" -> ";
+        std::cout << temp->getL() <<  ":" << temp->getPts() <<" -> ";
         temp = temp->getNext();
     } while (temp != nullptr);
 
@@ -64,6 +96,7 @@ std::string LinkedList::getWord() {
 }
 
 //29/03/19
+/*
 int LinkedList::getPoints() {
     Node *temp = this->head;
     int points = 0;
@@ -83,6 +116,7 @@ int LinkedList::getPoints() {
 
     return points * wmult;
 }
+ */
 
 bool LinkedList::isHorizontal() {
     Node *n1 = this->head;
@@ -139,7 +173,7 @@ void LinkedList::setHead(Node *head) {
 
 int LinkedList::getSize() {
     Node* searcherPtr = this->head;
-    int size = 1;
+    int size = 0;
 
     while(searcherPtr != nullptr) {
         ++size;
