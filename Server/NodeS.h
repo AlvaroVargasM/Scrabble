@@ -11,9 +11,14 @@ public:
     void setNext(NodeS* n);
     NodeS* getNext();
     PackTile*getData();
+    void setPrev(NodeS* n);
+    NodeS* getPrev();
+
 
 private:
     PackTile *data;
     NodeS* next;
+    NodeS*prev;
+
 };
 #endif //QUEUE_USING_OOP_NODES_H

@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <cstdlib>
+#include <time.h>
 #include "Stack.h"
 #include "PackTile.h"
 #include "NodeS.h"
@@ -32,6 +33,32 @@ PackTile Stack::pop(){
 
 }
 
+PackTile Stack::deleteCurrentNode(NodeS *node_ptr) {
+
+    NodeS*temp = node_ptr;
+    temp= temp->getNext();
+    //anterior=anterior->setPrev(temp->getNext());
+
+
+
+
+    delete(node_ptr);
+    counter--;
+
+    return *temp->getData();
+
+    /*
+     *
+void deleteNode(Node *node_ptr)
+{
+    Node *temp = node_ptr->next;
+    node_ptr->data = temp->data;
+    node_ptr->next = temp->next;
+    free(temp);
+}  */
+
+}
+
 int Stack::size() {
     return counter;
 }
@@ -44,6 +71,16 @@ bool Stack::isFull() {
 /*Method that will be responsible for generating the 100 PackTiles that will be sent to the player.
 
  * */
+
+NodeS* Stack::getLasNode() {
+    NodeS *temp = this->head;
+    while (temp->getNext() != nullptr)
+        temp = temp->getNext();
+
+    return temp;}
+
+
+
 void Stack::generate(){
     int i;
     for( i=0;i<100;i++){
@@ -130,23 +167,44 @@ void Stack:: PrintStack(){
     std::cout << "\n";
 }
 
-void Stack::Swap() {
+
+
+
+PackTile Stack::Swap(PackTile array[]) {
+    generate();
+
     srand((unsigned)time(0));
-    int v1 = rand() ;
+    int v1 = rand()%100 ;
+    PackTile temp1=array[0];
+
+    PackTile temp2=array[1];
+    PackTile temp7=array[2];
+
+  //  cout <<v1;
+    PackTile* packTile=new PackTile('#',-1);
+    PackTile  arr[]={*packTile,*packTile ,*packTile ,*packTile ,*packTile ,* packTile, *packTile};
+        array=arr;
+    NodeS *temp=this->head;
+
+     for(int i=0;i<(int)v1;i++) {
+         temp=temp->getNext();
+
+         if (i == (int)(( v1 )/ 2)&& (temp!= nullptr)) {
+              arr[0]=deleteCurrentNode(temp);
+         }
+
+         if (i == (int)(( v1 )/ 3)) {
+             arr[1]=deleteCurrentNode(temp);
+         }
+
+         if (i == (int)(( v1 )/ 5)) {
+             arr[0]=deleteCurrentNode(temp);
+             }
 
 
-     for(int i=0;i<(int)v1;i++){
+         }
 
-         if (i==(int)(v1/3)){
-             cout << pop().getLetter();
-             std::cout << "\n";}
-          if (i==(int)(v1/5)+1){
-                 cout << pop().getLetter();
-              std::cout << "\n";}
-         if (i==(int)(v1/2)){
-             cout << pop().getLetter();
-             std::cout << "\n";
-     }
+      return arr[7];
 }
-}
+
 
