@@ -57,24 +57,17 @@ int main(){
 
 
 /*stack
- *test case of clase Stack
+ *test case
  * */
     Stack *stack= new Stack;
 
-    PackTile* packTile= new PackTile('d',1);
-    PackTile* packTile1= new PackTile('a',2);
-
-
-    // adds two packtiles to
-    stack->push(packTile1);
-    stack->push(packTile);
-    //remove a packtile and return Packtile current
-    std::cout <<stack->pop().getLetter();
-
-    std::cout <<"\n";
-   // stack->generate();//genera los Packtiles
+    stack->generate();//genera los Packtiles
     std::cout << stack->size();
+   // stack->pop();  revienta  cuando va a sacar  un Packtile del stack
 
+
+
+//
     std::cout <<"\n";
 
 

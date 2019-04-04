@@ -1,8 +1,7 @@
 #include "Node.h"
 
-Node::Node(char _l, int _m, int _i, int _j, int _pts) {
+Node::Node(char _l, int _i, int _j, int _pts) {
     this->l = _l;
-    this->m = _m;
     this->next = nullptr;
     this->wM = false;
     this->pts = _pts;
@@ -19,28 +18,12 @@ void Node::setL(char l) {
     Node::l = l;
 }
 
-int Node::getM() const {
-    return this->m;
-}
-
-void Node::setM(int m) {
-    Node::m = m;
-}
-
 Node *Node::getNext() const {
     return this->next;
 }
 
 void Node::setNext(Node *next) {
     Node::next = next;
-}
-
-bool Node::isWM() const {
-    return this->wM;
-}
-
-void Node::setWM(bool wM) {
-    Node::wM = wM;
 }
 
 int Node::getPts() const {

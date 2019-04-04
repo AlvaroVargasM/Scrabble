@@ -41,12 +41,14 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                 (row == 10 && (column == 5 || column == 9)) ||
                 (row == 11 && (column == 6 || column == 8))){
                 this->board[row][column].setMultiplier(m1);
+                this->board[row][column].setWordMultiplier(false);
                 continue;
 
             }
             if              (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
               || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
                 this->board[row][column].setMultiplier(m2);
+                this->board[row][column].setWordMultiplier(false);
                 continue;
             }
             if ((row == 2 || row == 12) && (column == 2 || column == 12)) {
@@ -61,6 +63,7 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
             }
             else
                 board[row][column].setMultiplier(1);
+            this->board[row][column].setWordMultiplier(false);
         }
 }
 
@@ -93,6 +96,14 @@ void GameBoard::checkTile(int i, int j) {
 
 Tile GameBoard::getTile(int i, int j) {
     return this->board[i][j];
+}
+
+void GameBoard::setVerifiedWord(LinkedList word) {
+    Node * searcher = word.getHead();
+    while (searcher != nullptr) {
+        this->changeTile(searcher->getI(),searcher->getJ(),searcher->getL(),searcher->getPts());
+        searcher = searcher->getNext();
+    }
 }
 
 Organizer* GameBoard::getOrganizer(){

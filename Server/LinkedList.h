@@ -4,6 +4,7 @@
 #include <string>
 #include "Node.h"
 #include "Tile.h"
+#include "PackTile.h"
 
 class LinkedList {
 private:
@@ -12,14 +13,17 @@ public:
     LinkedList();
     ~LinkedList();
 
-    void addLast(Tile);
-    void addFront(Tile);
+    void addLast(PackTile pTile);
+    void addFront(PackTile pTile);
+
+    void addLast(Tile tile);
+    void addFront(Tile Tile);
 
     Node* getLastNode();
     void printList();
 
     std::string getWord();
-    int getPoints();
+    //int getPoints();
 
     bool isHorizontal();
 

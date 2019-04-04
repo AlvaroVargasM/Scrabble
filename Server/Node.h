@@ -5,7 +5,6 @@
 class Node {
 private:
     char l;
-    int m;
     Node *next;
     bool wM;
     int pts;
@@ -14,25 +13,16 @@ private:
     bool blocked;
 
 public:
-    Node(char letter,int multiplier,int row,int columns,int points);
+    Node(char letter,int row,int columns,int points);
 
     char getL() const;
 
     void setL(char l);
 
 
-
-    int getM() const;
-
-    void setM(int m);
-
     Node *getNext() const;
 
     void setNext(Node *next);
-
-    bool isWM() const;
-
-    void setWM(bool wM);
 
     int getPts() const;
 
