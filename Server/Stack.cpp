@@ -39,7 +39,7 @@ bool Stack::isFull() {
     }
     return false;
 }
-/*Method that will be responsible for generating the 100 chips that will be sent to the player
+/*Method that will be responsible for generating the 100 chips that will be sent to the player.
 
  * */
 void Stack::generate(){

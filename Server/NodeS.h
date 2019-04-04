@@ -11,6 +11,7 @@ public:
     void setNext(NodeS* n);
     NodeS* getNext();
     PackTile*getData();
+
 private:
     PackTile *data;
     NodeS* next;

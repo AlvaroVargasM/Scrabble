@@ -7,7 +7,7 @@
 #include "NodeS.h"
 class Stack {
 private:
-    NodeS* head;
+    NodeS*head;
 public:
     Stack();
     int counter=0;

@@ -5,7 +5,7 @@
 #include "NodeS.h"
 #include "PackTile.h"
 
-NodeS ::NodeS(PackTile *packTile) {
+NodeS ::NodeS(PackTile* packTile) {
     this->data=packTile;
     this->next= nullptr;
 }
