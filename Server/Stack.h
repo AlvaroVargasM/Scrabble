@@ -16,7 +16,7 @@ public:
     int size();
     bool isEmpty();
     bool isFull();
-    PackTile swap();
+    void Swap();
     void generate();
     void PrintStack();
 

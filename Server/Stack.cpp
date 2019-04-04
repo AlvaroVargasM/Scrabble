@@ -2,6 +2,7 @@
 // Created by jonathangarcia on 30/03/19.
 //
 #include <iostream>
+#include <cstdlib>
 #include "Stack.h"
 #include "PackTile.h"
 #include "NodeS.h"
@@ -129,5 +130,23 @@ void Stack:: PrintStack(){
     std::cout << "\n";
 }
 
+void Stack::Swap() {
+    srand((unsigned)time(0));
+    int v1 = rand() ;
 
+
+     for(int i=0;i<(int)v1;i++){
+
+         if (i==(int)(v1/3)){
+             cout << pop().getLetter();
+             std::cout << "\n";}
+          if (i==(int)(v1/5)+1){
+                 cout << pop().getLetter();
+              std::cout << "\n";}
+         if (i==(int)(v1/2)){
+             cout << pop().getLetter();
+             std::cout << "\n";
+     }
+}
+}
 
