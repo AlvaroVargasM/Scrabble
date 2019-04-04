@@ -12,6 +12,7 @@ private:
     Searcher searcher;
     GenericLinkedList<Player>* players;
     string accessCode;
+    Player * current;
 public:
     Game();
     void addPlayer(Player*);

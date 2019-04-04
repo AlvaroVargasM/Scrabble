@@ -108,7 +108,6 @@ void LinkedList::printList() {
     std::cout << "NULL \n";
 }
 
-
 /**
  * Takes the list, goes through the list taking the char from each Node, letters, to form a string, word.
  * @return the word contained in the linked list
@@ -125,6 +124,10 @@ std::string LinkedList::getWord() {
     return word;
 }
 
+/**
+ * Checks if a linked list of at least two nodes is horizontal
+ * @return the horizontal state
+ */
 bool LinkedList::isHorizontal() {
     Node *n1 = this->head;
     Node *n2 = n1->getNext();
@@ -135,6 +138,10 @@ bool LinkedList::isHorizontal() {
         return false;
 }
 
+/**
+ * The method calls for the last node of a linked list
+ * @return the last Node of the linked list
+ */
 Node* LinkedList::getLastNode() {
     Node *temp = this->head;
     while (temp->getNext() != nullptr)
@@ -143,6 +150,9 @@ Node* LinkedList::getLastNode() {
     return temp;
 }
 
+/**
+ * Deletes the first Node of a linked list
+ */
 void LinkedList::deleteFrontNode(){
     Node *searcherPtr = head;
 
@@ -154,6 +164,9 @@ void LinkedList::deleteFrontNode(){
     delete searcherPtr;
 }
 
+/**
+ * Deletes the last Node of the linked list
+ */
  void LinkedList::deleteEndNode() {
      Node *ptr, *prev;
 
@@ -178,6 +191,10 @@ void LinkedList::setHead(Node *head) {
     LinkedList::head = head;
 }
 
+/**
+ * Checks for the amount of Nodes in a linked list
+ * @return the size of the linked list
+ */
 int LinkedList::getSize() {
     Node* searcherPtr = this->head;
     int size = 0;

@@ -7,6 +7,14 @@
 
 Searcher::Searcher() {}
 
+/**
+ * This method takes a word (in the form of a linked list) and expands it based on the game board, it takes the word,
+ * checks if it's horizontal, after that if its horizontal it checks for the adjacent letters in the game board in the
+ * x axis, in the other case it checks for the adjacent letters in the game board in the y axis.
+ * @param word to expand
+ * @param board to check
+ * @return the expanded word (linked list)
+ */
 LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
     Node* firstNodePtr = word.getHead();
     Node* lastNodePtr = word.getLastNode();
@@ -53,6 +61,12 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
     return word;
 }
 
+/**
+ * Checks if a word (in the form of a linked list) is connected in any way with another word (also a linked list)
+ * @param word to check
+ * @param board  to check
+ * @return connection status
+ */
 bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     Node *searcherPtr = word.getHead();
 
@@ -107,6 +121,12 @@ bool Searcher::wordConnect(LinkedList word, GameBoard board) {
     return false;
 }
 
+/**
+ * This checks if a list was expanded by comparing its size after a wordExpand
+ * @param list1 the original list
+ * @param list2 the list after expansion
+ * @return expansion statuts
+ */
 bool Searcher::isWordExpanded(LinkedList list1, LinkedList list2) {
     if (list1.getSize() == list2.getSize())
         return false;
@@ -114,6 +134,12 @@ bool Searcher::isWordExpanded(LinkedList list1, LinkedList list2) {
         return true;
 }
 
+/**
+ * This method counts all the points of a word (in the form of a linked list) in the game board
+ * @param word to check
+ * @param board to get the multipliers from
+ * @return the amount of points obtained by that word (linked list)
+ */
 int Searcher::wordPointCount(LinkedList word, GameBoard board) {
     Node *searcher = word.getHead();
     int points = 0;
@@ -138,6 +164,12 @@ int Searcher::wordPointCount(LinkedList word, GameBoard board) {
     return points * wordMultiplier;
 }
 
+/**
+ * This method validates the grammar of a word (in the form of a linked list)
+ * @param word to check
+ * @param board needed to use the organizer
+ * @return the validation of the word
+ */
 bool Searcher::wordVerify(LinkedList word, GameBoard board) {
     if (board.getOrganizer()->searchWord(word.getWord())) {
         board.setVerifiedWord(word);

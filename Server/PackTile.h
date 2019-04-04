@@ -1,6 +1,9 @@
 #ifndef QUEUE_USING_OOP_PACKTILE_H
 #define QUEUE_USING_OOP_PACKTILE_H
 
+/**
+ * Pack tile is simpler way to represent a tile  used for communication, it is send between server and client
+ */
 class PackTile {
 private:
     char letter;

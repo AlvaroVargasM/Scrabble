@@ -5,9 +5,12 @@
 #include "LinkedList.h"
 #include "GameBoard.h"
 
+/**
+ * This class is in charge of the words in the game, for that it uses linked lists o interact with the game board.
+ */
 class Searcher {
 public:
-    LinkedList confirmedWords[16];
+    //LinkedList confirmedWords[16];
     Searcher();
     LinkedList wordExpand(LinkedList word, GameBoard board);
     bool wordConnect(LinkedList word, GameBoard board);

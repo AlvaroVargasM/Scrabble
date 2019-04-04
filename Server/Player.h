@@ -9,6 +9,8 @@ private:
     std::string name;
     int points;
     int* connection;
+    bool turn;
+    bool ready;
 public:
     const std::string &getName() const;
 
@@ -19,6 +21,16 @@ public:
     void setPoints(int points);
 
     void setConnection(int*);
+
+    bool isTurn() const;
+
+    void setTurn(bool turn);
+
+    int *getConnection() const;
+
+    bool isReady() const;
+
+    void setReady(bool ready);
 };
 
 
