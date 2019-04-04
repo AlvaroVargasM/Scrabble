@@ -16,6 +16,7 @@ void Stack::push(PackTile * x)
     this->head= nodeS;
     counter++;
 }
+//Funtion to get and return a last Node type PackTile
 PackTile Stack::pop(){
     NodeS*a;
     NodeS* temp = this->head;
@@ -39,7 +40,7 @@ bool Stack::isFull() {
     }
     return false;
 }
-/*Method that will be responsible for generating the 100 chips that will be sent to the player.
+/*Method that will be responsible for generating the 100 PackTiles that will be sent to the player.
 
  * */
 void Stack::generate(){
@@ -116,3 +117,17 @@ void Stack::generate(){
         }
     }
 }
+void Stack:: PrintStack(){
+    NodeS* temp = this->head;
+
+    do {
+        cout <<temp->getData()->getLetter() <<  ":" << temp->getData()->getValue() ;
+        std::cout << "\n";
+        temp = temp->getNext();
+    } while (temp != nullptr);
+
+    std::cout << "\n";
+}
+
+
+

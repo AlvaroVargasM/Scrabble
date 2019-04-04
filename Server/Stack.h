@@ -18,5 +18,7 @@ public:
     bool isFull();
     PackTile swap();
     void generate();
+    void PrintStack();
+
 };
 #endif //QUEUE_USING_OOP_STACK_H

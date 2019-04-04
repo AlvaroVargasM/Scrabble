@@ -4,15 +4,12 @@
 #include <iostream>
 #include "NodeS.h"
 #include "PackTile.h"
-
 NodeS ::NodeS(PackTile* packTile) {
     this->data=packTile;
     this->next= nullptr;
 }
 void NodeS::setNext(NodeS *n) {
     this->next= n;
-
-
 }
 
 NodeS* NodeS::getNext()  {
@@ -20,7 +17,6 @@ NodeS* NodeS::getNext()  {
 }
 PackTile* NodeS::getData() {
     return this->data;
-
 }
 
 
