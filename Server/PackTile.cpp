@@ -3,6 +3,9 @@
 //
 
 #include "PackTile.h"
+PackTile::PackTile() {
+
+}
 
 PackTile::PackTile(char l, int i, int j, int v) {
     this->letter = l;

@@ -14,10 +14,14 @@ public:
     void push(PackTile *l);
     PackTile pop();
     int size();
+
     bool isEmpty();
+    NodeS* getLasNode();
     bool isFull();
-    void Swap();
+    PackTile Swap(PackTile arr[7]);
     void generate();
+    PackTile deleteCurrentNode(NodeS* nodeS);
+
     void PrintStack();
 
 };

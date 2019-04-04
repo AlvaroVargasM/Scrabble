@@ -5,11 +5,10 @@
 #include "Organizer.h"
 #include "Searcher.h"
 #include "Stack.h"
-#include "Server.h"
 
 int main() {
     // Game board and organizer are set
-    /*GameBoard gb;
+    GameBoard gb;
     Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
     gb.setOrganizer(org);
 
@@ -54,16 +53,16 @@ int main() {
     l.addLast(gb.getTile(6, 9));
     l.addLast(gb.getTile(7, 9));
     l.addLast(gb.getTile(8, 9));
-    l.addLast(gb.getTile(9, 9));*/
+    l.addLast(gb.getTile(9, 9));
 
 
 /*stack
  *test case
  * */
-    /*Stack *stack = new Stack;
+    Stack *stack = new Stack;
 
     stack->generate();//genera los Packtiles
-    stack->Swap();*/
+    stack->Swap();
     //std::cout << stack->size();
     //std::cout << "\n";
     //stack->PrintStack();// muestra el stack completo
@@ -84,16 +83,13 @@ int main() {
 
 
     // Searching for expanded words- and connected words
-    //Searcher sea;
+    Searcher sea;
 
-    //LinkedList exw = (sea.wordExpand(ll, gb));
+    LinkedList exw = (sea.wordExpand(ll, gb));
 
    // if (sea.wordConnect(exw, gb)) {
      //   if (sea.wordVerify(exw, gb))
        //     std::cout << sea.wordPointCount();
     //}
-
-    Server* server = new Server();
-
     return 0;
 }
