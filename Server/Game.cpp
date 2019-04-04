@@ -36,21 +36,19 @@ std::string Game::verify(PackTile* p) {
 
     LinkedList expWord = this->searcher.wordExpand(word,this->board);
 
-    if(this->searcher.isWordExpanded(word,expWord)) {
-        if (this->searcher.wordVerify(expWord, this->board)) {
+    if(this->searcher.isWordExpanded(word,expWord))
+        if (this->searcher.wordVerify(expWord, this->board))
             response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
-        }
         else
             response = "0";
-    }
-    else {
-        if (this->searcher.wordConnect(word, this->board)) {
-            if (this->searcher.wordVerify(word, this->board)) {
+    else
+        if (this->searcher.wordConnect(word, this->board))
+            if (this->searcher.wordVerify(word, this->board))
                 response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
-            }
             else
                 response = "0";
-        }
-    }
+
+
+
     return response;
 }

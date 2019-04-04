@@ -1,13 +1,18 @@
 #include "Node.h"
 
+/**
+ * Node constructor, receives or assign all of the data needed to work in the linked list
+ * @param _l letter
+ * @param _i row
+ * @param _j column
+ * @param _pts points
+ */
 Node::Node(char _l, int _i, int _j, int _pts) {
     this->l = _l;
     this->next = nullptr;
-    this->wM = false;
     this->pts = _pts;
     this->i = _i;
     this->j = _j;
-    this->blocked = false;
 }
 
 char Node::getL() const {
@@ -48,12 +53,4 @@ int Node::getJ() const {
 
 void Node::setJ(int j) {
     Node::j = j;
-}
-
-bool Node::isBlocked() const {
-    return blocked;
-}
-
-void Node::setBlocked(bool blocked) {
-    Node::blocked = blocked;
 }

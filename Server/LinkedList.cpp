@@ -2,12 +2,22 @@
 #include "LinkedList.h"
 #include "PackTile.h"
 
+/**
+ * Linked list constructor, initialize a the head Node to null pointer
+ */
 LinkedList::LinkedList() {
     head = nullptr;
 }
 
+/**
+ * Linked list deconstructor
+ */
 LinkedList::~LinkedList() {}
 
+/**
+ * Adds a  new Node at the begging of the list, receives a Pack Tile
+ * @param pTile is converted into a Node
+ */
 void LinkedList::addFront(PackTile pTile) {
     char let = pTile.getLetter();
     int i = pTile.getRow();
@@ -19,6 +29,10 @@ void LinkedList::addFront(PackTile pTile) {
     this->head = n;
 }
 
+/**
+ * Adds a new Node at the begging of the list, receives a Tile
+ * @param tile is converted into Node
+ */
 void LinkedList::addFront(Tile tile) {
     char let = tile.getLetter();
     int i = tile.getRow();
@@ -30,6 +44,10 @@ void LinkedList::addFront(Tile tile) {
     this->head = n;
 }
 
+/**
+ * Adds a new Node at the end of the list, receives a Pack Tile
+ * @param pTile  is converted into Node
+ */
 void LinkedList::addLast(PackTile pTile) {
     char let = pTile.getLetter();
     int i = pTile.getRow();
@@ -51,6 +69,10 @@ void LinkedList::addLast(PackTile pTile) {
     }
 }
 
+/**
+ * Adds a new Node at the end of the list, receives a Tile
+ * @param tile is converted into Node
+ */
 void LinkedList::addLast(Tile tile) {
     char let = tile.getLetter();
     int i = tile.getRow();
@@ -71,6 +93,10 @@ void LinkedList::addLast(Tile tile) {
         temp->setNext(n);
     }
 }
+
+/**
+ * Prints an abstraction of the list, with Nodes as: Letter:Points
+ */
 void LinkedList::printList() {
     Node* temp = this->head;
 
@@ -82,7 +108,11 @@ void LinkedList::printList() {
     std::cout << "NULL \n";
 }
 
-//30/03/2019
+
+/**
+ * Takes the list, goes through the list taking the char from each Node, letters, to form a string, word.
+ * @return the word contained in the linked list
+ */
 std::string LinkedList::getWord() {
     Node* searcherPtr = this->head;
     std::string word;
@@ -94,29 +124,6 @@ std::string LinkedList::getWord() {
 
     return word;
 }
-
-//29/03/19
-/*
-int LinkedList::getPoints() {
-    Node *temp = this->head;
-    int points = 0;
-    int wmult = 1;
-
-    do {
-        int var = 1;
-        if (temp->getM() != 1) {
-            if (temp->isWM())
-                wmult = temp->getM();
-            else
-                var = temp->getM();
-        }
-        points += (temp->getPts() * var);
-        temp = temp->getNext();
-        } while (temp != nullptr);
-
-    return points * wmult;
-}
- */
 
 bool LinkedList::isHorizontal() {
     Node *n1 = this->head;

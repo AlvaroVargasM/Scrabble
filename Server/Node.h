@@ -1,16 +1,16 @@
 #ifndef QUEUE_USING_OOP_NODE_H
 #define QUEUE_USING_OOP_NODE_H
 
-
+/**
+ * Node class for beaing used in the link list, it stores data similar to a Tile
+ */
 class Node {
 private:
     char l;
     Node *next;
-    bool wM;
     int pts;
     int i;
     int j;
-    bool blocked;
 
 public:
     Node(char letter,int row,int columns,int points);
@@ -35,10 +35,6 @@ public:
     int getJ() const;
 
     void setJ(int j);
-
-    bool isBlocked() const;
-
-    void setBlocked(bool blocked);
 };
 
 
