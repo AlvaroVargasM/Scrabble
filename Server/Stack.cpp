@@ -184,6 +184,7 @@ PackTile Stack::Swap(PackTile array[]) {
     PackTile* packTile=new PackTile('#',-1);
     PackTile  arr[]={*packTile,*packTile ,*packTile ,*packTile ,*packTile ,* packTile, *packTile};
         array=arr;
+
     NodeS *temp=this->head;
 
      for(int i=0;i<(int)v1;i++) {

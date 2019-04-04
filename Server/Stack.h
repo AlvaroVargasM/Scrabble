@@ -14,6 +14,7 @@ public:
     void push(PackTile *l);
     PackTile pop();
     int size();
+
     bool isEmpty();
     NodeS* getLasNode();
     bool isFull();

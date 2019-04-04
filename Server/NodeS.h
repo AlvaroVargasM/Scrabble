@@ -11,7 +11,7 @@ public:
     void setNext(NodeS* n);
     NodeS* getNext();
     PackTile*getData();
-    void setPrev(NodeS* n);
+    void setPrev(NodeS * n);
     NodeS* getPrev();
 
 

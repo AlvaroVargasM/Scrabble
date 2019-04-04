@@ -9,7 +9,7 @@ NodeS ::NodeS(PackTile* packTile) {
     this->next= nullptr;
     this->prev= nullptr;
 }
-void NodeS::setNext(NodeS *n) {
+void NodeS::setNext(NodeS* n) {
     this->next= n;}
 
 void NodeS::setPrev(NodeS* n){
