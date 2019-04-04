@@ -113,6 +113,13 @@ int Searcher::wordPointCount() {
 }
 */
 
+bool Searcher::isWordExpanded(LinkedList list1, LinkedList list2) {
+    if (list1.getSize() == list2.getSize())
+        return false;
+    else
+        return true;
+}
+
 int Searcher::wordPointCount(LinkedList word, GameBoard board) {
     Node *searcher = word.getHead();
     int points = 0;
@@ -144,4 +151,8 @@ bool Searcher::wordVerify(LinkedList word, GameBoard board) {
         return true;
     }
     return false;
+}
+
+std::string Searcher::verify(PackTile *) {
+    return std::__cxx11::string();
 }

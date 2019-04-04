@@ -13,6 +13,8 @@ public:
     bool wordConnect(LinkedList word, GameBoard board);
     bool wordVerify(LinkedList word, GameBoard board);
 
+    bool isWordExpanded(LinkedList list1, LinkedList l2);
+
     int wordPointCount(LinkedList word, GameBoard board);
 };
 

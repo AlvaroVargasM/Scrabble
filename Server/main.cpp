@@ -15,8 +15,6 @@ int main(){
 
     std::cout << "\n";
 
-
-
     // Adding words to the board
     gb.changeTile(7,7,'s',4);
     /*
