@@ -6,38 +6,31 @@
 #include "PackTile.h"
 #include "NodeS.h"
 using namespace std;
-
 Stack::Stack() {
-
+    head= nullptr;
 }
-
-// Utility function to add an element x in the stack
+// Utility function to create  a new node type of Packtile and add an element x
 void Stack::push(PackTile * x)
-{
-    NodeS* nodeS= new NodeS;
-    nodeS->data=x;
-    nodeS->next=top;
-    top= nodeS;
+{   NodeS* nodeS= new NodeS(x);
+    nodeS->setNext(this->head);
+    this->head= nodeS;
     counter++;
 }
 PackTile Stack::pop(){
-    NodeS *aux ;
-    NodeS* temp;
-    while (aux != nullptr)
-    {aux = aux->next;
+    NodeS*a;
+    NodeS* temp = this->head;
+    while(temp->getNext()!= nullptr){
+        a=temp;
+        temp = temp->getNext();
     }
-    temp=aux;
-    temp->next=top;
-
-    delete(aux);
+    a->setNext(nullptr);
+    delete(temp);
     counter--;
-    return *temp->data;
-
-
+    return *a->getData();
 
 }
-int Stack::size() {
 
+int Stack::size() {
     return counter;
 }
 bool Stack::isFull() {
