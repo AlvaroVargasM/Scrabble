@@ -10,11 +10,50 @@
 #include <cstdlib>
 #include <cstring>
 #include <vector>
+#include <thread>
 
+/**
+ * This is the organizer constructor
+ * @param path
+ * @param filename
+ */
 Organizer::Organizer(string path, string filename) {
     this->path = path;
     this->filename = this->path + filename;
     createWordFiles();
+}
+
+void writeWordFiles(char* letter, Dictionary* list, string* path){
+    ofstream writer;
+    string newFile = "_words.txt";
+    newFile.insert(0, 1, *letter);
+    writer.open(*path + newFile);
+    for(int i = 1; i <= list->getLength(); i++){
+        writer << list->getIndex(i)->getData() << endl;
+    }
+}
+
+void writeChartFiles(char* letter, Dictionary* list, string* path){
+    ofstream newWriter;
+    string chartFile = "_chart.txt";
+    chartFile.insert(0, 1, *letter);
+    newWriter.open(*path + chartFile);
+    int amount = 0;
+    int numLetters = 1;
+    int iniPosition = 0;
+    int finalPosition = 0;
+    for(int i = 1; i <= list->getLength(); i++){
+        if(numLetters == list->getIndex(i)->getDataLength()) {
+            amount++;
+            finalPosition++;
+        }else{
+            newWriter << to_string(numLetters) << ',' << to_string(amount) << ',' << to_string(iniPosition) << ',' << to_string(finalPosition) << endl;
+            amount = 0;
+            numLetters++;
+            finalPosition++;
+            iniPosition = finalPosition;
+        }
+    }
 }
 
 void Organizer::createWordFiles() {
@@ -26,33 +65,17 @@ void Organizer::createWordFiles() {
         while((reader >> line) && (line.at(0) == this->alphabet[i])){
             list->insertNode(line);
         }
-        ofstream writer;
-        string newFile = "_words.txt";
-        newFile.insert(0, 1, this->alphabet[i]);
-        writer.open(this->path + newFile);
-        for(int i = 1; i <= list->getLength(); i++){
-            writer << list->getIndex(i)->getData() << endl;
+        char* letter = &this->alphabet[i];
+        string* path = &this->path;
+        thread thread1(writeWordFiles, letter, list, path);
+        thread thread2(writeChartFiles, letter, list, path);
+        if(i != 25){
+            thread1.detach();
+            thread2.detach();
+        }else{
+            thread1.join();
+            thread2.join();
         }
-        ofstream newWriter;
-        string chartFile = "_chart.txt";
-        chartFile.insert(0, 1, this->alphabet[i]);
-        newWriter.open(path + chartFile);
-        int amount = 0;
-        int numLetters = 1;
-        int iniPosition = 0;
-        int finalPosition = 0;
-        for(int i = 1; i <= list->getLength(); i++){
-            if(numLetters == list->getIndex(i)->getDataLength()) {
-                amount++;
-                finalPosition++;
-            }else{
-                newWriter << to_string(numLetters) << ',' << to_string(amount) << ',' << to_string(iniPosition) << ',' << to_string(finalPosition) << endl;
-                amount = 0;
-                numLetters++;
-                finalPosition++;
-                iniPosition = finalPosition;
-            }
-        }writer << numLetters << ',' << amount << ',' << iniPosition << ',' << finalPosition << endl;
     }
 }
 
