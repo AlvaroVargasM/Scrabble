@@ -53,6 +53,7 @@ void GenericLinkedList<T>::remove(int i) {
     if(i == 1){
         this->header = nullptr;
     }
+
     GenericNode<T>* temp = get(i-1);
     GenericNode<T>* temp1 = get(i+1);
     temp->setNext(temp1);
