@@ -7,6 +7,7 @@
 #include "../Networking/PackTile.h"
 class NodeS{
 public:
+
     NodeS(PackTile* packTile);
     void setNext(NodeS* n);
     NodeS* getNext();
