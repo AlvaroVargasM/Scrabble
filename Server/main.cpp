@@ -60,48 +60,9 @@ int main() {
  *test case
  * */
     Stack *stack = new Stack;
-   // PackTile *packTile;
 
-
-    //PackTile  arr[]={*packTile,*packTile ,*packTile ,*packTile ,*packTile ,* packTile, *packTile};
-   // std::cout <<stack->Swap(arr).getLetter();
-    PackTile *packTile = new PackTile('#', -1);
-    PackTile arr[] = {*packTile, *packTile, *packTile, *packTile, *packTile, *packTile, *packTile};
-
-    stack->generate();
-    stack->Swap(arr);
-
-  // std::cout <<stack->deleteCurrentNode().getLetter();
-    //
-    std::cout << "\n";
-std:: cout<< stack->size();
-    std::cout << "\n";
-    std::cout<< arr[0].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[1].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[2].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[3].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[4].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[5].getLetter();
-    std::cout << "\n";
-    std::cout<< arr[6].getLetter();
-    std::cout << "\n";
-
-
-
-
-
-
- // std::cout << stack->pop().getLetter();
-
-
-
-    //genera los Packtiles
-
+    stack->generate();//genera los Packtiles
+    stack->Swap();
     //std::cout << stack->size();
     //std::cout << "\n";
     //stack->PrintStack();// muestra el stack completo
