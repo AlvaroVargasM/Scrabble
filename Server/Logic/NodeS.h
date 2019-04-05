@@ -4,7 +4,7 @@
 
 #ifndef QUEUE_USING_OOP_NODES_H
 #define QUEUE_USING_OOP_NODES_H
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 class NodeS{
 public:
     NodeS(PackTile* packTile);

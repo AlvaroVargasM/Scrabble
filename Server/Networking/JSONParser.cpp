@@ -4,7 +4,7 @@
 
 #include "JSONParser.h"
 #include <string>
-#include "Tile.h"
+#include "../Logic/Tile.h"
 #include <iostream>
 
 using namespace std;

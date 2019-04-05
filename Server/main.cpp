@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Tile.h"
-#include "GameBoard.h"
-#include "LinkedList.h"
-#include "Organizer.h"
-#include "Searcher.h"
-#include "Stack.h"
+#include "Logic/Tile.h"
+#include "Logic/GameBoard.h"
+#include "Logic/LinkedList.h"
+#include "Logic/Organizer.h"
+#include "Logic/Searcher.h"
+#include "Logic/Stack.h"
 
 int main() {
     // Game board and organizer are set
@@ -59,10 +59,10 @@ int main() {
 /*stack
  *test case
  * */
-    Stack *stack = new Stack;
+    //Stack *stack = new Stack;
 
-    stack->generate();//genera los Packtiles
-    stack->Swap();
+    //stack->generate();//genera los Packtiles
+    //stack->Swap();
     //std::cout << stack->size();
     //std::cout << "\n";
     //stack->PrintStack();// muestra el stack completo
@@ -87,9 +87,9 @@ int main() {
 
     LinkedList exw = (sea.wordExpand(ll, gb));
 
-   // if (sea.wordConnect(exw, gb)) {
-     //   if (sea.wordVerify(exw, gb))
-       //     std::cout << sea.wordPointCount();
-    //}
+   if (sea.wordConnect(exw, gb))
+       if (sea.wordVerify(exw, gb))
+           std::cout << sea.wordPointCount(exw,gb);
+
     return 0;
 }

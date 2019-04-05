@@ -1,10 +1,10 @@
 #ifndef QUEUE_USING_OOP_GAME_H
 #define QUEUE_USING_OOP_GAME_H
 
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 #include "GameBoard.h"
 #include "Searcher.h"
-#include "GenericLinkedList.h"
+#include "../Networking/GenericLinkedList.h"
 
 class Game {
 private:

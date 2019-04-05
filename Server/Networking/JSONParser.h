@@ -8,7 +8,7 @@
 #include <string.h>
 #include <string>
 #include <stdlib.h>
-#include "GameBoard.h"
+#include "../Logic/GameBoard.h"
 
 using namespace std;
 

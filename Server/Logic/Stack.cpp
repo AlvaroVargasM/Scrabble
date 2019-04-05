@@ -5,7 +5,7 @@
 #include <cstdlib>
 #include <time.h>
 #include "Stack.h"
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 #include "NodeS.h"
 using namespace std;
 Stack::Stack() {

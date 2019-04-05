@@ -7,7 +7,7 @@
 
 
 #include "GenericLinkedList.h"
-#include "Game.h"
+#include "../Logic/Game.h"
 
 class Server {
 public:

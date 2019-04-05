@@ -1,6 +1,6 @@
 #include <iostream>
 #include "LinkedList.h"
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 
 /**
  * Linked list constructor, initialize a the head Node to null pointer

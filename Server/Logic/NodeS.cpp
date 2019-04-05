@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "NodeS.h"
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 NodeS ::NodeS(PackTile* packTile) {
     this->data=packTile;
     this->next= nullptr;

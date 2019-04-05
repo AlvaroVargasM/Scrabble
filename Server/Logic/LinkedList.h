@@ -4,7 +4,7 @@
 #include <string>
 #include "Node.h"
 #include "Tile.h"
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 
 /**
  * Linked list that uses Nodes similar to Tile, it is used to manage possible words formed in Game Board

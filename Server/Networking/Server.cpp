@@ -10,7 +10,7 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <thread>
-#include "Game.h"
+#include "../Logic/Game.h"
 #include "SocketHandler.h"
 
 using namespace std;

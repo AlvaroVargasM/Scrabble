@@ -6,9 +6,9 @@
 #include "GameBoard.h"
 #include "Searcher.h"
 #include "Stack.h"
-#include "PackTile.h"
+#include "../Networking/PackTile.h"
 #include "LinkedList.h"
-#include "GenericLinkedList.h"
+#include "../Networking/GenericLinkedList.h"
 
 Game::Game() {
     // Stack * stack = new Stack;
