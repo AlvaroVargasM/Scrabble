@@ -9,6 +9,7 @@ class Stack {
 private:
     NodeS*head;
 public:
+
     Stack();
     int counter=0;
     void push(PackTile *l);

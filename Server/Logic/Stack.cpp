@@ -181,7 +181,6 @@ void Stack::Swap(PackTile array[]) {
                 counter--;
                 array[2] = *a->getData();
                 std::cout << array[2].getLetter()<< array[0].getValue();;
-
                 std::cout << "\n";
 
             }

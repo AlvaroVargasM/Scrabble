@@ -10,8 +10,8 @@ NodeS ::NodeS(PackTile* packTile) {
     this->prev=nullptr;
 }
 void NodeS::setNext(NodeS* n) {
-    this->next= n;}
-
+    this->next= n;
+}
 void NodeS::setPrev(NodeS* n){
      this->prev=n;
  }
