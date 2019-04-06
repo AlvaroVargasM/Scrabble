@@ -12,28 +12,36 @@
 class LinkedList {
 private:
     Node *head;
+
 public:
     LinkedList();
+
     ~LinkedList();
 
     void addLast(PackTile pTile);
+
     void addFront(PackTile pTile);
 
     void addLast(Tile tile);
+
     void addFront(Tile tile);
 
     Node* getLastNode();
+
     void printList();
 
     std::string getWord();
+
     //int getPoints();
 
     bool isHorizontal();
 
     void deleteEndNode();
+
     void deleteFrontNode();
 
     Node *getHead() const;
+
     void setHead(Node *head);
 
     int getSize();

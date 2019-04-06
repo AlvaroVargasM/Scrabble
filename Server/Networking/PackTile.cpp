@@ -1,8 +1,5 @@
-//
-// Created by alvar on 30/03/19.
-//
-
 #include "PackTile.h"
+
 PackTile::PackTile() {
 
 }
@@ -23,19 +20,12 @@ char PackTile::getLetter() const {
     return this->letter;
 }
 
-
 int PackTile::getRow() const {
     return this->row;
 }
 
-
 int PackTile::getColumn() const {
     return this->column;
-}
-
-void PackTile::setCoordinates(int i, int j) {
-    this->row = i;
-    this->column = j;
 }
 
 int PackTile::getValue() const {

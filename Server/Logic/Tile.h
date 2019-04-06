@@ -13,8 +13,6 @@ private:
     int points;
     int row;
     int column;
-    bool blocked;
-
 
 public:
     Tile();
@@ -42,11 +40,6 @@ public:
     int getColumn() const;
 
     void setColumn(int column);
-
-    bool isBlocked() const;
-
-    void setBlocked(bool blocked);
 };
-
 
 #endif //PROJECT_TILE_H

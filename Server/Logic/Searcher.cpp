@@ -4,7 +4,6 @@
 #include "Organizer.h"
 #include <array>
 
-
 Searcher::Searcher() {}
 
 /**

@@ -49,11 +49,3 @@ int Tile::getColumn() const {
 void Tile::setColumn(int column) {
     Tile::column = column;
 }
-
-bool Tile::isBlocked() const {
-    return this->blocked;
-}
-
-void Tile::setBlocked(bool blocked) {
-    Tile::blocked = blocked;
-}

@@ -19,7 +19,6 @@ public:
 
     void setL(char l);
 
-
     Node *getNext() const;
 
     void setNext(Node *next);
