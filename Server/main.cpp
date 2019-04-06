@@ -32,7 +32,7 @@ int main() {
     gb.changeTile(1, 2, 's', 5);
     gb.changeTile(1, 3, 'h', 4);
 
-    gb.getLetters();
+    gb.printLetters();
 
     std::cout << "\n";
 

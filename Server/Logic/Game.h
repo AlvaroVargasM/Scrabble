@@ -5,6 +5,7 @@
 #include "GameBoard.h"
 #include "Searcher.h"
 #include "../Networking/GenericLinkedList.h"
+#include "Organizer.h"
 
 class Game {
 private:
@@ -14,7 +15,7 @@ private:
     string accessCode;
     Player * current;
 public:
-    Game();
+    Game(Organizer * organizer);
 
     void addPlayer(Player*);
 

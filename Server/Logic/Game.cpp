@@ -6,7 +6,8 @@
 #include "LinkedList.h"
 #include "../Networking/GenericLinkedList.h"
 
-Game::Game() {
+Game::Game(Organizer *organizer) {
+    this->board.setOrganizer(organizer);
     // Stack * stack = new Stack;
     this->players = new GenericLinkedList<Player>();
     Game* ptr = &(*this);

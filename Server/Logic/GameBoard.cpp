@@ -8,13 +8,13 @@
 GameBoard::GameBoard() {
     this->setMultipliers(2,3,4,5);
     this->setLetters('.');
-    this->setCoordinates();
+    this->printCoordinates();
 }
 
 /**
  * Prints the matrix's letters
  */
-void GameBoard::getLetters() {
+void GameBoard::printLetters() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++)
             std::cout << this->board[i][j].getLetter() << " ";
@@ -80,7 +80,7 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
 /**
  * Establish all the positions of the matrix's tiles
  */
-void GameBoard::setCoordinates() {
+void GameBoard::printCoordinates() {
     for (int i = 0; i < 15; i++) {
         for (int j = 0; j < 15; j++) {
             this->board[i][j].setRow(i);
