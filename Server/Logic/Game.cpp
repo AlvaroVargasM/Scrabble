@@ -33,29 +33,32 @@ std::string Game::verify(PackTile* p) {
     std::string response;
     LinkedList word;
 
-
-
     for(int i = 0;i < 7;i++)
         if (p[i].getValue() != -1)
             word.addLast(p[i]);
 
     LinkedList expWord = this->searcher.wordExpand(word,this->board);
 
-    if(this->searcher.isWordExpanded(word,expWord))
+    if(this->searcher.isWordExpanded(word,expWord)) {
         if (this->searcher.wordVerify(expWord, this->board)) {
             this->current->setTurn(false);
             response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
         }
         else
             response = "0";
-    else
-        if (this->searcher.wordConnect(word, this->board))
-            if (this->searcher.wordVerify(word, this->board))
+    }
+
+    else {
+        if (this->searcher.wordConnect(word, this->board)) {
+            if (this->searcher.wordVerify(word, this->board)) {
                 response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
+            }
             else
                 response = "0";
-
-
+        }
+        else
+            response = "0";
+    }
 
     return response;
 }
