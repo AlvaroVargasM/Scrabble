@@ -9,19 +9,17 @@ class Stack {
 private:
     NodeS*head;
 public:
+
     Stack();
     int counter=0;
     void push(PackTile *l);
     PackTile pop();
     int size();
-
     bool isEmpty();
     NodeS* getLasNode();
     bool isFull();
-    PackTile Swap(PackTile arr[7]);
+  void Swap(PackTile arr[7]);
     void generate();
-    PackTile deleteCurrentNode(NodeS* nodeS);
-
     void PrintStack();
 
 };

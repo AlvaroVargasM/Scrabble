@@ -7,14 +7,13 @@
 #include "../Networking/PackTile.h"
 class NodeS{
 public:
+
     NodeS(PackTile* packTile);
     void setNext(NodeS* n);
     NodeS* getNext();
     PackTile*getData();
     void setPrev(NodeS * n);
     NodeS* getPrev();
-
-
 private:
     PackTile *data;
     NodeS* next;
