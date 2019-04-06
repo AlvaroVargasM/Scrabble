@@ -18,7 +18,7 @@ public:
     bool isEmpty();
     NodeS* getLasNode();
     bool isFull();
-  void Swap(PackTile arr[7]);
+    void Swap(PackTile arr[7]);
     void generate();
     void PrintStack();
 

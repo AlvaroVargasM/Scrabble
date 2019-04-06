@@ -1,7 +1,3 @@
-//
-// Created by alvar on 03/04/19.
-//
-
 #include "Game.h"
 #include "GameBoard.h"
 #include "Searcher.h"
@@ -59,6 +55,5 @@ std::string Game::verify(PackTile* p) {
         else
             response = "0";
     }
-
     return response;
 }

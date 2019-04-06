@@ -1,7 +1,6 @@
 #ifndef QUEUE_USING_OOP_PLAYER_H
 #define QUEUE_USING_OOP_PLAYER_H
 
-
 #include <string>
 
 class Player {
