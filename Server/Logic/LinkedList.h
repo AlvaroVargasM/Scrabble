@@ -20,7 +20,7 @@ public:
     void addFront(PackTile pTile);
 
     void addLast(Tile tile);
-    void addFront(Tile Tile);
+    void addFront(Tile tile);
 
     Node* getLastNode();
     void printList();

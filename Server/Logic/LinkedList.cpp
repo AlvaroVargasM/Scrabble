@@ -3,19 +3,19 @@
 #include "../Networking/PackTile.h"
 
 /**
- * Linked list constructor, initialize a the head Node to null pointer
+ * LinkedList constructor, initialize a the head Node to null pointer
  */
 LinkedList::LinkedList() {
     head = nullptr;
 }
 
 /**
- * Linked list deconstructor
+ * Linked list destructor
  */
 LinkedList::~LinkedList() {}
 
 /**
- * Adds a  new Node at the begging of the list, receives a Pack Tile
+ * Adds a  new Node at the begging of the list, receives a PackTile
  * @param pTile is converted into a Node
  */
 void LinkedList::addFront(PackTile pTile) {
@@ -26,6 +26,7 @@ void LinkedList::addFront(PackTile pTile) {
 
     Node *n = new Node(let,i,j,pts);
     n->setNext(this->head);
+
     this->head = n;
 }
 
@@ -45,7 +46,7 @@ void LinkedList::addFront(Tile tile) {
 }
 
 /**
- * Adds a new Node at the end of the list, receives a Pack Tile
+ * Adds a new Node at the end of the list, receives a PackTile
  * @param pTile  is converted into Node
  */
 void LinkedList::addLast(PackTile pTile) {
@@ -53,8 +54,6 @@ void LinkedList::addLast(PackTile pTile) {
     int i = pTile.getRow();
     int j = pTile.getColumn();
     int pts = pTile.getValue();
-
-
 
     Node* n = new Node(let,i,j,pts);
     n->setNext(nullptr);
@@ -79,8 +78,6 @@ void LinkedList::addLast(Tile tile) {
     int j = tile.getColumn();
     int pts = tile.getPoints();
 
-
-
     Node* n = new Node(let,i,j,pts);
     n->setNext(nullptr);
 
@@ -95,7 +92,7 @@ void LinkedList::addLast(Tile tile) {
 }
 
 /**
- * Prints an abstraction of the list, with Nodes as: Letter:Points
+ * Prints an abstraction of the list, with Nodes as: Letter:Points and connections as: ->
  */
 void LinkedList::printList() {
     Node* temp = this->head;
@@ -109,8 +106,8 @@ void LinkedList::printList() {
 }
 
 /**
- * Takes the list, goes through the list taking the char from each Node, letters, to form a string, word.
- * @return the word contained in the linked list
+ * Takes the list, goes through the list taking the char letter from each Node to form a string word.
+ * @return The word contained in the linked list
  */
 std::string LinkedList::getWord() {
     Node* searcherPtr = this->head;
@@ -120,7 +117,6 @@ std::string LinkedList::getWord() {
         word += searcherPtr->getL();
         searcherPtr = searcherPtr->getNext();
     }
-
     return word;
 }
 
@@ -146,12 +142,11 @@ Node* LinkedList::getLastNode() {
     Node *temp = this->head;
     while (temp->getNext() != nullptr)
         temp = temp->getNext();
-
     return temp;
 }
 
 /**
- * Deletes the first Node of a linked list
+ * Deletes the first node of a linked list
  */
 void LinkedList::deleteFrontNode(){
     Node *searcherPtr = head;
@@ -168,7 +163,8 @@ void LinkedList::deleteFrontNode(){
  * Deletes the last Node of the linked list
  */
  void LinkedList::deleteEndNode() {
-     Node *ptr, *prev;
+     Node *ptr;
+     Node *prev;
 
      if (head == nullptr)
          std::cout << "The list is empty, cant delete nack node.\n";
@@ -192,8 +188,8 @@ void LinkedList::setHead(Node *head) {
 }
 
 /**
- * Checks for the amount of Nodes in a linked list
- * @return the size of the linked list
+ * Checks for the amount of nodes in a LinkedList
+ * @return The size of the linked list
  */
 int LinkedList::getSize() {
     Node* searcherPtr = this->head;
@@ -203,6 +199,5 @@ int LinkedList::getSize() {
         ++size;
         searcherPtr = searcherPtr->getNext();
     }
-
     return size;
 }

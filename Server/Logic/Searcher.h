@@ -6,7 +6,7 @@
 #include "GameBoard.h"
 
 /**
- * This class is in charge of the words in the game, for that it uses linked lists o interact with the game board.
+ * This class is in charge of the words in the game, for that it uses linked lists to interact with the game board.
  */
 class Searcher {
 public:
@@ -15,9 +15,7 @@ public:
     LinkedList wordExpand(LinkedList word, GameBoard board);
     bool wordConnect(LinkedList word, GameBoard board);
     bool wordVerify(LinkedList word, GameBoard board);
-
     bool isWordExpanded(LinkedList list1, LinkedList l2);
-
     int wordPointCount(LinkedList word, GameBoard board);
 };
 

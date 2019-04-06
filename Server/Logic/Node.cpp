@@ -1,7 +1,7 @@
 #include "Node.h"
 
 /**
- * Node constructor, receives or assign all of the data needed to work in the linked list
+ * Node constructor, receives and assign all of the data needed in the Node to work in the LinkedList
  * @param _l letter
  * @param _i row
  * @param _j column
