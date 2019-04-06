@@ -15,7 +15,9 @@ private:
     Player * current;
 public:
     Game();
+
     void addPlayer(Player*);
+
     std::string verify(PackTile*);
 
     const GameBoard &getBoard() const {
