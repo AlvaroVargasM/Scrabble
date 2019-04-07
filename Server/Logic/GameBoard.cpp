@@ -12,7 +12,7 @@ GameBoard::GameBoard() {
 }
 
 /**
- * Prints the matrix's letters
+ * Prints the matrix's letters.
  */
 void GameBoard::printLetters() {
     for (int i = 0; i < 15; i++) {
@@ -23,7 +23,7 @@ void GameBoard::printLetters() {
 }
 
 /**
- * Sets all letters on the matrix to the char we pass
+ * Sets all letters on the matrix to the char we pass.
  * @param l char that will be set on every 'Tile'
  */
 void GameBoard::setLetters(char l) {
@@ -33,30 +33,29 @@ void GameBoard::setLetters(char l) {
 }
 
 /**
- * Sets the multipliers in the matrix forming a pre-established geometrical figure
+ * Sets the multipliers in the matrix forming a pre-established geometrical figure.
  * @param m1 first multiplier, the most common one
  * @param m2 second multiplier, fairly common
  * @param m3 third multiplier, it is a word multiplier hard to reach from the center of the matrix
  * @param m4 fourth multiplier, word multiplier, hardest to reach
  */
 void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
-    for (int row = 0; row < 15; row++)
+    for (int row = 0; row < 15; row++) {
         for (int column = 0; column < 15; column++) {
-            if ((row == 3 && (column == 6 || column == 8)) ||
-                (row == 4 && (column == 5 || column == 9)) ||
-                (row == 5 && (column == 4 || column == 10)) ||
-                (row == 6 && (column == 3 || column == 11)) ||
-                (row == 8 && (column == 3 || column == 11)) ||
-                (row == 9 && (column == 4 || column == 10)) ||
-                (row == 10 && (column == 5 || column == 9)) ||
-                (row == 11 && (column == 6 || column == 8))){
+            if ((row == 3  && (column == 6 || column == 8 )) ||
+                (row == 4  && (column == 5 || column == 9 )) ||
+                (row == 5  && (column == 4 || column == 10)) ||
+                (row == 6  && (column == 3 || column == 11)) ||
+                (row == 8  && (column == 3 || column == 11)) ||
+                (row == 9  && (column == 4 || column == 10)) ||
+                (row == 10 && (column == 5 || column == 9 )) ||
+                (row == 11 && (column == 6 || column == 8 ))) {
                 this->board[row][column].setMultiplier(m1);
                 this->board[row][column].setWordMultiplier(false);
                 continue;
-
             }
-            if              (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
-              || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
+            if                (((row == 2 || row == 12) && (column == 4 || column == 7 || column == 10))
+                || ((row == 4 || row == 7 || row == 10) && (column == 2 || column == 12))) {
                 this->board[row][column].setMultiplier(m2);
                 this->board[row][column].setWordMultiplier(false);
                 continue;
@@ -71,14 +70,16 @@ void GameBoard::setMultipliers(int m1, int m2, int m3, int m4) {
                 this->board[row][column].setWordMultiplier(true);
                 continue;
             }
-            else
+            else {
                 board[row][column].setMultiplier(1);
-            this->board[row][column].setWordMultiplier(false);
+                this->board[row][column].setWordMultiplier(false);
+            }
         }
+    }
 }
 
 /**
- * Establish all the positions of the matrix's tiles
+ * Prints the positions of the matrix's tiles.
  */
 void GameBoard::printCoordinates() {
     for (int i = 0; i < 15; i++) {
@@ -90,7 +91,7 @@ void GameBoard::printCoordinates() {
 }
 
 /**
- * Modified a single 'Tile' based on the position in the matrix we indicate
+ * Modified a single 'Tile' based on the position in the matrix we indicate.
  * @param i row
  * @param j column
  * @param l letter to change
@@ -102,7 +103,7 @@ void GameBoard::changeTile(int i, int j, char l, int pts) {
 }
 
 /**
- * We receive a Tile form Game Board using it's coordintes
+ * We receive a Tile form Game Board using it's coordinates.
  * @param i row
  * @param j column
  * @return Tile object
@@ -112,7 +113,7 @@ Tile GameBoard::getTile(int i, int j) {
 }
 
 /**
- * We modified the Game Board based with a  linked list
+ * We modified the Game Board based with a  linked list.
  * @param word the word we want to set in the matrix
  */
 void GameBoard::setVerifiedWord(LinkedList word) {
@@ -123,9 +124,18 @@ void GameBoard::setVerifiedWord(LinkedList word) {
     }
 }
 
+/**
+ * Returns the GameBoard pointer to the Organizer.
+ * @return The Organizer pointer
+ */
 Organizer* GameBoard::getOrganizer(){
     return this->org;
 }
+
+/**
+ * Sets the organizer of GameBoard to the one we pass.
+ * @param org to set
+ */
 void GameBoard::setOrganizer(Organizer * org) {
     this->org = org;
 }

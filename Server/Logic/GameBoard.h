@@ -17,6 +17,7 @@ private:
 
 public:
     GameBoard();
+
     void printLetters();
 
     void setLetters(char letter);

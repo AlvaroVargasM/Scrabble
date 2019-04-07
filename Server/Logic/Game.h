@@ -14,6 +14,7 @@ private:
     GenericLinkedList<Player>* players;
     string accessCode;
     Player *current;
+
 public:
     Game(Organizer *organizer);
 
