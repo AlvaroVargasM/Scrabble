@@ -2,6 +2,8 @@
 // Created by jondorito on 01/04/19.
 //
 
+//Alvaro se la almuerza
+
 #include "Server.h"
 #include <iostream>
 #include <arpa/inet.h>
@@ -63,7 +65,7 @@ Server::Server() {
 
     bind(listening, (sockaddr*)&hint, sizeof(hint));
 
-    // Tell Winsock the socket is for listening
+    // Tell Winsock the socket is for listeningkj
     listen(listening, SOMAXCONN);
 
     Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
