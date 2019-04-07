@@ -18,8 +18,6 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
     Node* firstNodePtr = word.getHead();
     Node* lastNodePtr = word.getLastNode();
 
-    std::cout << "Received word: " << word.getWord() << std::endl;
-
     if (word.isHorizontal()) {
         while (lastNodePtr->getL() != '.'){
             int i = lastNodePtr->getI();
@@ -54,9 +52,6 @@ LinkedList Searcher::wordExpand(LinkedList word, GameBoard board) {
         }
         word.deleteFrontNode();
     }
-
-    std::cout << "Expanded word: " << word.getWord() << std::endl;
-
     return word;
 }
 
@@ -172,7 +167,6 @@ int Searcher::wordPointCount(LinkedList word, GameBoard board) {
 bool Searcher::wordVerify(LinkedList word, GameBoard board) {
     if (board.getOrganizer()->searchWord(word.getWord())) {
         board.setVerifiedWord(word);
-        //confirmedWords[0] = word;
         return true;
     }
     return false;

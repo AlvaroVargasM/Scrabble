@@ -38,7 +38,7 @@ std::string Game::verify(PackTile* p) {
 
     if(this->searcher.isWordExpanded(word,expWord)) {
         if (this->searcher.wordVerify(expWord, this->board)) {
-            this->current->setTurn(false);
+            //this->current->setTurn(false);
             this->board.setVerifiedWord(expWord);
             response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
         }
@@ -49,7 +49,7 @@ std::string Game::verify(PackTile* p) {
     else {
         if (this->searcher.wordConnect(word, this->board)) {
             if (this->searcher.wordVerify(word, this->board)) {
-                this->current->setTurn(false);
+                //this->current->setTurn(false);
                 this->board.setVerifiedWord(expWord);
                 response = "1," + std::to_string(this->searcher.wordPointCount(expWord, this->board));
             }

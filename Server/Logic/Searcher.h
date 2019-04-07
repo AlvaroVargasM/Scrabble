@@ -10,8 +10,6 @@
  */
 class Searcher {
 public:
-    //LinkedList confirmedWords[16];
-
     Searcher();
 
     LinkedList wordExpand(LinkedList word, GameBoard board);

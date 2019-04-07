@@ -13,16 +13,16 @@ private:
     Searcher searcher;
     GenericLinkedList<Player>* players;
     string accessCode;
-    Player * current;
+    Player *current;
 public:
-    Game(Organizer * organizer);
+    Game(Organizer *organizer);
 
     void addPlayer(Player*);
 
     std::string verify(PackTile*);
 
-    const GameBoard &getBoard() const {
-        return board;
+    GameBoard &getBoard() {
+        return this->board;
     }
 
     void setBoard(const GameBoard &board) {

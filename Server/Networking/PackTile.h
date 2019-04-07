@@ -14,7 +14,7 @@ private:
 public:
     PackTile();
 
-    PackTile(char letter,int row,int column,int points);
+    PackTile(int row,int column,char letter,int points);
 
     PackTile(char letter,int points);
 
