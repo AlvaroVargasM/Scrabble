@@ -1,10 +1,11 @@
 #include "PackTile.h"
 
 PackTile::PackTile() {
-
+    this->letter = '.';
+    this->value = -1;
 }
 
-PackTile::PackTile(char l, int i, int j, int v) {
+PackTile::PackTile(int i,int j,char l,int v) {
     this->letter = l;
     this->row = i;
     this->column = j;
