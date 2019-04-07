@@ -66,13 +66,15 @@ Server::Server() {
     // Tell Winsock the socket is for listening
     listen(listening, SOMAXCONN);
 
-    this->games->add(*new Game());
+    Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
+
+    this->games->add(new Game(org));
 
     // Wait for a connection
     while(true) {
 
         if(needNewGame()){
-            this->games->add(*new Game());
+            this->games->add(new Game(org));
             this->newGame = false;
         }
 
