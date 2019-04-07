@@ -1,15 +1,11 @@
-//
-// Created by jondorito on 26/03/19.
-//
-
 #include "Element.h"
 
-Element::Element(string data) {
+Element::Element(std::string data) {
     this->data = data;
     this->next = nullptr;
 }
 
-string Element::getData() {
+std::string Element::getData() {
     return this->data;
 }
 

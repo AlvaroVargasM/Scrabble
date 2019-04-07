@@ -28,5 +28,4 @@ public:
     int getJ() const;
 };
 
-
 #endif //QUEUE_USING_OOP_NODE_H
