@@ -19,10 +19,6 @@ char Node::getL() const {
     return this->l;
 }
 
-void Node::setL(char l) {
-    Node::l = l;
-}
-
 Node *Node::getNext() const {
     return this->next;
 }
@@ -35,22 +31,10 @@ int Node::getPts() const {
     return this->pts;
 }
 
-void Node::setPts(int pts) {
-    Node::pts = pts;
-}
-
 int Node::getI() const {
     return this->i;
 }
 
-void Node::setI(int i) {
-    Node::i = i;
-}
-
 int Node::getJ() const {
     return j;
-}
-
-void Node::setJ(int j) {
-    Node::j = j;
 }
