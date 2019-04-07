@@ -10,6 +10,7 @@ private:
     int* connection;
     bool turn;
     bool ready;
+
 public:
     const std::string &getName() const;
 

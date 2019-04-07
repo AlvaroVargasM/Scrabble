@@ -20,8 +20,6 @@ public:
 
     void addLast(PackTile pTile);
 
-    void addFront(PackTile pTile);
-
     void addLast(Tile tile);
 
     void addFront(Tile tile);
@@ -32,8 +30,6 @@ public:
 
     std::string getWord();
 
-    //int getPoints();
-
     bool isHorizontal();
 
     void deleteEndNode();
@@ -41,8 +37,6 @@ public:
     void deleteFrontNode();
 
     Node *getHead() const;
-
-    void setHead(Node *head);
 
     int getSize();
 };

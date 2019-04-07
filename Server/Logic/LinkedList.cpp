@@ -14,21 +14,6 @@ LinkedList::LinkedList() {
  */
 LinkedList::~LinkedList() {}
 
-/**
- * Adds a  new Node at the begging of the list, receives a PackTile
- * @param pTile is converted into a Node
- */
-void LinkedList::addFront(PackTile pTile) {
-    char let = pTile.getLetter();
-    int i = pTile.getRow();
-    int j = pTile.getColumn();
-    int pts = pTile.getValue();
-
-    Node *n = new Node(let,i,j,pts);
-    n->setNext(this->head);
-
-    this->head = n;
-}
 
 /**
  * Adds a new Node at the begging of the list, receives a Tile
@@ -181,10 +166,6 @@ void LinkedList::deleteFrontNode(){
 
 Node *LinkedList::getHead() const {
     return this->head;
-}
-
-void LinkedList::setHead(Node *head) {
-    LinkedList::head = head;
 }
 
 /**

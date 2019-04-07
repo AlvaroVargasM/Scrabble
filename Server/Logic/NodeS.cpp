@@ -1,30 +1,29 @@
 #include <iostream>
 #include "NodeS.h"
 #include "../Networking/PackTile.h"
+
 NodeS ::NodeS(PackTile* packTile) {
-    this->data=packTile;
-    this->next=nullptr;
-    this->prev=nullptr;
+    this->data = packTile;
+    this->next = nullptr;
+    this->prev = nullptr;
 }
+
 void NodeS::setNext(NodeS* n) {
-    this->next= n;
+    this->next = n;
 }
-void NodeS::setPrev(NodeS* n){
-     this->prev=n;
- }
+
+void NodeS::setPrev(NodeS* n) {
+     this->prev = n;
+}
+
 NodeS* NodeS::getPrev() {
     return this->prev;
-
-
 }
 
-
-
-NodeS* NodeS::getNext()  {
+NodeS* NodeS::getNext() {
     return this->next;
 }
+
 PackTile* NodeS::getData() {
     return this->data;
 }
-
-
