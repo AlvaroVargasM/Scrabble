@@ -6,8 +6,11 @@
 #include "Logic/Searcher.h"
 #include "Logic/Stack.h"
 #include "Logic/Game.h"
+#include "Networking/Server.h"
 
 int main() {
+
+    Server * ser = new Server();
 
     /*
     //stack
@@ -27,5 +30,6 @@ int main() {
 
     std::cout << "\n";
     */
+
     return 0;
 }

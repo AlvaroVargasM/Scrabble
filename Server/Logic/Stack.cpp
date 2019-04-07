@@ -37,9 +37,8 @@ int Stack::size() {
 }
 
 bool Stack::isFull() {
-    if (size() == 100) {
+    if (size() == 100)
         return true;
-    }
     return false;
 }
 
@@ -153,6 +152,7 @@ void Stack::Swap(PackTile array[]) {
         a = temp;
         i++;
         temp = temp->getNext();
+
         if (i == (int)random1) {
             a->setNext(a->getNext());
             delete (temp);

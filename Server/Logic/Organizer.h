@@ -11,9 +11,6 @@
 #include <string>
 #include "Dictionary.h"
 
-using namespace std;
-
-
 class Organizer {
 private:
     ifstream fileReader;
@@ -22,16 +19,15 @@ private:
     string filename;
     Dictionary* currentWords;
     char alphabet[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
 public:
-    Organizer(string, string);
+    Organizer(std::string,std::string);
+
     void createWordFiles();
+
     bool searchWord(string);
+
     bool searchByIndex(int, int, char, string);
-
-
-
-
-
 };
 
 
