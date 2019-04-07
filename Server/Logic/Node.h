@@ -1,7 +1,7 @@
 #ifndef QUEUE_USING_OOP_NODE_H
 #define QUEUE_USING_OOP_NODE_H
 
-/**
+/**+
  * Node class for beaing used in the link list, it stores data similar to a Tile.
  */
 class Node {

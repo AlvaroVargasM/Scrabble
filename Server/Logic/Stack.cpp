@@ -125,7 +125,7 @@ void Stack::generate() {
     }
 }
 
-void Stack::PrintStack() {
+void Stack::printStack() {
     NodeS *temp = this->head;
     do {
         std::cout << temp->getData()->getLetter() << ":" << temp->getData()->getValue();
@@ -135,11 +135,11 @@ void Stack::PrintStack() {
     std::cout << "\n";
 }
 
-void Stack::Swap(PackTile array[]) {
+void Stack::swap(PackTile *arr) {
     srand((unsigned) time(0));
-    PackTile *temp1 = &array[0];
-    PackTile *temp2 = &array[1];
-    PackTile *temp3 = &array[2];
+    PackTile *temp1 = &arr[0];
+    PackTile *temp2 = &arr[1];
+    PackTile *temp3 = &arr[2];
     int i = 0;
 
     srand((unsigned) time(0));
@@ -157,24 +157,24 @@ void Stack::Swap(PackTile array[]) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            array[0] =*a->getData();
-            std::cout << array[0].getLetter()<< array[0].getValue();
+            arr[0] =*a->getData();
+            std::cout << arr[0].getLetter()<< arr[0].getValue();
             std::cout << "\n";
         }
         if (i == (int)random2) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            array[1] =*a->getData();
-            std::cout << array[1].getLetter()<< array[1].getValue();;
+            arr[1] =*a->getData();
+            std::cout << arr[1].getLetter()<< arr[1].getValue();;
             std::cout << "\n";
         }
         if (i == (int)random3) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            array[2] = *a->getData();
-            std::cout << array[2].getLetter()<< array[0].getValue();;
+            arr[2] = *a->getData();
+            std::cout << arr[2].getLetter()<< arr[0].getValue();;
             std::cout << "\n";
         }
     }

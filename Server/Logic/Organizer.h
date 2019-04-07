@@ -1,7 +1,3 @@
-//
-// Created by jondorito on 26/03/19.
-//
-
 #ifndef QUEUE_USING_OOP_ORGANIZER_H
 #define QUEUE_USING_OOP_ORGANIZER_H
 
@@ -29,7 +25,6 @@ public:
 
     bool searchByIndex(int, int, char, string);
 };
-
 
 
 #endif //QUEUE_USING_OOP_ORGANIZER_H

@@ -25,11 +25,11 @@ public:
 
     bool isFull();
 
-    void Swap(PackTile arr[7]);
+    void swap(PackTile *arr);
 
     void generate();
 
-    void PrintStack();
+    void printStack();
 };
 
 #endif //QUEUE_USING_OOP_STACK_H

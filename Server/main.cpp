@@ -18,7 +18,7 @@ int main() {
     Stack *stack = new Stack;
 
     stack->generate();//genera los Packtiles
-    stack->Swap();
+    stack->swap();
     std::cout << stack->size();
     std::cout << "\n";
     stack->PrintStack();// muestra el stack completo
@@ -26,7 +26,7 @@ int main() {
     mysatack->generate();//genera los Packtiles
 
     std::cout << "\n";
-    mysatack->PrintStack();// muestra el stack completo
+    mysatack->printStack();// muestra el stack completo
 
     std::cout << "\n";
     */
