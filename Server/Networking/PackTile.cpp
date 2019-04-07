@@ -1,14 +1,17 @@
 #include "PackTile.h"
 
 PackTile::PackTile() {
+    this->row = -1;
+    this->column = -1;
     this->letter = '.';
     this->value = -1;
+
 }
 
 PackTile::PackTile(int i,int j,char l,int v) {
-    this->letter = l;
     this->row = i;
     this->column = j;
+    this->letter = l;
     this->value = v;
 }
 
