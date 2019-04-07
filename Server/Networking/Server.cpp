@@ -52,8 +52,7 @@ void handleClient(int* clientSocket) {
 Server::Server() {
     // Create a socket
     int listening = socket(AF_INET, SOCK_STREAM, 0);
-    if (listening == -1)
-    {
+    if (listening == -1) {
         cerr << "Can't create a socket! Quitting" << endl;
     }
 
@@ -63,7 +62,7 @@ Server::Server() {
     hint.sin_port = htons(54000);
     inet_pton(AF_INET, "0.0.0.0", &hint.sin_addr);
 
-    bind(listening, (sockaddr*)&hint, sizeof(hint));
+    bind(listening, (sockaddr *) &hint, sizeof(hint));
 
     // Tell Winsock the socket is for listeningkj
     listen(listening, SOMAXCONN);
@@ -73,9 +72,9 @@ Server::Server() {
     this->games->add(new Game(org));
 
     // Wait for a connection
-    while(true) {
+    while (true) {
 
-        if(needNewGame()){
+        if (needNewGame()) {
             this->games->add(new Game(org));
             this->newGame = false;
         }
@@ -84,7 +83,7 @@ Server::Server() {
         socklen_t clientSize = sizeof(client);
 
         int clientSocket = accept(listening, (sockaddr *) &client, &clientSize);
-        int* clientSocketPtr = &clientSocket;
+        int *clientSocketPtr = &clientSocket;
 
         char host[NI_MAXHOST];      // Client's remote name
         char service[NI_MAXSERV];   // Service (i.e. port) the client is connect on
@@ -102,39 +101,6 @@ Server::Server() {
         thread clientThread(&SocketHandler::handleClient, new SocketHandler(), clientSocketPtr);
         clientThread.detach();
     }
-
-    // Close listening socket
-    //close(listening);
-
-    // While loop: accept and echo message back to client
-    /*char buf[4096];
-
-    while (true)
-    {
-        memset(buf, 0, 4096);
-
-        // Wait for client to send data
-        int bytesReceived = recv(clientSocket, buf, 4096, 0);
-        if (bytesReceived == -1)
-        {
-            cerr << "Error in recv(). Quitting" << endl;
-            break;
-        }
-
-        if (bytesReceived == 0)
-        {
-            cout << "Client disconnected " << endl;
-            break;
-        }
-
-        cout << string(buf, 0, bytesReceived) << endl;
-
-        // Echo message back to client
-        send(clientSocket, buf, bytesReceived + 1, 0);
-    }
-
-    // Close the socket
-    close(clientSocket);*/
 }
 
 bool Server::needNewGame() {
