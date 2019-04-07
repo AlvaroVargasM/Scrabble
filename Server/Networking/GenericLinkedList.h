@@ -16,6 +16,7 @@ public:
     void remove(int);
     GenericNode<T>* get(int);
     GenericNode<T>* getHead();
+    int* getLength();
 private:
     GenericNode<T>* header;
     int length;
@@ -29,10 +30,14 @@ GenericLinkedList<T>::GenericLinkedList() {
 
 template<class T>
 void GenericLinkedList<T>::add(T data) {
+    GenericNode<T>* temp = new GenericNode<T>(data);
     if(this->length == 0){
-        this->header = new GenericNode<T>(data);
+        this->header = temp;
+        this->length++;
     }else{
-        this->header->setNext(new GenericNode<T>(data));
+        temp->setNext(this->header);
+        this->header = temp;
+        this->length++;
     }
 }
 
@@ -62,6 +67,11 @@ void GenericLinkedList<T>::remove(int i) {
 template<class T>
 GenericNode<T> *GenericLinkedList<T>::getHead() {
     return this->header;
+}
+
+template <class T>
+int* GenericLinkedList<T>::getLength() {
+    return &this->length;
 }
 
 

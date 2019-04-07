@@ -15,40 +15,6 @@
 #include "../Logic/Game.h"
 #include "SocketHandler.h"
 
-using namespace std;
-
-void handleClient(int* clientSocket) {
-    char buf[4096];
-    while (true)
-    {
-        memset(buf, 0, 4096);
-
-        // Wait for client to send data
-        int bytesReceived = recv(*clientSocket, buf, 4096, 0);
-        if (bytesReceived == -1)
-        {
-            cerr << "Error in recv(). Quitting" << endl;
-            break;
-        }
-
-        if (bytesReceived == 0)
-        {
-            cout << "Client disconnected " << endl;
-            break;
-        }
-
-        cout << string(buf, 0, bytesReceived) << endl;
-
-        char* message = "Whatever you say";
-
-        // Echo message back to client
-        send(*clientSocket, message, strlen(message), 0);
-    }
-
-    // Close the socket
-    close(*clientSocket);
-}
-
 Server::Server() {
     // Create a socket
     int listening = socket(AF_INET, SOCK_STREAM, 0);
@@ -70,15 +36,8 @@ Server::Server() {
 
     Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
 
-    this->games->add(new Game(org));
-
     // Wait for a connection
     while(true) {
-
-        if(needNewGame()){
-            this->games->add(new Game(org));
-            this->newGame = false;
-        }
 
         sockaddr_in client;
         socklen_t clientSize = sizeof(client);
@@ -98,8 +57,9 @@ Server::Server() {
             inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
             cout << host << " connected on port " << ntohs(client.sin_port) << endl;
         }
-
-        thread clientThread(&SocketHandler::handleClient, new SocketHandler(), clientSocketPtr);
+        std::mutex mtx;
+        thread clientThread(&SocketHandler::handleClient, new SocketHandler(this->clientNames, this->games, org),
+                clientSocketPtr);
         clientThread.detach();
     }
 

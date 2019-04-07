@@ -1,3 +1,4 @@
+#include <thread>
 #include "Game.h"
 #include "GameBoard.h"
 #include "Searcher.h"
@@ -11,11 +12,15 @@ Game::Game(Organizer *organizer) {
     // Stack * stack = new Stack;
     this->players = new GenericLinkedList<Player>();
     Game* ptr = &(*this);
-    //this->accessCode = to_string(&ptr);
+    this->accessCode = "";
 }
 
 void Game::addPlayer(Player* player) {
     this->players->add(*player);
+}
+
+std::string* Game::getAccessCode() {
+    return &this->accessCode;
 }
 
 const Searcher &Game::getSearcher() const {
@@ -61,3 +66,13 @@ std::string Game::verify(PackTile* p) {
     }
     return response;
 }
+
+void Game::setAccess(std::string accessCode) {
+    this->accessCode = accessCode;
+}
+
+GenericLinkedList<Player> *Game::getPlayers() {
+    return this->players;
+}
+
+

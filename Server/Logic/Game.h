@@ -19,6 +19,12 @@ public:
 
     void addPlayer(Player*);
 
+    GenericLinkedList<Player>* getPlayers();
+
+    std::string* getAccessCode();
+
+    void setAccess(std::string);
+
     std::string verify(PackTile*);
 
     GameBoard &getBoard() {

@@ -15,6 +15,7 @@ public:
     bool newGame = false;
 private:
     GenericLinkedList<Game*>* games = new GenericLinkedList<Game*>();
+    GenericLinkedList<std::string> *clientNames = new GenericLinkedList<std::string>();
     bool needNewGame();
 
 };

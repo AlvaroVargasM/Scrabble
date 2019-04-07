@@ -1,3 +1,8 @@
+#define RAPIDJSON_HAS_STDSTRING 1
+
+
+
+
 #include <iostream>
 #include "Logic/Tile.h"
 #include "Logic/GameBoard.h"
@@ -5,91 +10,38 @@
 #include "Logic/Organizer.h"
 #include "Logic/Searcher.h"
 #include "Logic/Stack.h"
+#include "Networking/Server.h"
+#include "NetPackage.h"
+#include "libraries/rapidjson/document.h"
+#include "libraries/rapidjson/writer.h"
+#include "libraries/rapidjson/stringbuffer.h"
 
 int main() {
-    // Game board and organizer are set
-    GameBoard gb;
-    Organizer *org = new Organizer("/home/alvar/CLionProjects/Scrabble/Server/Database/", "ThisFile.txt");
-    gb.setOrganizer(org);
 
-    std::cout << "\n";
+    /*NetPackage* temp = new NetPackage();
 
-    // Adding words to the board
-    gb.changeTile(7, 7, 's', 3);
-    gb.changeTile(7, 8, 't', 4);
-    gb.changeTile(7, 9, 'a', 5);
-    gb.changeTile(7, 10, 'r', 6);
-    gb.changeTile(7, 11, 't', 7);
-    gb.changeTile(7, 12, 'e', 8);
-    gb.changeTile(7, 13, 'r', 1);
+    rapidjson::Document docu;
 
-    gb.changeTile(6, 9, 'l', 5);
-    gb.changeTile(8, 9, 'n', 5);
-    gb.changeTile(9, 9, 'd', 5);
+    docu.SetObject();
 
-    gb.changeTile(1, 0, 'f', 8);
-    gb.changeTile(1, 1, 'i', 6);
-    gb.changeTile(1, 2, 's', 5);
-    gb.changeTile(1, 3, 'h', 4);
+    rapidjson::Document::AllocatorType& allocator = docu.GetAllocator();
 
-    gb.printLetters();
+    rapidjson::Value object(rapidjson::kObjectType);
+    object.AddMember("from", temp->getFrom(), allocator);
+    object.AddMember("data", temp->getData(), allocator);
+    docu.AddMember("Package", object, allocator);
 
-    std::cout << "\n";
+    rapidjson::StringBuffer strbuf;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(strbuf);
+    docu.Accept(writer);
 
-    // Adding a new linked list formed from the board
-    LinkedList lll;
-    lll.addLast(gb.getTile(1, 0));
-    lll.addLast(gb.getTile(1, 1));
-    lll.addLast(gb.getTile(1, 2));
-    lll.addLast(gb.getTile(1, 3));
+    std::cout << strbuf.GetString() << std::endl;*/
 
-    LinkedList ll;
-    ll.addLast(gb.getTile(7, 8));
-    ll.addLast(gb.getTile(7, 9));
-    ll.addLast(gb.getTile(7, 10));
-    ll.addLast(gb.getTile(7, 11));
-
-    LinkedList l;
-    l.addLast(gb.getTile(6, 9));
-    l.addLast(gb.getTile(7, 9));
-    l.addLast(gb.getTile(8, 9));
-    l.addLast(gb.getTile(9, 9));
-
-
-/*stack
- *test case
- * */
-    //Stack *stack = new Stack;
-
-    //stack->generate();//genera los Packtiles
-    //stack->Swap();
-    //std::cout << stack->size();
-    //std::cout << "\n";
-    //stack->PrintStack();// muestra el stack completo
-    //Stack *mysatack= new Stack;
-    //mysatack->generate();//genera los Packtiles
-
-    //std::cout << "\n";
-    //mysatack->PrintStack();// muestra el stack completo
+    Server* server = new Server();
 
 
 
 
-//
-    std::cout << "\n";
-
-
-
-
-
-    // Searching for expanded words- and connected words
-    Searcher sea;
-
-    LinkedList exw = (sea.wordExpand(ll, gb));
-
-   // if (sea.wordConnect(exw, gb)) {
-     //   if (sea.wordVerify(exw, gb))
-       //     std::cout << sea.wordPointCount();
-    //}
     return 0;
 }
+
