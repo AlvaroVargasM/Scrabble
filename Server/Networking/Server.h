@@ -14,7 +14,7 @@ public:
     Server();
     bool newGame = false;
 private:
-    GenericLinkedList<Game>* games = new GenericLinkedList<Game>();
+    GenericLinkedList<Game*>* games = new GenericLinkedList<Game*>();
     bool needNewGame();
 
 };
