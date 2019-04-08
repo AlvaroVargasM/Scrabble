@@ -135,7 +135,10 @@ void Stack::printStack() {
     std::cout << "\n";
 }
 
-void Stack::swap(PackTile *arr) {
+PackTile* Stack::swap(PackTile *arr) {
+    PackTile *packTile= new PackTile('#',-1);
+    static  PackTile array[]={*packTile,*packTile,*packTile,*packTile,*packTile,*packTile,*packTile};
+
     srand((unsigned) time(0));
     PackTile *temp1 = &arr[0];
     PackTile *temp2 = &arr[1];
@@ -157,7 +160,7 @@ void Stack::swap(PackTile *arr) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            arr[0] =*a->getData();
+            array[0] =*a->getData();
             std::cout << arr[0].getLetter()<< arr[0].getValue();
             std::cout << "\n";
         }
@@ -165,7 +168,7 @@ void Stack::swap(PackTile *arr) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            arr[1] =*a->getData();
+            array[1] =*a->getData();
             std::cout << arr[1].getLetter()<< arr[1].getValue();;
             std::cout << "\n";
         }
@@ -173,7 +176,7 @@ void Stack::swap(PackTile *arr) {
             a->setNext(a->getNext());
             delete (temp);
             counter--;
-            arr[2] = *a->getData();
+            array[2] = *a->getData();
             std::cout << arr[2].getLetter()<< arr[0].getValue();;
             std::cout << "\n";
         }
@@ -181,4 +184,5 @@ void Stack::swap(PackTile *arr) {
     push(temp1);
     push(temp2);
     push(temp3);
+    return array;
 }

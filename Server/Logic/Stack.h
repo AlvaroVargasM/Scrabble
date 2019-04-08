@@ -25,7 +25,7 @@ public:
 
     bool isFull();
 
-    void swap(PackTile *arr);
+    PackTile* swap(PackTile *arr);
 
     void generate();
 
