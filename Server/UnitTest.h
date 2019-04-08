@@ -15,6 +15,7 @@
 #include "Logic/Stack.h"
 #include "Networking/PackTile.h"
 #include "Networking/Server.h"
+#include "Networking/GenericLinkedList.h"
 #include "NetPackage.h"
 #include "libraries/rapidjson/document.h"
 #include "libraries/rapidjson/writer.h"
@@ -235,16 +236,6 @@ int UnitTestingLogic(){
     cout<< "///////////////////////Fin TEST  clase  Gameboard //////////////////////////////////////" ;
     cout << "\n";
 
-
-
-    cout<< "///////////////////////INICIO DE PRUEBA DE LA CLASE SEARCHER //////////////////////////////////////" ;
-    cout << "\n";
-    LinkedList *linkedList3= new LinkedList;
-    Searcher *searcher= new Searcher;
-
-
-
-
     return 0;
 }
 
@@ -258,7 +249,7 @@ int UnitTestingNetworking(){
     cout<< "\n";
     PackTile *pt= new  PackTile(1,3,'A',3);
 
-    cout<< " se crea un test de un objeto Packtile que tendrá  en sus valores de input PackTile(1,3,'A',3).\n";
+    cout<< " Se crea un test de un objeto Packtile que tendrá  en sus valores de input PackTile(1,3,'A',3).\n";
     cout<< " Se espera  que los valores de Salida   al consultar los métodos sean los  de La instancia  anterior\n";
 
 
@@ -297,9 +288,11 @@ int UnitTestingNetworking(){
     cout<< "\n";
     cout<< "\n";
     cout<< "\n";
-    std::cout<< "//////////////////Test Class PackTile////////////////// \n";
+    std::cout<< "//////////////////End Test////////////////// \n";
     cout<< "\n";
     cout<< "\n";
+
+
 
 
 
