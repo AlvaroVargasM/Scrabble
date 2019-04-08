@@ -5,6 +5,7 @@
 
 #include "SocketHandler.h"
 #include "GenericLinkedList.h"
+#include "PackTile.h"
 #include <iostream>
 #include <arpa/inet.h>
 #include <string.h>
@@ -15,11 +16,11 @@
 #include "../libraries/rapidjson/document.h"
 #include "../NetPackage.h"
 
-
-PackTiles* convertToPackTileObject(std::string tiles){
+/*
+PackTile* convertToPackTileObject(std::string tiles){
 
 }
-
+*/
 
 SocketHandler::SocketHandler(GenericLinkedList<std::string> *usernames, GenericLinkedList<Game*>* games, Organizer* org) {
     this->usernames = usernames;
@@ -142,7 +143,7 @@ std::string SocketHandler::handleJSON(std::string *json) {
         Game* temp = searchForUser(&user);
         if(temp != nullptr){
 
-            temp->verify()
+            //temp->verify()
         }
     }
 }

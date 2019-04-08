@@ -35,9 +35,14 @@ std::string Game::verify(PackTile* p) {
     std::string response;
     LinkedList word;
 
-    for(int i = 0;i < 7;i++)
+    for(int i = 0;i < 7;i++) {
         if (p[i].getValue() != -1)
             word.addLast(p[i]);
+    }
+
+    if(!this->searcher.wordCorrectPosition(word))
+        return (response = "0");
+    std::cout << "\nThe word to verify has an accepted position\n";
 
     LinkedList expWord = this->searcher.wordExpand(word,this->board);
 
