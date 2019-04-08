@@ -7,6 +7,9 @@
 #include "../Networking/GenericLinkedList.h"
 #include "Organizer.h"
 
+/**
+ *
+ */
 class Game {
 private:
     GameBoard board;
@@ -28,13 +31,9 @@ public:
 
     std::string verify(PackTile*);
 
-    GameBoard &getBoard() {
-        return this->board;
-    }
+    GameBoard &getBoard();
 
-    void setBoard(const GameBoard &board) {
-        Game::board = board;
-    }
+    void setBoard(const GameBoard &board);
 
     const Searcher &getSearcher() const;
 
