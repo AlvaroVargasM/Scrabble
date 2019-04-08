@@ -3,6 +3,9 @@
 
 #include <string>
 
+/**
+ * Player that belongs to a game
+ */
 class Player {
 private:
     std::string name;

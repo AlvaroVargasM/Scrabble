@@ -5,8 +5,9 @@
 #include "Element.h"
 #include <string>
 
-using namespace std;
-
+/**
+ * Dictionary class manages all the dictionaries related to specific letters
+ */
 class Dictionary {
 private:
     Element* header;
@@ -21,7 +22,7 @@ public:
 
     Element* getIndex(int);
 
-    void insertNode(string);
+    void insertNode(std::string);
 };
 
 
