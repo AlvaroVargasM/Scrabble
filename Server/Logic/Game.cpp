@@ -32,16 +32,17 @@ void Game::setSearcher(const Searcher &searcher) {
 }
 
 std::string Game::verify(PackTile* p) {
-    std::cout << p->getLetter() << std::endl;
-    std::string response = "0";
+    std::string response;
     LinkedList word;
 
-    for(int i = 0;i < 7;i++)
+    for(int i = 0;i < 7;i++) {
         if (p[i].getValue() != -1)
             word.addLast(p[i]);
-    word.printList();
+    }
 
-        std::cout << "1" << std::endl;
+    if(!this->searcher.wordCorrectPosition(word))
+        return (response = "0");
+    std::cout << "\nThe word to verify has an accepted position\n";
 
     LinkedList expWord = this->searcher.wordExpand(word,this->board);
 
@@ -54,8 +55,8 @@ std::string Game::verify(PackTile* p) {
         else
             response = "0";
     }
+
     else {
-        std::cout << "2" << std::endl;
         if (this->searcher.wordConnect(word, this->board)) {
             if (this->searcher.wordVerify(word, this->board)) {
                 //this->current->setTurn(false);
@@ -68,7 +69,6 @@ std::string Game::verify(PackTile* p) {
         else
             response = "0";
     }
-    std::cout << "3" << std::endl;
     return response;
 }
 

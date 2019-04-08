@@ -21,6 +21,8 @@ public:
     bool isWordExpanded(LinkedList list1, LinkedList l2);
 
     int wordPointCount(LinkedList word, GameBoard board);
+
+    bool wordCorrectPosition(LinkedList word);
 };
 
 
