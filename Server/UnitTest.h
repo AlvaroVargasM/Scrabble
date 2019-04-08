@@ -20,7 +20,7 @@
 #include "libraries/rapidjson/writer.h"
 #include "libraries/rapidjson/stringbuffer.h"
 
-
+using namespace std;
 int UnitTestingLogic(){
     cout<< "\n";
     cout<< "\n";
