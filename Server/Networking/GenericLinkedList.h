@@ -8,6 +8,10 @@
 
 #include "GenericNode.h"
 
+/**
+ * Class use for storing any type of object
+ * @tparam T
+ */
 template <class T>
 class GenericLinkedList{
 public:
@@ -22,12 +26,21 @@ private:
     int length;
 };
 
+/**
+ * This constructor doesn't take any parameters
+ * @tparam T
+ */
 template <class T>
 GenericLinkedList<T>::GenericLinkedList() {
     this->length = 0;
     this->header = nullptr;
 }
 
+/**
+ * This  function creates a node with the data and sets it as a head
+ * @tparam T
+ * @param data
+ */
 template<class T>
 void GenericLinkedList<T>::add(T data) {
     GenericNode<T>* temp = new GenericNode<T>(data);
@@ -41,6 +54,12 @@ void GenericLinkedList<T>::add(T data) {
     }
 }
 
+/**
+ * This function returns the node in index i
+ * @tparam T
+ * @param i
+ * @return GenericNode<T>
+ */
 template <class T>
 GenericNode<T>* GenericLinkedList<T>::get(int i) {
     if(this->length == 0){
@@ -53,6 +72,11 @@ GenericNode<T>* GenericLinkedList<T>::get(int i) {
     return temp;
 }
 
+/**
+ * This function removes the node on index i
+ * @tparam T
+ * @param i
+ */
 template <class T>
 void GenericLinkedList<T>::remove(int i) {
     if(i == 1){
@@ -64,11 +88,21 @@ void GenericLinkedList<T>::remove(int i) {
     temp->setNext(temp1);
 }
 
+/**
+ * This function returns the head of the linkedlist
+ * @tparam T
+ * @return GenericNode<T>
+ */
 template<class T>
 GenericNode<T> *GenericLinkedList<T>::getHead() {
     return this->header;
 }
 
+/**
+ * This function returns the length of the linkedlist
+ * @tparam T
+ * @return
+ */
 template <class T>
 int* GenericLinkedList<T>::getLength() {
     return &this->length;

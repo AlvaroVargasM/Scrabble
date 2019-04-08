@@ -9,15 +9,16 @@
 #include "GenericLinkedList.h"
 #include "../Logic/Game.h"
 
+/**
+ * Class Server is in charge of running the server while on runtime, also has list of the games and the clientNames
+ */
 class Server {
 public:
     Server();
-    bool newGame = false;
 
 private:
     GenericLinkedList<Game*>* games = new GenericLinkedList<Game*>();
     GenericLinkedList<std::string> *clientNames = new GenericLinkedList<std::string>();
-    bool needNewGame();
 
 };
 

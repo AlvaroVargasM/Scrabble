@@ -7,6 +7,10 @@
 #include <string>
 #include "Dictionary.h"
 
+
+/**
+ * Class organizer which manages the diccionaries
+ */
 class Organizer {
 private:
     ifstream fileReader;
