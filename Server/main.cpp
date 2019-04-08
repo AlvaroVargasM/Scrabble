@@ -10,6 +10,7 @@
 #include "Logic/Organizer.h"
 #include "Logic/Searcher.h"
 #include "Logic/Stack.h"
+#include "UnitTest.h"
 #include "Networking/Server.h"
 #include "NetPackage.h"
 #include "libraries/rapidjson/document.h"
