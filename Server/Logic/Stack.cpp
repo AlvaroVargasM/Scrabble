@@ -5,7 +5,6 @@
   *@author García Ugalde Jonathan
   *@title Class Stack
   *@brief  structure of data type packTile to communicate with the GUI
-
   */
 #include <iostream>
 #include <cstdlib>
@@ -33,11 +32,11 @@ void Stack::push(PackTile *x) {
 }
 
 /**
-* Method that takes node by node stacked and it takes them out of the pile of Packtiles,
+ * Method that takes node by node stacked and it takes them out of the pile of Packtiles,
  * and this returns the value of the node that is going to be eliminated at the moment and returns it.
  * Based on the principle of the first value to enter is the last to exit the stack of nodes
-* @return a packtile object.
-*/
+ * @return a packtile object.
+ */
 PackTile Stack::pop() {
      NodeS* aux;
      NodeS* temp = this->head;
@@ -52,18 +51,18 @@ PackTile Stack::pop() {
      return *aux->getData();
 }
 /**
-* Method that allows to show how many elements have been stacked
-* @return integer value
-*/
+ * Method that allows to show how many elements have been stacked
+ * @return integer value
+ */
 int Stack::size() {
     return counter;
 }
 
 /**
-Method that verifies that the stack is already full with the
- 98 packtiles that are going to be generated and returns a bool value
-* @return bool value
-*/
+ * Method that verifies that the stack is already full with the
+ * 98 packtiles that are going to be generated and returns a bool value
+ * @return bool value
+ */
 bool Stack::isFull() {
     if (size() == 100)
         return true;
@@ -71,10 +70,10 @@ bool Stack::isFull() {
 }
 
 /**
-Method that verifies that the stack is already full with the
- 98 packtiles that are going to be generated and returns a bool value
-* @return bool value
-*/
+ * Method that verifies that the stack is already full with the
+ * 98 packtiles that are going to be generated and returns a bool value
+ * @return bool value
+ */
 
 NodeS *Stack::getLasNode() {
     NodeS *temp = this->head;
@@ -83,10 +82,11 @@ NodeS *Stack::getLasNode() {
     return temp;
 }
 /**
-This method is responsible for creating the 98 tiles of the game, Based on the client specifications.the idea is that each time that it is called to
- make a change of values ​​it will generate a new return value that will be stored in a 7 position array,
- where it is going to rename it so that the user's data can be refined in the GUI through the server.
- Access to the change will be made by the swap method.*/
+ * This method is responsible for creating the 98 tiles of the game, Based on the client specifications.
+ * the idea is that each time that it is called to make a change of values ​​it will generate a new return value that will
+ * be stored in a 7 position array, where it is going to rename it so that the user's data can
+ * be refined in the GUI through the server. Access to the change will be made by the swap method.
+ */
 
 void Stack::generate() {
     int i;
@@ -178,8 +178,8 @@ void Stack::printStack() {
  * to the change in the stack for another 3 random values, this method takes random positions 3 new nodes
  * and returns them in another array in addition, the values ​​that were passed by parameters are added
  * to the stack so that in a possible new request they can be accessed.
- * @param array type Packtile
- * @return array type packTile Upadated
+ * @param array type PackTile
+ * @return array type packTile Updated
  */
 PackTile* Stack::swap(PackTile *arr) {
     PackTile *packTile= new PackTile('.',-1);
