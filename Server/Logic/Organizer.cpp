@@ -23,6 +23,12 @@ Organizer::Organizer(string path, string filename) {
     createWordFiles();
 }
 
+/**
+ * This function is in charge of creating the word.txt of each word by using a LinkedList with these words
+ * @param letter
+ * @param list
+ * @param path
+ */
 void writeWordFiles(char* letter, Dictionary* list, string* path){
     ofstream writer;
     string newFile = "_words.txt";
@@ -33,6 +39,13 @@ void writeWordFiles(char* letter, Dictionary* list, string* path){
     }
 }
 
+/**
+ * This function is in charge of creating the chart files for each word where one saves  quantity information related
+ * to the specific letter
+ * @param letter
+ * @param list
+ * @param path
+ */
 void writeChartFiles(char* letter, Dictionary* list, string* path){
     ofstream newWriter;
     string chartFile = "_chart.txt";
@@ -56,6 +69,9 @@ void writeChartFiles(char* letter, Dictionary* list, string* path){
     }
 }
 
+/**
+ * this function is the main process of for creating the documents, it is called when an organizer is created
+ */
 void Organizer::createWordFiles() {
     ifstream reader;
     reader.open(this->filename);
@@ -79,6 +95,11 @@ void Organizer::createWordFiles() {
     }
 }
 
+/**
+ * This function searches for a word by looking in the letter.txt file
+ * @param word
+ * @return bool
+ */
 bool Organizer::searchWord(string word){
     char letter = word.at(0);
     string filename = "_chart.txt";
@@ -106,6 +127,15 @@ bool Organizer::searchWord(string word){
     return found;
 }
 
+
+/**
+ * This function uses two indexes to search between then and find the word
+ * @param iPos
+ * @param fPos
+ * @param letter
+ * @param word
+ * @return bool
+ */
 bool Organizer::searchByIndex(int iPos, int fPos, char letter, string word){
     ifstream reader;
     string filename = "_words.txt";

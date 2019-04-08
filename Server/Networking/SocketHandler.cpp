@@ -5,7 +5,6 @@
 
 #include "SocketHandler.h"
 #include "GenericLinkedList.h"
-#include "PackTile.h"
 #include <iostream>
 #include <arpa/inet.h>
 #include <string.h>
@@ -15,19 +14,27 @@
 #include <mutex>
 #include "../libraries/rapidjson/document.h"
 #include "../NetPackage.h"
+#include <vector>
+#include <sstream>
+#include "PackTile.h"
 
-/*
-PackTile* convertToPackTileObject(std::string tiles){
-
-}
-*/
-
+/**
+ * Sets the pointers for the list of games, usernames and org
+ * @param usernames
+ * @param games
+ * @param org
+ */
 SocketHandler::SocketHandler(GenericLinkedList<std::string> *usernames, GenericLinkedList<Game*>* games, Organizer* org) {
     this->usernames = usernames;
     this->games = games;
     this->org = org;
 }
 
+/**
+ * Searches for an specific user within the game instances
+ * @param user
+ * @return Game*
+ */
 Game* SocketHandler::searchForUser(std::string* user) {
     for(int i = 0; i < *this->games->getLength(); i++){
         Game* temp = this->games->get(i)->getData();
@@ -40,6 +47,11 @@ Game* SocketHandler::searchForUser(std::string* user) {
     return nullptr;
 }
 
+/**
+ * This functions checks whether a user has been registered before or not
+ * @param user
+ * @return bool
+ */
 bool SocketHandler::registeredBefore(std::string* user){
     for(int i = 0; i < *this->usernames->getLength(); i++){
         if(this->usernames->get(i)->getData() == *user){
@@ -49,7 +61,10 @@ bool SocketHandler::registeredBefore(std::string* user){
 }
 
 
-
+/**
+ * This functions handle the socket related to an specific client
+ * @param clientSocket
+ */
 void SocketHandler::handleClient(int * clientSocket) {
     char buf[4096];
     do
@@ -87,6 +102,12 @@ void SocketHandler::handleClient(int * clientSocket) {
     close(*clientSocket);
 }
 
+
+/**
+ * This function handle the json command depending on the command key on an specific json
+ * @param json
+ * @return std::string
+ */
 std::string SocketHandler::handleJSON(std::string *json) {
     rapidjson::Document doc;
     doc.Parse(*json);
@@ -140,10 +161,17 @@ std::string SocketHandler::handleJSON(std::string *json) {
         return netpack->getJSONPackage();
     }
     if(command == "VERIFY"){
+        std::cout << "si es verify" << std::endl;
         Game* temp = searchForUser(&user);
         if(temp != nullptr){
-
-            //temp->verify()
+            //PackTile *tiles = convertToPackTileObject(data);
+            //std::cout << tiles->getLetter() << std::endl;
+            //std::string result = temp->verify(tiles);
+            std::cout << "si devolvio resultado";
+           // netpack->setData(result);
+            netpack->setCommand("VALIDATED");
+            return netpack->getJSONPackage();
         }
     }
+
 }
