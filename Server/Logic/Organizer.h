@@ -13,10 +13,10 @@
  */
 class Organizer {
 private:
-    ifstream fileReader;
-    ofstream fileWriter;
-    string path;
-    string filename;
+    std::ifstream fileReader;
+    std::ofstream fileWriter;
+    std::string path;
+    std::string filename;
     Dictionary* currentWords;
     char alphabet[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
@@ -25,9 +25,9 @@ public:
 
     void createWordFiles();
 
-    bool searchWord(string);
+    bool searchWord(std::string);
 
-    bool searchByIndex(int, int, char, string);
+    bool searchByIndex(int, int, char, std::string);
 };
 
 

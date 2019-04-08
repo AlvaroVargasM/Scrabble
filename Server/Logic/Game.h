@@ -12,7 +12,7 @@ private:
     GameBoard board;
     Searcher searcher;
     GenericLinkedList<Player>* players;
-    string accessCode;
+    std::string accessCode;
     Player *current;
 
 public:

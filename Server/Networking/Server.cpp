@@ -25,7 +25,7 @@
  */
 Server::Server() {
 
-    Organizer* org = new Organizer("","");
+    Organizer* org = new Organizer("/home/jondorito/Documents/Datos II/ScrabbleProject/Server/Database","This.txt");
 
     int opt = TRUE;
     int master_socket , addrlen , new_socket , client_socket[30] ,
@@ -188,7 +188,7 @@ Server::Server() {
                 else
                 {
                     SocketHandler* handler = new SocketHandler(this->clientNames, this->games, org);
-                    std::string message = string(buffer, valread);
+                    std::string message = std::string(buffer, valread);
                     std::cout << message << std::endl;
                     message = handler->handleJSON(&message);
                     buffer[valread] = '\0';

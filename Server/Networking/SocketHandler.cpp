@@ -138,7 +138,7 @@ std::string SocketHandler::handleJSON(std::string *json) {
     if(command=="CREATE"){
         Game* temp = new Game(this->org);
         this->games->add(temp);
-        std::string code = to_string(*this->games->getLength());
+        std::string code = std::to_string(*this->games->getLength());
         temp->setAccess(code);
         Player* p1 = new Player();
         p1->setName(user);
@@ -149,7 +149,7 @@ std::string SocketHandler::handleJSON(std::string *json) {
     }
     if(command == "SEARCH"){
         for(int i = 0; i < *this->games->getLength(); i++){
-            std::cout << *this->games->get(i)->getData()->getAccessCode() << ',' << data << endl;
+            std::cout << *this->games->get(i)->getData()->getAccessCode() << ',' << data << std::endl;
             if(*this->games->get(i)->getData()->getAccessCode() == data){
                 netpack->setCommand("CREATED");
                 netpack->setData("true");
