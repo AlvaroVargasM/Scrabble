@@ -136,7 +136,7 @@ void Stack::printStack() {
 }
 
 PackTile* Stack::swap(PackTile *arr) {
-    PackTile *packTile= new PackTile('#',-1);
+    PackTile *packTile= new PackTile('.',-1);
     static  PackTile array[]={*packTile,*packTile,*packTile,*packTile,*packTile,*packTile,*packTile};
 
     srand((unsigned) time(0));
