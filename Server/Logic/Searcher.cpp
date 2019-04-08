@@ -160,7 +160,7 @@ int Searcher::wordPointCount(LinkedList word, GameBoard board) {
 }
 
 /**
- * This method validates the grammar of a word (in the form of a linked list).
+ * This method validates the grammar of a word (in the form of a LinkedList).
  * @param word to check
  * @param board needed to use the organizer
  * @return the validation of the word
@@ -171,4 +171,48 @@ bool Searcher::wordVerify(LinkedList word, GameBoard board) {
         return true;
     }
     return false;
+}
+
+/**
+ * This methods checks to see if a word (in the form of a LinkedList) is in a correct position,
+ * a straight line with all the letters no letters separated from one another.
+ * @param word to check
+ * @return the validation of the correct position
+ */
+bool Searcher::wordCorrectPosition(LinkedList word) {
+    Node* searcher = word.getHead();
+    int arrI[word.getSize()];
+    int arrJ[word.getSize()];
+    int iOrder = searcher->getI();
+    int jOrder = searcher->getJ();
+    int x = 0;
+
+    if(word.isHorizontal()) {
+        while(searcher != nullptr) {
+            if(searcher->getI() == iOrder) {
+                arrJ[x] = searcher->getJ();
+                searcher = searcher->getNext();
+            }
+            else
+                return false;
+        }
+        for (int i = 0;1 < word.getSize();i++)
+            if (arrJ[i] - arrJ[++i] != -1)
+                return false;
+        return true;
+    }
+    else {
+        while(searcher != nullptr) {
+            if(searcher->getJ() == jOrder) {
+                arrI[x] = searcher->getI();
+                searcher = searcher->getNext();
+            }
+            else
+                return false;
+        }
+        for (int i = 0;1 < word.getSize();i++)
+            if (arrI[i] - arrI[++i] != -1)
+                return false;
+        return true;
+    }
 }
