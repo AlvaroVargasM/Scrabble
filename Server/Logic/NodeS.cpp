@@ -5,8 +5,8 @@
 
 /**
  * Node constructor, receives and assign all of the data needed in the Node to work in the Stack.
- * @param data
- * @param next
+ * @param data.
+ * @param next node.
  */
 
 NodeS ::NodeS(PackTile* packTile) {

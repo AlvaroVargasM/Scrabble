@@ -15,7 +15,7 @@ private:
     NodeS *prev;
 
 public:
-    NodeS(PackTile *packTile);
+    NodeS(PackTile* packTile);
 
     void setNext(NodeS *n);
 

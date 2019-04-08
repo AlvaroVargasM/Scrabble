@@ -4,7 +4,7 @@
   *@date 31/03/2019
   *@author García Ugalde Jonathan
   *@title Class Stack
-  *@brief  structure of data type packtile to communicate with the GUI
+  *@brief  structure of data type packTile to communicate with the GUI
 
   */
 #include <iostream>
