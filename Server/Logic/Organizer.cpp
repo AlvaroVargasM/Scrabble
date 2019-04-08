@@ -8,7 +8,7 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
-#include <cstring>
+#include <string>
 #include <vector>
 #include <thread>
 
@@ -17,7 +17,7 @@
  * @param path
  * @param filename
  */
-Organizer::Organizer(string path, string filename) {
+Organizer::Organizer(std::string path, std::string filename) {
     this->path = path;
     this->filename = this->path + filename;
     createWordFiles();
@@ -29,13 +29,13 @@ Organizer::Organizer(string path, string filename) {
  * @param list
  * @param path
  */
-void writeWordFiles(char* letter, Dictionary* list, string* path){
-    ofstream writer;
-    string newFile = "_words.txt";
+void writeWordFiles(char* letter, Dictionary* list, std::string* path){
+    std::ofstream writer;
+    std::string newFile = "_words.txt";
     newFile.insert(0, 1, *letter);
     writer.open(*path + newFile);
     for(int i = 1; i <= list->getLength(); i++){
-        writer << list->getIndex(i)->getData() << endl;
+        writer << list->getIndex(i)->getData() << std::endl;
     }
 }
 
@@ -46,9 +46,9 @@ void writeWordFiles(char* letter, Dictionary* list, string* path){
  * @param list
  * @param path
  */
-void writeChartFiles(char* letter, Dictionary* list, string* path){
-    ofstream newWriter;
-    string chartFile = "_chart.txt";
+void writeChartFiles(char* letter, Dictionary* list, std::string* path){
+    std::ofstream newWriter;
+    std::string chartFile = "_chart.txt";
     chartFile.insert(0, 1, *letter);
     newWriter.open(*path + chartFile);
     int amount = 0;
@@ -60,7 +60,7 @@ void writeChartFiles(char* letter, Dictionary* list, string* path){
             amount++;
             finalPosition++;
         }else{
-            newWriter << to_string(numLetters) << ',' << to_string(amount) << ',' << to_string(iniPosition) << ',' << to_string(finalPosition) << endl;
+            newWriter << std::to_string(numLetters) << ',' << std::to_string(amount) << ',' << std::to_string(iniPosition) << ',' << std::to_string(finalPosition) << std::endl;
             amount = 0;
             numLetters++;
             finalPosition++;
@@ -73,18 +73,18 @@ void writeChartFiles(char* letter, Dictionary* list, string* path){
  * this function is the main process of for creating the documents, it is called when an organizer is created
  */
 void Organizer::createWordFiles() {
-    ifstream reader;
+    std::ifstream reader;
     reader.open(this->filename);
-    string line;
+    std::string line;
     for(int i = 0; i < 26; i++){
         Dictionary* list = new Dictionary();
         while((reader >> line) && (line.at(0) == this->alphabet[i])){
             list->insertNode(line);
         }
         char* letter = &this->alphabet[i];
-        string* path = &this->path;
-        thread thread1(writeWordFiles, letter, list, path);
-        thread thread2(writeChartFiles, letter, list, path);
+        std::string* path = &this->path;
+        std::thread thread1(writeWordFiles, letter, list, path);
+        std::thread thread2(writeChartFiles, letter, list, path);
         if(i != 25){
             thread1.detach();
             thread2.detach();
@@ -100,26 +100,26 @@ void Organizer::createWordFiles() {
  * @param word
  * @return bool
  */
-bool Organizer::searchWord(string word){
+bool Organizer::searchWord(std::string word){
     char letter = word.at(0);
-    string filename = "_chart.txt";
+    std::string filename = "_chart.txt";
     filename.insert(0, 1, letter);
     int num = word.size();
-    ifstream reader;
+    std::ifstream reader;
     reader.open(this->path + filename);
-    string line;
+    std::string line;
     int iniPos;
     int finalPos;
     while(reader >> line) {
-        string numLetters = line.substr(0, line.find(','));
+        std::string numLetters = line.substr(0, line.find(','));
         if (atoi(numLetters.c_str()) == word.size()) {
             break;
         }
     }
-    vector<string> placeholder;
-    stringstream ss(line);
+    std::vector<std::string> placeholder;
+    std::stringstream ss(line);
     while(ss.good()){
-        string substr;
+        std::string substr;
         getline(ss, substr, ',');
         placeholder.push_back(substr);
     }
@@ -136,13 +136,13 @@ bool Organizer::searchWord(string word){
  * @param word
  * @return bool
  */
-bool Organizer::searchByIndex(int iPos, int fPos, char letter, string word){
-    ifstream reader;
-    string filename = "_words.txt";
+bool Organizer::searchByIndex(int iPos, int fPos, char letter, std::string word){
+    std::ifstream reader;
+    std::string filename = "_words.txt";
     filename.insert(0, 1, letter);
     reader.open(this->path + filename);
     int marker = 0;
-    string line;
+    std::string line;
     for(marker; marker != iPos; marker++){
         reader >> line;
     }

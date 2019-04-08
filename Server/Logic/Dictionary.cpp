@@ -7,24 +7,36 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
+/**
+ * Dictionary constructor
+ */
 Dictionary::Dictionary() {
     this->length = 0;
     this->header = nullptr;
 }
 
-//returns a pointer of the header node in the list
+/**
+ * returns a pointer of the header node in the list
+ * @return Element
+ */
 Element* Dictionary::getHead() {
     return this->getHead();
 }
 
-//returns the length of the list
+/**
+ * returns the length of the list
+ * @return
+ */
 int Dictionary::getLength() {
     return this->length;
 }
 
-//return a node base on its position in the list
+
+/**
+ * return a node base on its position in the list
+ * @param index
+ * @return Element*
+ */
 Element* Dictionary::getIndex(int index) {
     int listIndex = 1;
     Element* temp = this->header;
@@ -35,8 +47,11 @@ Element* Dictionary::getIndex(int index) {
 }
 
 
-//Creates a new node and put on the right position base on data.length in ascending order
-void Dictionary::insertNode(string data) {
+/**
+ * Creates a new node and put on the right position base on data.length in ascending order
+ * @param data
+ */
+void Dictionary::insertNode(std::string data) {
     Element* temp = new Element(data);
     if(this->length == 0){
         this->header = temp;

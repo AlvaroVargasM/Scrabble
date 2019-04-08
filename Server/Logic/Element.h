@@ -3,6 +3,10 @@
 
 #include <string>
 
+
+/**
+ * Node class specifically made for Organizer
+ */
 class Element {
 private:
     std::string data;
