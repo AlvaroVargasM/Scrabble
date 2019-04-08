@@ -3,24 +3,26 @@
 
 #include "../Networking/PackTile.h"
 
+
+/**
+ * class that models the real abstraction of the behavior of the nodes of a Stack and assigns them in the Stack class.
+ */
+
 class NodeS {
 private:
     PackTile *data;
-    NodeS* next;
-    NodeS*prev;
+    NodeS *next;
+    NodeS *prev;
 
 public:
     NodeS(PackTile* packTile);
 
-    void setNext(NodeS* n);
+    void setNext(NodeS *n);
 
-    NodeS* getNext();
+    NodeS *getNext();
 
-    PackTile*getData();
+    PackTile *getData();
 
-    void setPrev(NodeS * n);
-
-    NodeS* getPrev();
 };
 
 #endif //QUEUE_USING_OOP_NODES_H
